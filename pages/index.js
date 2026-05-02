@@ -33,12 +33,12 @@ export default function Home() {
   ];
 
   const photos = [
-    '/images/living-room-hero.jpg',
-    '/images/living-room-hot-tub.jpg',
-    '/images/living-room-sauna.jpg',
-    '/images/living-room-bedroom.jpg',
-    '/images/living-room-patio.jpg'
-  ];
+  '/images/living-room-hero.png',
+  '/images/living-room-hot-tub.png',
+  '/images/living-room-sauna.png',
+  '/images/living-room-bedroom.png',
+  '/images/living-room-patio.png'
+];
 
   return (
     <>
@@ -412,7 +412,7 @@ function HeadContent() {
 
         .final-cta {
           padding: 88px 0;
-          background: linear-gradient(rgba(38,31,24,.72), rgba(38,31,24,.72)), url('/images/living-room-cta.jpg') center/cover;
+          background: linear-gradient(rgba(38,31,24,.72), rgba(38,31,24,.72)), url('/images/living-room-cta.png') center/cover;
           color: white;
           text-align: center;
         }
