@@ -33,12 +33,12 @@ export default function Home() {
   ];
 
   const photos = [
-  '/images/living-room-hero.png',
-  '/images/living-room-hot-tub.png',
-  '/images/living-room-sauna.png',
-  '/images/living-room-bedroom.png',
-  '/images/living-room-patio.png'
-];
+    '/images/living-room-hero.png',
+    '/images/living-room-hot-tub.png',
+    '/images/living-room-sauna.png',
+    '/images/living-room-bedroom.png',
+    '/images/living-room-patio.png'
+  ];
 
   return (
     <>
@@ -46,9 +46,9 @@ export default function Home() {
 
       <header className="site-header">
         <div className="brand-wrap">
-          <div className="brand-mark">USC</div>
+          <div className="brand-mark">ESC</div>
           <div>
-            <p className="eyebrow small">Unforgettable Stays Colorado</p>
+            <p className="eyebrow small">Elevated Stays Colorado</p>
             <strong>The Living Room</strong>
           </div>
         </div>
@@ -83,7 +83,7 @@ export default function Home() {
         <section className="page-shell intro-layout">
           <div className="property-main">
             <div className="breadcrumb">All Properties / The Living Room</div>
-            <h2>The Living Room by Unforgettable Stays Colorado</h2>
+            <h2>The Living Room by Elevated Stays Colorado</h2>
             <p className="location">Divide, Colorado · Luxury Couples Retreat</p>
 
             <div className="stats-row">
@@ -111,7 +111,7 @@ export default function Home() {
             <h3>Book The Living Room</h3>
             <p>Check availability, rates, and secure your stay through Airbnb.</p>
             <a href="https://www.airbnb.com/h/the-living-room" className="primary-button">Check Availability</a>
-            <a href="mailto:info@unforgettablestayscolorado.com" className="secondary-button">Ask a Question</a>
+            <a href="mailto:info@elevatedstayscolorado.com" className="secondary-button">Ask a Question</a>
             <div className="trust-note">Warmly hosted by Mark & Renee</div>
           </aside>
         </section>
@@ -212,7 +212,7 @@ export default function Home() {
 function HeadContent() {
   return (
     <>
-      <title>The Living Room | Unforgettable Stays Colorado</title>
+      <title>The Living Room | Elevated Stays Colorado</title>
       <meta name="description" content="The Living Room is a private luxury spa retreat in Divide, Colorado with a hot tub, sauna, mountain views, fireplace, and peaceful couples-focused experience." />
       <style jsx global>{`
         * { box-sizing: border-box; }
