@@ -326,6 +326,8 @@ function HeadContent() {
           padding: 42px;
           background: linear-gradient(transparent, rgba(0,0,0,.68));
           color: white;
+          z-index: 2;
+          pointer-events: none;
         }
         .hero-overlay h1 {
           max-width: 760px;
@@ -352,6 +354,8 @@ function HeadContent() {
           cursor: pointer;
           box-shadow: 0 12px 28px rgba(0, 0, 0, .22);
           transition: transform .2s ease, background .2s ease;
+          z-index: 10;
+          pointer-events: auto;
         }
         .carousel-arrow-left {
           left: 22px;
