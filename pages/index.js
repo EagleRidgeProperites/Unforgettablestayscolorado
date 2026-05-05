@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 export default function Home() {
   const amenities = [
     'Private Hot Tub',
@@ -37,8 +39,22 @@ export default function Home() {
     '/images/living-room-hot-tub.png',
     '/images/living-room-sauna.png',
     '/images/living-room-bedroom.png',
-    '/images/living-room-patio.png'
+    '/images/living-room-patio.png',
+    '/images/living-room-fireplace.png',
+    '/images/living-room-view.png',
+    '/images/living-room-bathroom.png'
   ];
+
+  const [photoStartIndex, setPhotoStartIndex] = useState(0);
+
+  const visiblePhotos = [0, 1, 2].map((offset) => {
+    const photoIndex = (photoStartIndex + offset) % photos.length;
+    return photos[photoIndex];
+  });
+
+  const showNextPhotos = () => {
+    setPhotoStartIndex((currentIndex) => (currentIndex + 1) % photos.length);
+  };
 
   return (
     <>
@@ -63,18 +79,29 @@ export default function Home() {
 
       <main>
         <section className="hero" id="photos">
-          <div className="hero-grid">
-            <div className="hero-main image-card">
-              <img src={photos[0]} alt="The Living Room luxury mountain retreat" />
-              <div className="hero-overlay">
-                <p className="eyebrow">Divide, Colorado</p>
-                <h1>Private Luxury Spa Retreat: Hot Tub, Sauna & Views</h1>
-                <p>Designed for couples who want to relax, reconnect, and experience the quiet beauty of the Colorado mountains.</p>
-              </div>
-            </div>
-            {photos.slice(1).map((photo, index) => (
-              <div className="image-card side-photo" key={photo}>
-                <img src={photo} alt={`The Living Room photo ${index + 2}`} />
+          <div className="hero-carousel" aria-label="The Living Room photo carousel">
+            {visiblePhotos.map((photo, index) => (
+              <div className="carousel-photo image-card" key={`${photo}-${index}`}>
+                <img src={photo} alt={`The Living Room retreat photo ${index + 1}`} />
+
+                {index === 0 && (
+                  <div className="hero-overlay">
+                    <p className="eyebrow">Divide, Colorado</p>
+                    <h1>Private Luxury Spa Retreat: Hot Tub, Sauna & Views</h1>
+                    <p>Designed for couples who want to relax, reconnect, and experience the quiet beauty of the Colorado mountains.</p>
+                  </div>
+                )}
+
+                {index === 2 && (
+                  <button
+                    className="carousel-arrow"
+                    onClick={showNextPhotos}
+                    aria-label="Show next photos"
+                    type="button"
+                  >
+                    →
+                  </button>
+                )}
               </div>
             ))}
           </div>
@@ -268,16 +295,15 @@ function HeadContent() {
         .primary-button:hover, .nav-button:hover, .secondary-button:hover { transform: translateY(-2px); }
 
         .hero { padding: 28px 5vw 0; }
-        .hero-grid {
+        .hero-carousel {
           display: grid;
-          grid-template-columns: 2fr 1fr 1fr;
-          grid-template-rows: 255px 255px;
+          grid-template-columns: repeat(3, 1fr);
           gap: 12px;
           max-width: 1420px;
           margin: 0 auto;
         }
         .image-card { border-radius: 24px; overflow: hidden; background: #ded3c5; position: relative; }
-        .hero-main { grid-row: span 2; }
+        .carousel-photo { height: 540px; }
         .hero-overlay {
           position: absolute;
           inset: auto 0 0;
@@ -289,11 +315,29 @@ function HeadContent() {
           max-width: 760px;
           margin: 8px 0 12px;
           font-family: Georgia, 'Times New Roman', serif;
-          font-size: clamp(34px, 5vw, 68px);
+          font-size: clamp(30px, 3.7vw, 52px);
           line-height: .95;
           letter-spacing: -1.5px;
         }
-        .hero-overlay p:last-child { max-width: 620px; font-size: 18px; line-height: 1.55; }
+        .hero-overlay p:last-child { max-width: 620px; font-size: 17px; line-height: 1.55; }
+        .carousel-arrow {
+          position: absolute;
+          right: 22px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 54px;
+          height: 54px;
+          border: none;
+          border-radius: 50%;
+          background: rgba(255, 249, 241, .94);
+          color: #3d2f24;
+          font-size: 30px;
+          line-height: 1;
+          cursor: pointer;
+          box-shadow: 0 12px 28px rgba(0, 0, 0, .22);
+          transition: transform .2s ease, background .2s ease;
+        }
+        .carousel-arrow:hover { transform: translateY(-50%) scale(1.06); background: #fff9f1; }
 
         .page-shell { width: min(1180px, 90vw); margin: 0 auto; }
         .intro-layout {
@@ -421,8 +465,10 @@ function HeadContent() {
 
         @media (max-width: 900px) {
           .desktop-nav { display: none; }
-          .hero-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 360px 180px 180px; }
-          .hero-main { grid-column: span 2; grid-row: span 1; }
+          .hero-carousel { grid-template-columns: 1fr; }
+          .carousel-photo { height: 420px; }
+          .carousel-photo:nth-child(2), .carousel-photo:nth-child(3) { display: none; }
+          .carousel-arrow { display: flex; align-items: center; justify-content: center; right: 18px; }
           .intro-layout, .feature-layout, .details-layout { grid-template-columns: 1fr; }
           .booking-card { position: static; }
           .amenity-grid { grid-template-columns: repeat(2, 1fr); }
@@ -434,9 +480,7 @@ function HeadContent() {
         @media (max-width: 560px) {
           .site-header { padding: 14px 20px; }
           .hero { padding: 16px 16px 0; }
-          .hero-grid { display: block; }
-          .side-photo { display: none; }
-          .hero-main { height: 520px; }
+          .carousel-photo { height: 520px; }
           .hero-overlay { padding: 28px; }
           .page-shell { width: min(100% - 32px, 1180px); }
           .amenity-grid, .stats-row { grid-template-columns: 1fr; }
