@@ -46,6 +46,19 @@ export default function Home() {
   ];
 
   const [photoStartIndex, setPhotoStartIndex] = useState(0);
+  const [showPhotoGallery, setShowPhotoGallery] = useState(false);
+
+  const galleryPhotos = [
+    '/images/living-room-hero.png',
+    '/images/living-room-hot-tub.png',
+    '/images/living-room-sauna.png',
+    '/images/living-room-bedroom.png',
+    '/images/living-room-patio.png',
+    '/images/living-room-fireplace.png',
+    '/images/living-room-view.png',
+    '/images/living-room-bathroom.png',
+    '/images/living-room-cta.png'
+  ];
 
   const visiblePhotos = [0, 1, 2].map((offset) => {
     const photoIndex = (photoStartIndex + offset) % photos.length;
@@ -81,7 +94,7 @@ export default function Home() {
           />
         </div>
         <nav className="desktop-nav">
-          <a href="#photos">Photos</a>
+          <button className="nav-link-button" onClick={() => setShowPhotoGallery(true)} type="button">Photos</button>
           <a href="#amenities">Amenities</a>
           <a href="#reviews">Reviews</a>
           <a href="#details">Details</a>
@@ -250,6 +263,27 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      {showPhotoGallery && (
+        <div className="photo-gallery-modal" role="dialog" aria-modal="true" aria-label="The Living Room photo gallery">
+          <button
+            className="gallery-close-button"
+            onClick={() => setShowPhotoGallery(false)}
+            aria-label="Close photo gallery"
+            type="button"
+          >
+            ×
+          </button>
+
+          <div className="gallery-grid">
+            {galleryPhotos.map((photo, index) => (
+              <div className="gallery-photo" key={`${photo}-${index}`}>
+                <img src={photo} alt={`The Living Room gallery photo ${index + 1}`} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </>
   );
 }
@@ -269,6 +303,7 @@ function HeadContent() {
           background: #fbf8f2;
         }
         a { color: inherit; text-decoration: none; }
+        button { font-family: inherit; }
         img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         .site-header {
@@ -292,6 +327,15 @@ function HeadContent() {
         }
         .brand-wrap strong { font-size: 18px; }
         .desktop-nav { display: flex; align-items: center; gap: 26px; font-size: 14px; }
+        .nav-link-button {
+          border: none;
+          background: transparent;
+          color: inherit;
+          padding: 0;
+          font-size: 14px;
+          cursor: pointer;
+        }
+        .nav-link-button:hover { color: #6d4c32; }
         .nav-button, .primary-button, .secondary-button {
           display: inline-flex;
           justify-content: center;
@@ -486,6 +530,41 @@ function HeadContent() {
         .final-cta h2 { color: white; max-width: 780px; margin-left: auto; margin-right: auto; }
         .light { background: #fff9f1; color: #3d2f24; }
 
+        .photo-gallery-modal {
+          position: fixed;
+          inset: 0;
+          z-index: 999;
+          overflow-y: auto;
+          background: #fbf8f2;
+          padding: 76px 32px 32px;
+        }
+        .gallery-close-button {
+          position: fixed;
+          top: 18px;
+          right: 22px;
+          width: 48px;
+          height: 48px;
+          border: 1px solid rgba(99, 75, 52, .18);
+          background: #fffdf8;
+          color: #3d2f24;
+          font-size: 34px;
+          line-height: 1;
+          cursor: pointer;
+          box-shadow: 0 12px 28px rgba(77, 55, 35, .12);
+        }
+        .gallery-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 14px;
+          max-width: 1500px;
+          margin: 0 auto;
+        }
+        .gallery-photo {
+          aspect-ratio: 4 / 3;
+          background: #ded3c5;
+          overflow: hidden;
+        }
+
         @media (max-width: 900px) {
           .desktop-nav { display: none; }
           .hero-carousel { grid-template-columns: 1fr; }
@@ -499,6 +578,7 @@ function HeadContent() {
           .booking-card { position: static; }
           .amenity-grid { grid-template-columns: repeat(2, 1fr); }
           .review-grid { grid-template-columns: 1fr; }
+          .gallery-grid { grid-template-columns: repeat(2, 1fr); }
           .stats-row { grid-template-columns: repeat(2, 1fr); }
           .highlights { grid-template-columns: 1fr; }
         }
@@ -512,6 +592,8 @@ function HeadContent() {
           }
           .hero-overlay { padding: 28px; }
           .page-shell { width: min(100% - 32px, 1180px); }
+          .photo-gallery-modal { padding: 72px 16px 24px; }
+          .gallery-grid { grid-template-columns: 1fr; gap: 10px; }
           .amenity-grid, .stats-row { grid-template-columns: 1fr; }
         }
       `}</style>
