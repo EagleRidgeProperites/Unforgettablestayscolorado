@@ -157,6 +157,8 @@ export default function Home() {
               <a href="#the-living-room">The Living Room</a>
             </div>
           </div>
+          <a href="#directions">Directions</a>
+
           <div className="nav-dropdown">
             <button className="nav-link-button" type="button">Shop Your Stay</button>
             <div className="dropdown-menu">
@@ -251,6 +253,10 @@ export default function Home() {
               <div><strong>1</strong><span>Bedroom</span></div>
               <div><strong>1</strong><span>Bathroom</span></div>
               <div><strong>1,400</strong><span>Sq. Ft.</span></div>
+            </div>
+
+            <div id="directions" className="directions-heading-wrap">
+              <h2>Directions</h2>
             </div>
 
             <div className="property-map">
@@ -849,6 +855,13 @@ function HeadContent() {
         }
         .small { font-size: 10px; }
         .lead { font-size: 18px; color: #4d433a; }
+        .directions-heading-wrap {
+          scroll-margin-top: 120px;
+          margin: 30px 0 12px;
+        }
+        .directions-heading-wrap h2 {
+          margin-bottom: 0;
+        }
         .property-map {
           width: 100%;
           height: 340px;
