@@ -137,7 +137,13 @@ export default function Home() {
         </div>
         <nav className="desktop-nav">
           <a href="#properties">Properties</a>
-          <a href="#shop-your-stay">Shop Your Stay</a>
+          <div className="nav-dropdown">
+            <button className="nav-link-button" type="button">Shop Your Stay</button>
+            <div className="dropdown-menu">
+              <a href="#shop-your-stay-cabin">Shop Your Stay: The Cabin</a>
+              <a href="#shop-your-stay-living-room">Shop Your Stay: The Living Room</a>
+            </div>
+          </div>
           <a href="#amenities">Amenities</a>
           <a href="#reviews">Reviews</a>
           <a href="#details">Details</a>
@@ -392,6 +398,39 @@ function HeadContent() {
           cursor: pointer;
         }
         .nav-link-button:hover { color: #6d4c32; }
+        .nav-dropdown {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+        }
+        .dropdown-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          z-index: 100;
+          min-width: 255px;
+          display: none;
+          flex-direction: column;
+          gap: 0;
+          padding: 10px 0;
+          background: #fffdf8;
+          border: 1px solid rgba(99, 75, 52, .14);
+          box-shadow: 0 18px 42px rgba(77, 55, 35, .14);
+        }
+        .dropdown-menu a {
+          display: block;
+          padding: 12px 16px;
+          font-size: 14px;
+          white-space: nowrap;
+        }
+        .dropdown-menu a:hover {
+          background: #f3ebdf;
+          color: #6d4c32;
+        }
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown:focus-within .dropdown-menu {
+          display: flex;
+        }
         .nav-button, .primary-button, .secondary-button {
           display: inline-flex;
           justify-content: center;
