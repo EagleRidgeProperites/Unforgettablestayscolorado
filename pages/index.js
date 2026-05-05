@@ -56,6 +56,10 @@ export default function Home() {
     setPhotoStartIndex((currentIndex) => (currentIndex + 1) % photos.length);
   };
 
+  const showPreviousPhotos = () => {
+    setPhotoStartIndex((currentIndex) => (currentIndex - 1 + photos.length) % photos.length);
+  };
+
   useEffect(() => {
     const carouselTimer = setInterval(() => {
       setPhotoStartIndex((currentIndex) => (currentIndex + 1) % photos.length);
@@ -93,11 +97,21 @@ export default function Home() {
                 <img src={photo} alt={`The Living Room retreat photo ${index + 1}`} />
 
                 {index === 0 && (
-                  <div className="hero-overlay">
-                    <p className="eyebrow">Divide, Colorado</p>
-                    <h1>Private Luxury Spa Retreat: Hot Tub, Sauna & Views</h1>
-                    <p>Designed for couples who want to relax, reconnect, and experience the quiet beauty of the Colorado mountains.</p>
-                  </div>
+                  <>
+                    <button
+                      className="carousel-arrow carousel-arrow-left"
+                      onClick={showPreviousPhotos}
+                      aria-label="Show previous photos"
+                      type="button"
+                    >
+                      ←
+                    </button>
+                    <div className="hero-overlay">
+                      <p className="eyebrow">Divide, Colorado</p>
+                      <h1>Private Luxury Spa Retreat: Hot Tub, Sauna & Views</h1>
+                      <p>Designed for couples who want to relax, reconnect, and experience the quiet beauty of the Colorado mountains.</p>
+                    </div>
+                  </>
                 )}
 
                 {index === 2 && (
@@ -338,6 +352,10 @@ function HeadContent() {
           cursor: pointer;
           box-shadow: 0 12px 28px rgba(0, 0, 0, .22);
           transition: transform .2s ease, background .2s ease;
+        }
+        .carousel-arrow-left {
+          left: 22px;
+          right: auto;
         }
         .carousel-arrow:hover { transform: translateY(-50%) scale(1.06); background: rgba(255, 249, 241, .55); }
 
