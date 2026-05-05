@@ -136,7 +136,7 @@ export default function Home() {
           />
         </div>
         <nav className="desktop-nav">
-          <button className="nav-link-button" onClick={() => setShowPhotoGallery(true)} type="button">Photos</button>
+          <button className="nav-link-button" onClick={() => setShowPhotoGallery(true)} type="button">More Photos</button>
           <a href="#amenities">Amenities</a>
           <a href="#reviews">Reviews</a>
           <a href="#details">Details</a>
