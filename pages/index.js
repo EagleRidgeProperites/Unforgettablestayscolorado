@@ -1101,6 +1101,13 @@ function HeadContent() {
           color: #6d4c32;
         }
 
+        .bedroom-stat {
+          background: transparent !important;
+          border: none !important;
+          border-radius: 0 !important;
+          box-shadow: none !important;
+        }
+
         .bedroom-stat-content {
           display: flex;
           align-items: center;
@@ -1113,8 +1120,8 @@ function HeadContent() {
         }
 
         .bedroom-stat-icon {
-          width: 42px;
-          height: 32px;
+          width: 84px;
+          height: 64px;
           object-fit: contain;
           display: block;
         }
