@@ -246,6 +246,10 @@ export default function Home() {
           </aside>
         </section>
 
+        <section className="page-shell complete-description-link-wrap">
+          <a href="#details" className="complete-description-button">Complete Description</a>
+        </section>
+
         <section className="page-shell" id="amenities">
           <div className="section-heading">
             <p className="eyebrow">Features & Amenities</p>
@@ -615,6 +619,26 @@ function HeadContent() {
         .booking-card .primary-button, .booking-card .secondary-button { width: 100%; }
         .trust-note { margin-top: 18px; padding-top: 18px; border-top: 1px solid #eee2d5; color: #7b6c5c; font-size: 14px; }
 
+        .complete-description-link-wrap {
+          margin-top: -16px;
+          margin-bottom: 36px;
+        }
+        .complete-description-button {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 46px;
+          padding: 0 22px;
+          background: #6d4c32;
+          color: #fff9f1;
+          font-weight: 800;
+          box-shadow: 0 12px 24px rgba(73, 48, 30, .18);
+          transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .complete-description-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 16px 30px rgba(73, 48, 30, .22);
+        }
         .section-heading { max-width: 760px; margin-bottom: 28px; }
         .centered { text-align: center; margin-left: auto; margin-right: auto; }
         .amenity-grid {
