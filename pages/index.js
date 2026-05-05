@@ -449,6 +449,29 @@ export default function Home() {
                 <p>Mark &amp; Renee</p>
               </div>
             </div>
+
+            <div className="description-row">
+              <h2>Other Details to Note</h2>
+              <div className="description-text">
+                <p>At night, the city lights are far away, providing an ideal setting for stargazing. Book now for a unique Colorado adventure that you'll never forget!</p>
+
+                <p>The sofa bed is always ready. You simply need to pull it out if needed. The feather duvet and pillows are in the ottoman.</p>
+
+                <p>The property does have air conditioning, but it is rarely needed as the evenings are cool and there are many windows that can be opened for excellent ventilation during the day. There are also two powerful ceiling fans for additional comfort.</p>
+
+                <p>This property is close to 9,150 feet above sea level. Good hydration is effective for acclimatization.</p>
+
+                <p>Although this beautiful space is one of several homes on the Eagle Ridge property, it offers a completely private and peaceful retreat.</p>
+
+                <p>This property must remain allergy-free from any pets. Having a certified service dog requires prior approval along with a non-refundable pet deposit of $350 paid in advance. There are no exceptions to this requirement.</p>
+
+                <p>The property is located 35 minutes west of Colorado Springs and is close to many hiking trails, ATV trails, Mueller State Park, Florissant Fossil Beds National Monument, and the Colorado Wolf and Wildlife Center. The property is also 10 minutes away from Charis Bible College and just 12 minutes away is picturesque Woodland Park, with its many coffee shops, restaurants, and parks.</p>
+
+                <p>Planning to ski in Breckenridge? Save a fortune by staying here in luxury and enjoying a 1 hour 35-minute drive to the mountain.</p>
+
+                <p>We have a guidebook available to all guests with over 50 activities and scenic drives in the area.</p>
+              </div>
+            </div>
           </div>
         </div>
       )}
