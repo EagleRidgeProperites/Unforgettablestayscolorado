@@ -62,7 +62,11 @@ export default function Home() {
 
       <header className="site-header">
         <div className="brand-wrap">
-          <div className="brand-mark">ESC</div>
+          <img
+            className="brand-logo"
+            src="/images/Elevated Stays Colorado Logo.png"
+            alt="Elevated Stays Colorado logo"
+          />
           <div>
             <p className="eyebrow small">Elevated Stays Colorado</p>
             <strong>The Living Room</strong>
@@ -266,17 +270,11 @@ function HeadContent() {
           border-bottom: 1px solid rgba(91, 70, 48, 0.12);
         }
         .brand-wrap { display: flex; align-items: center; gap: 12px; }
-        .brand-mark {
-          width: 46px;
-          height: 46px;
-          border-radius: 50%;
-          display: grid;
-          place-items: center;
-          background: #3b3329;
-          color: #fff8ed;
-          font-size: 13px;
-          letter-spacing: 1px;
-          font-weight: 700;
+        .brand-logo {
+          width: 64px;
+          height: 64px;
+          object-fit: contain;
+          display: block;
         }
         .brand-wrap strong { font-size: 18px; }
         .desktop-nav { display: flex; align-items: center; gap: 26px; font-size: 14px; }
