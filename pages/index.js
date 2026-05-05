@@ -842,7 +842,7 @@ function HeadContent() {
           display: grid;
           grid-template-columns: 1fr 350px;
           gap: 54px;
-          padding: 58px 0;
+          padding: 32px 0 58px;
           align-items: start;
         }
         .breadcrumb, .location { color: #7b6c5c; }
@@ -897,13 +897,13 @@ function HeadContent() {
           align-items: center;
           gap: 12px;
           width: 100%;
-          font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+          font-family: inherit;
           text-transform: none;
           letter-spacing: 0;
           font-size: 14px;
-          font-weight: 700;
+          font-weight: 400;
           line-height: 1;
-          color: #30261d;
+          color: #2f2a24;
         }
         .directions-heading-wrap h2::after,
         .description-heading-wrap h2::after,
