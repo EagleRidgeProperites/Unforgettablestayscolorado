@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   const amenities = [
@@ -55,6 +55,14 @@ export default function Home() {
   const showNextPhotos = () => {
     setPhotoStartIndex((currentIndex) => (currentIndex + 1) % photos.length);
   };
+
+  useEffect(() => {
+    const carouselTimer = setInterval(() => {
+      setPhotoStartIndex((currentIndex) => (currentIndex + 1) % photos.length);
+    }, 3000);
+
+    return () => clearInterval(carouselTimer);
+  }, [photos.length]);
 
   return (
     <>
