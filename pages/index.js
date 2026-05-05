@@ -937,14 +937,12 @@ function HeadContent() {
           padding: 90px 5vw 60px;
         }
         .description-close-button {
-          position: sticky;
-          top: 0;
-          float: right;
+          position: fixed;
+          top: 4vh;
+          right: 4vw;
           z-index: 1000;
           width: 48px;
           height: 48px;
-          margin-top: -90px;
-          margin-right: -3vw;
           border: 1px solid rgba(99, 75, 52, .18);
           background: #fffdf8;
           color: #3d2f24;
@@ -1052,7 +1050,10 @@ function HeadContent() {
           .photo-gallery-modal { padding: 72px 16px 24px; }
           .gallery-grid { grid-template-columns: 1fr; gap: 10px; }
           .description-modal { inset: 3vh 3vw; padding: 82px 24px 42px; }
-          .description-close-button { margin-right: -4px; }
+          .description-close-button {
+            top: 3vh;
+            right: 3vw;
+          }
           .amenity-grid, .stats-row { grid-template-columns: 1fr; }
         }
       `}</style>
