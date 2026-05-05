@@ -860,7 +860,14 @@ function HeadContent() {
           margin: 30px 0 12px;
         }
         .directions-heading-wrap h2 {
-          margin-bottom: 0;
+          margin: 0;
+          font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+          text-transform: uppercase;
+          letter-spacing: 2.2px;
+          font-size: 12px;
+          font-weight: 800;
+          line-height: 1.4;
+          color: #8a6040;
         }
         .property-map {
           width: 100%;
