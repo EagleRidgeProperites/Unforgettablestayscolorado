@@ -166,6 +166,7 @@ export default function Home() {
               <a href="#shop-your-stay-living-room">Shop Your Stay: The Living Room</a>
             </div>
           </div>
+          <a href="#description">Description</a>
           <a href="#amenities">Amenities</a>
           <a href="#reviews">Reviews</a>
           <a href="#details">Details</a>
@@ -267,6 +268,10 @@ export default function Home() {
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
               ></iframe>
+            </div>
+
+            <div id="description" className="description-heading-wrap">
+              <h2>Description</h2>
             </div>
 
             <p className="lead">
@@ -863,11 +868,16 @@ function HeadContent() {
         }
         .small { font-size: 10px; }
         .lead { font-size: 18px; color: #4d433a; }
-        .directions-heading-wrap {
+        .directions-heading-wrap,
+        .description-heading-wrap {
           scroll-margin-top: 120px;
           margin: 30px 0 0;
         }
-        .directions-heading-wrap h2 {
+        .description-heading-wrap {
+          margin-top: 28px;
+        }
+        .directions-heading-wrap h2,
+        .description-heading-wrap h2 {
           margin: 0;
           font-family: 'La Luxes Serif', Georgia, 'Times New Roman', serif;
           text-transform: none;
