@@ -150,12 +150,12 @@ export default function Home() {
           <a href="#details">Details</a>
           <a href="https://www.airbnb.com/h/the-living-room" className="nav-button">Book Now</a>
           <div className="social-icons">
-            <a href="#facebook" aria-label="Visit us on Facebook" className="social-icon" target="_blank" rel="noopener noreferrer">
+            <a href="#facebook" aria-label="Visit us on Facebook" className="social-icon" target="_blank" rel="noopener noreferrer" data-tooltip="Facebook">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M14 8.5h2V5.3c-.35-.05-1.55-.15-2.95-.15-2.92 0-4.92 1.78-4.92 5.05v2.8H5v3.6h3.13V24h3.84v-7.4h3.01l.48-3.6h-3.49v-2.44c0-1.04.29-1.76 2.03-1.76Z" />
               </svg>
             </a>
-            <a href="#instagram" aria-label="Visit us on Instagram" className="social-icon" target="_blank" rel="noopener noreferrer">
+            <a href="#instagram" aria-label="Visit us on Instagram" className="social-icon" target="_blank" rel="noopener noreferrer" data-tooltip="Instagram">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5Zm4.25 3.3A4.7 4.7 0 1 1 7.3 12 4.71 4.71 0 0 1 12 7.3Zm0 2A2.7 2.7 0 1 0 14.7 12 2.7 2.7 0 0 0 12 9.3Zm5.05-2.55a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1Z" />
               </svg>
@@ -622,6 +622,7 @@ function HeadContent() {
           margin-left: -12px;
         }
         .social-icon {
+          position: relative;
           width: 38px;
           height: 38px;
           display: inline-flex;
@@ -642,6 +643,27 @@ function HeadContent() {
           background: #6d4c32;
           color: #fff9f1;
         }
+        .social-icon::after {
+          content: attr(data-tooltip);
+          position: absolute;
+          top: calc(100% + 10px);
+          left: 50%;
+          transform: translateX(-50%) translateY(-4px);
+          opacity: 0;
+          pointer-events: none;
+          padding: 7px 10px;
+          background: #3d2f24;
+          color: #fff9f1;
+          font-size: 12px;
+          font-weight: 700;
+          white-space: nowrap;
+          box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
+          transition: opacity .2s ease, transform .2s ease;
+        }
+        .social-icon:hover::after {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0);
+        }
         .nav-button, .primary-button, .secondary-button {
           display: inline-flex;
           justify-content: center;
@@ -653,6 +675,7 @@ function HeadContent() {
           transition: transform .2s ease, box-shadow .2s ease;
         }
         .nav-button, .primary-button { background: #6d4c32; color: #fff9f1; box-shadow: 0 12px 24px rgba(73, 48, 30, .18); }
+        .nav-button { border-radius: 0; }
         .secondary-button { border: 1px solid #c8b59f; color: #4c3a2b; margin-top: 12px; }
         .primary-button:hover, .nav-button:hover, .secondary-button:hover { transform: translateY(-2px); }
 
