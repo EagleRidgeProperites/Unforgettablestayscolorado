@@ -245,9 +245,7 @@ export default function Home() {
 
         <section className="page-shell intro-layout">
           <div className="property-main">
-            <div className="breadcrumb">All Properties / The Living Room</div>
-            <h2>The Living Room by Elevated Stays Colorado</h2>
-            <p className="location">Divide, Colorado · Luxury Couples Retreat</p>
+            <p className="location">A Luxury Couples Retreat - Divide, Colorado</p>
 
             <div className="stats-row">
               <div><strong>2</strong><span>Guests</span></div>
@@ -877,7 +875,6 @@ function HeadContent() {
           margin-top: 28px;
           margin-bottom: 8px;
         }
-        .directions-heading-wrap h2,
         .description-heading-wrap h2,
         .amenities-heading-wrap h2 {
           margin: 0;
@@ -889,6 +886,21 @@ function HeadContent() {
           text-transform: none;
           letter-spacing: 1.2px;
           font-size: 17px;
+          font-weight: 900;
+          line-height: 1;
+          color: #30261d;
+        }
+
+        .directions-heading-wrap h2 {
+          margin: 0;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          width: 100%;
+          font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+          text-transform: none;
+          letter-spacing: 0;
+          font-size: 14px;
           font-weight: 700;
           line-height: 1;
           color: #30261d;
