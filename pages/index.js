@@ -267,7 +267,7 @@ function HeadContent() {
         }
         .brand-wrap { display: flex; align-items: center; gap: 12px; }
         .brand-logo {
-          width: 256px;
+          width: 512px;
           height: 256px;
           object-fit: contain;
           display: block;
@@ -323,7 +323,7 @@ function HeadContent() {
           height: 54px;
           border: none;
           border-radius: 50%;
-          background: rgba(255, 249, 241, .94);
+          background: rgba(255, 249, 241, .30);
           color: #3d2f24;
           font-size: 30px;
           line-height: 1;
@@ -331,7 +331,7 @@ function HeadContent() {
           box-shadow: 0 12px 28px rgba(0, 0, 0, .22);
           transition: transform .2s ease, background .2s ease;
         }
-        .carousel-arrow:hover { transform: translateY(-50%) scale(1.06); background: #fff9f1; }
+        .carousel-arrow:hover { transform: translateY(-50%) scale(1.06); background: rgba(255, 249, 241, .55); }
 
         .page-shell { width: min(1180px, 90vw); margin: 0 auto; }
         .intro-layout {
