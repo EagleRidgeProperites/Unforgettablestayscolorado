@@ -106,11 +106,7 @@ export default function Home() {
                     >
                       ←
                     </button>
-                    <div className="hero-overlay">
-                      <p className="eyebrow">Divide, Colorado</p>
-                      <h1>Private Luxury Spa Retreat: Hot Tub, Sauna & Views</h1>
-                      <p>Designed for couples who want to relax, reconnect, and experience the quiet beauty of the Colorado mountains.</p>
-                    </div>
+
                   </>
                 )}
 
