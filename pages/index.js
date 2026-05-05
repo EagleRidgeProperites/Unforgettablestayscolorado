@@ -875,23 +875,7 @@ function HeadContent() {
           margin-top: 28px;
           margin-bottom: 8px;
         }
-        .description-heading-wrap h2,
         .amenities-heading-wrap h2 {
-          margin: 0;
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          width: 100%;
-          font-family: 'La Luxes Serif', Georgia, 'Times New Roman', serif;
-          text-transform: none;
-          letter-spacing: 1.2px;
-          font-size: 17px;
-          font-weight: 900;
-          line-height: 1;
-          color: #30261d;
-        }
-
-        .directions-heading-wrap h2 {
           margin: 0;
           display: flex;
           align-items: center;
@@ -900,7 +884,25 @@ function HeadContent() {
           font-family: inherit;
           text-transform: none;
           letter-spacing: 0;
-          font-size: 14px;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 1;
+          color: #2f2a24;
+        }
+
+        .description-heading-wrap h2 {
+
+        .directions-heading-wrap h2,
+        .description-heading-wrap h2 {
+          margin: 0;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          width: 100%;
+          font-family: inherit;
+          text-transform: none;
+          letter-spacing: 0;
+          font-size: 16px;
           font-weight: 400;
           line-height: 1;
           color: #2f2a24;
@@ -1183,4 +1185,3 @@ function HeadContent() {
     </>
   );
 }
-
