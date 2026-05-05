@@ -432,6 +432,23 @@ export default function Home() {
                 <p>No parties or events are allowed.</p>
               </div>
             </div>
+
+            <div className="description-row">
+              <h2>Interaction with Guests</h2>
+              <div className="description-text">
+                <p>With self-check in, you can make your stay totally private.</p>
+
+                <p>If there is snow in the forecast, we will leave a shovel and broom outside on the patio for your use. We will be plowing the driveway as needed.</p>
+
+                <p>If you need any assistance shoveling, please let us know.</p>
+
+                <p>Your privacy is of upmost importance to us. We will not enter your private space, inside or outside, unless requested by you. For example, we would only drop off fresh towels at the outside bench if requested.</p>
+
+                <p>We are available at any time if you have any questions.</p>
+
+                <p>Mark &amp; Renee</p>
+              </div>
+            </div>
           </div>
         </div>
       )}
