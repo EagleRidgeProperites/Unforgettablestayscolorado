@@ -317,6 +317,12 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          <div className="show-all-amenities-wrap">
+            <button className="complete-description-button" type="button">
+              Show All
+            </button>
+          </div>
         </section>
 
         <section className="wide-feature">
@@ -992,6 +998,10 @@ function HeadContent() {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 14px;
+        }
+
+        .show-all-amenities-wrap {
+          margin-top: 24px;
         }
         .amenity {
           display: flex;
