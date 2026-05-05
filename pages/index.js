@@ -367,7 +367,7 @@ export default function Home() {
             </div>
 
             <div className="description-row">
-              <h2>Property Description</h2>
+              <h2>What you will experience</h2>
               <div className="description-text">
                 <p>Escape to the mountains of Colorado in this beautiful home. Inside you'll find a perfect blend of modern and rustic design with radiant floor heating, a grand feature fireplace, and 31 windows that flood the space with natural light.</p>
 
@@ -416,6 +416,20 @@ export default function Home() {
                 <p>This home is ideal for honeymoons, anniversaries, and birthday luxury getaways. While there are other homes on the property, and from the Living Room other acreages are in view, your home is completely private with its own patio, hot tub, sauna, and fire pit. It has its own private driveway, parking area, and entrance, ensuring your privacy throughout your stay. With access to private walking trails, for you and the other guests on the property, through the forest and meadows, you can immerse yourself in the natural beauty of Colorado without ever leaving the property.</p>
 
                 <p>Book your stay today and experience the ultimate mountain getaway!</p>
+              </div>
+            </div>
+
+            <div className="description-row">
+              <h2>Guest access</h2>
+              <div className="description-text">
+                <p>The entire 1400 sq ft home and 1200 sq ft patio are for your private use and are not shared with anyone else. The trails and the forest on the property are shared with the owner and other guests. This place is ideal for celebrating special occasions like a honeymoon or anniversary.</p>
+
+                <p>For guests who book the same day they plan to arrive, please confirm the check-in time with the host as we may need up to 4 hours to clean and prepare for your arrival.</p>
+
+                <h3>Additional Guests</h3>
+                <p>Peace and security are important to us and to all other guests and residents who are on the property. Therefore, only registered guests are allowed on the property. Additional guests, during the daytime or overnight, are not allowed.</p>
+
+                <p>No parties or events are allowed.</p>
               </div>
             </div>
           </div>
@@ -838,6 +852,11 @@ function HeadContent() {
           font-size: 18px;
           line-height: 1.8;
           color: #4d433a;
+        }
+        .description-text h3 {
+          margin: 26px 0 10px;
+          font-size: 22px;
+          color: #33281f;
         }
         .description-row + .description-row {
           padding-top: 42px;
