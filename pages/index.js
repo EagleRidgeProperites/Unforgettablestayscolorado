@@ -64,13 +64,9 @@ export default function Home() {
         <div className="brand-wrap">
           <img
             className="brand-logo"
-            src="/images/Elevated Stays Colorado Logo.png"
+            src="/images/Elevated-Stays-Colorado-Logo.png"
             alt="Elevated Stays Colorado logo"
           />
-          <div>
-            <p className="eyebrow small">Elevated Stays Colorado</p>
-            <strong>The Living Room</strong>
-          </div>
         </div>
         <nav className="desktop-nav">
           <a href="#photos">Photos</a>
@@ -271,8 +267,8 @@ function HeadContent() {
         }
         .brand-wrap { display: flex; align-items: center; gap: 12px; }
         .brand-logo {
-          width: 64px;
-          height: 64px;
+          width: 256px;
+          height: 256px;
           object-fit: contain;
           display: block;
         }
