@@ -361,15 +361,17 @@ export default function Home() {
             <div className="stats-row">
               <div><strong>2</strong><span>Guests</span></div>
               <div className="bedroom-stat">
-                <div className="stat-number-with-icon">
-                  <strong>1</strong>
+                <div className="bedroom-stat-content">
+                  <div className="stat-text-stack">
+                    <strong>1</strong>
+                    <span>Bedroom</span>
+                  </div>
                   <img
                     className="bedroom-stat-icon"
-                    src="/images/side-view-of-a-black-bed-silhouette-vector.webp"
+                    src="/images/side-view-of-a-black-bed-silhouette-vector.png"
                     alt="Bed icon"
                   />
                 </div>
-                <span>Bedroom</span>
               </div>
               <div><strong>1</strong><span>Bathroom</span></div>
               <div><strong>1,400</strong><span>Sq. Ft.</span></div>
@@ -1099,15 +1101,20 @@ function HeadContent() {
           color: #6d4c32;
         }
 
-        .stat-number-with-icon {
+        .bedroom-stat-content {
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: 12px;
+        }
+
+        .stat-text-stack {
+          display: flex;
+          flex-direction: column;
         }
 
         .bedroom-stat-icon {
-          width: 34px;
-          height: 24px;
+          width: 42px;
+          height: 32px;
           object-fit: contain;
           display: block;
         }
