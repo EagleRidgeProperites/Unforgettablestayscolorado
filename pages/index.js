@@ -47,6 +47,7 @@ export default function Home() {
 
   const [photoStartIndex, setPhotoStartIndex] = useState(0);
   const [showPhotoGallery, setShowPhotoGallery] = useState(false);
+  const [showCompleteDescription, setShowCompleteDescription] = useState(false);
 
   const galleryPhotos = [
     '/images/living-room-gallery/1_Photo_Gallery.png',
@@ -247,7 +248,13 @@ export default function Home() {
         </section>
 
         <section className="page-shell complete-description-link-wrap">
-          <a href="#details" className="complete-description-button">Complete Description</a>
+          <button
+            className="complete-description-button"
+            onClick={() => setShowCompleteDescription(true)}
+            type="button"
+          >
+            Complete Description
+          </button>
         </section>
 
         <section className="page-shell" id="amenities">
@@ -339,6 +346,28 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      {showCompleteDescription && (
+        <div className="description-modal" role="dialog" aria-modal="true" aria-label="Complete description for The Living Room">
+          <button
+            className="description-close-button"
+            onClick={() => setShowCompleteDescription(false)}
+            aria-label="Close complete description"
+            type="button"
+          >
+            ×
+          </button>
+
+          <div className="description-modal-content">
+            <div className="description-row">
+              <h2>Listing Description</h2>
+              <p>
+                Welcome to your romantic and luxurious mountain retreat at Eagle Ridge! The Living Room is a stunning 1400 sf newly renovated home situated in a gated 43-acre property with stunning views of Pikes Peak and exclusive use of the freshly filled hot tub and custom-built sauna. With a large 1200 sf patio and access to walking trails on this private property, this space has everything you need for a peaceful and rejuvenating vacation retreat -- a hotel penthouse experience on ground level!
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {showPhotoGallery && (
         <div className="photo-gallery-modal" role="dialog" aria-modal="true" aria-label="The Living Room photo gallery">
@@ -629,9 +658,12 @@ function HeadContent() {
           justify-content: center;
           min-height: 46px;
           padding: 0 22px;
+          border: none;
           background: #6d4c32;
           color: #fff9f1;
+          font-size: 15px;
           font-weight: 800;
+          cursor: pointer;
           box-shadow: 0 12px 24px rgba(73, 48, 30, .18);
           transition: transform .2s ease, box-shadow .2s ease;
         }
@@ -703,6 +735,57 @@ function HeadContent() {
         .final-cta h2 { color: white; max-width: 780px; margin-left: auto; margin-right: auto; }
         .light { background: #fff9f1; color: #3d2f24; }
 
+        .description-modal {
+          position: fixed;
+          inset: 4vh 4vw;
+          z-index: 998;
+          overflow-y: auto;
+          background: #fbf8f2;
+          border: 1px solid rgba(99, 75, 52, .16);
+          box-shadow: 0 24px 80px rgba(37, 29, 22, .28);
+          padding: 90px 5vw 60px;
+        }
+        .description-close-button {
+          position: sticky;
+          top: 0;
+          float: right;
+          z-index: 1000;
+          width: 48px;
+          height: 48px;
+          margin-top: -72px;
+          margin-right: -3vw;
+          border: 1px solid rgba(99, 75, 52, .18);
+          background: #fffdf8;
+          color: #3d2f24;
+          font-size: 34px;
+          line-height: 1;
+          cursor: pointer;
+          box-shadow: 0 12px 28px rgba(77, 55, 35, .12);
+        }
+        .description-modal-content {
+          max-width: 1120px;
+          margin: 0 auto;
+          clear: both;
+        }
+        .description-row {
+          display: grid;
+          grid-template-columns: 300px 1fr;
+          gap: 48px;
+          align-items: start;
+          padding-bottom: 42px;
+          border-bottom: 1px solid rgba(99, 75, 52, .14);
+        }
+        .description-row h2 {
+          margin-top: 0;
+          font-size: clamp(28px, 3vw, 42px);
+        }
+        .description-row p {
+          margin-top: 0;
+          font-size: 18px;
+          line-height: 1.8;
+          color: #4d433a;
+        }
+
         .photo-gallery-modal {
           position: fixed;
           inset: 0;
@@ -752,6 +835,7 @@ function HeadContent() {
           .amenity-grid { grid-template-columns: repeat(2, 1fr); }
           .review-grid { grid-template-columns: 1fr; }
           .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+          .description-row { grid-template-columns: 1fr; gap: 18px; }
           .stats-row { grid-template-columns: repeat(2, 1fr); }
           .highlights { grid-template-columns: 1fr; }
         }
@@ -767,6 +851,8 @@ function HeadContent() {
           .page-shell { width: min(100% - 32px, 1180px); }
           .photo-gallery-modal { padding: 72px 16px 24px; }
           .gallery-grid { grid-template-columns: 1fr; gap: 10px; }
+          .description-modal { inset: 3vh 3vw; padding: 82px 24px 42px; }
+          .description-close-button { margin-right: -4px; }
           .amenity-grid, .stats-row { grid-template-columns: 1fr; }
         }
       `}</style>
