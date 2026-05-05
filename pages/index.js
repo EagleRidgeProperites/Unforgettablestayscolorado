@@ -539,6 +539,28 @@ function HeadContent() {
         }
         .brand-wrap strong { font-size: 18px; }
         .desktop-nav { display: flex; align-items: center; gap: 26px; font-size: 14px; }
+        .desktop-nav > a,
+        .nav-dropdown > .nav-link-button {
+          position: relative;
+          padding: 8px 0;
+        }
+        .desktop-nav > a::after,
+        .nav-dropdown > .nav-link-button::after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          width: 0;
+          height: 2px;
+          background: #6d4c32;
+          transform: translateX(-50%);
+          transition: width .28s ease;
+        }
+        .desktop-nav > a:hover::after,
+        .nav-dropdown:hover > .nav-link-button::after,
+        .nav-dropdown:focus-within > .nav-link-button::after {
+          width: 100%;
+        }
         .nav-link-button {
           border: none;
           background: transparent;
@@ -859,7 +881,7 @@ function HeadContent() {
           z-index: 1000;
           width: 48px;
           height: 48px;
-          margin-top: -72px;
+          margin-top: -86px;
           margin-right: -3vw;
           border: 1px solid rgba(99, 75, 52, .18);
           background: #fffdf8;
