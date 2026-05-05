@@ -165,7 +165,12 @@ export default function Home() {
                       onClick={() => setShowPhotoGallery(true)}
                       type="button"
                     >
-                      <span className="camera-icon" aria-hidden="true">▣</span>
+                      <img
+                        className="camera-icon"
+                        src="/images/More-Photos-Camera-Icon.png"
+                        alt=""
+                        aria-hidden="true"
+                      />
                       More Photos
                     </button>
 
@@ -476,10 +481,10 @@ function HeadContent() {
           background: #fff9f1;
         }
         .camera-icon {
-          font-size: 14px;
-          line-height: 1;
-          display: inline-flex;
-          align-items: center;
+          width: 14px;
+          height: 14px;
+          object-fit: contain;
+          display: inline-block;
         }
         .carousel-arrow:hover { transform: translateY(-50%) scale(1.06); background: rgba(255, 249, 241, .55); }
 
@@ -677,4 +682,3 @@ function HeadContent() {
     </>
   );
 }
-
