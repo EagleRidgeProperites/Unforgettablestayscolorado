@@ -150,7 +150,13 @@ export default function Home() {
 
         </div>
         <nav className="desktop-nav">
-          <a href="#properties">Properties</a>
+          <div className="nav-dropdown">
+            <button className="nav-link-button" type="button">Properties</button>
+            <div className="dropdown-menu">
+              <a href="#the-cabin">The Cabin</a>
+              <a href="#the-living-room">The Living Room</a>
+            </div>
+          </div>
           <div className="nav-dropdown">
             <button className="nav-link-button" type="button">Shop Your Stay</button>
             <div className="dropdown-menu">
