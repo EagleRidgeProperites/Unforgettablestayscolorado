@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
@@ -9,12 +8,122 @@ export default function Home() {
     'Radiant Heated Floors',
     'Grand Fireplace',
     '86” Smart TV',
-    'Fast Wi-Fi',
+    'Fast Wi‑Fi',
     'Towel Warmers',
     'Private Patio',
     'Luxury King Bedroom',
     'Peaceful Walking Trails',
     'Fresh Hot Tub Water'
+  ];
+
+  const amenityGroups = [
+    {
+      title: 'Kitchen',
+      items: [
+        'Baking sheet',
+        'Blender',
+        'Coffee – Nespresso pods',
+        'Nespresso coffee maker',
+        'Coffee maker and filters',
+        'Cooking basics – pots, pans, oil, salt, and pepper',
+        'Dishes and silverware',
+        'Dishwasher',
+        'Freezer',
+        'Hot water kettle',
+        'Microwave',
+        'XL toaster oven air fryer',
+        'Refrigerator',
+        'Toaster',
+        'Wine glasses'
+      ]
+    },
+    {
+      title: 'Bathroom',
+      items: [
+        'Body soap',
+        'Conditioner',
+        'Heated towel rack',
+        'Toilet paper',
+        'Towels',
+        'Walk-in shower',
+        'Hair dryer',
+        'Shampoo',
+        'Shower gel'
+      ]
+    },
+    {
+      title: 'Bedroom',
+      items: [
+        'Bed linens',
+        'Clothing storage',
+        'Extra pillows and blankets',
+        'Hangers',
+        'Iron',
+        'King bed – fully motor adjustable',
+        'Room-darkening shades',
+        '55” smart TV'
+      ]
+    },
+    {
+      title: 'Indoor Features',
+      items: [
+        'Air conditioning',
+        'Board games',
+        'Ceiling fans',
+        'Dedicated workspace',
+        'Dining table',
+        'Radiant floor heating',
+        'Hot water',
+        'Indoor gas fireplace',
+        'Sectional with 4 recliners',
+        'Soft bed',
+        'Sound system',
+        '86” smart TV'
+      ]
+    },
+    {
+      title: 'Safety',
+      items: [
+        'Carbon monoxide alarm',
+        'Fire extinguisher',
+        'First aid kit',
+        'Fireplace guards',
+        'Outlet covers',
+        'Smoke alarm'
+      ]
+    },
+    {
+      title: 'Outdoor Features',
+      items: [
+        'Backyard',
+        'Gas BBQ grill',
+        'Barbecue utensils',
+        'Fire pit',
+        'Forest views',
+        'Free parking on premises',
+        'Hot tub – freshly filled',
+        'Mountain views',
+        'Outdoor dining area',
+        'Outdoor furniture',
+        'Patio',
+        'Sauna',
+        'Sun loungers',
+        'Private forest trails'
+      ]
+    },
+    {
+      title: 'Other Features',
+      items: [
+        'Laundromat nearby',
+        'Luggage drop-off allowed',
+        'Highchair upon request',
+        'Pack ’n play / travel crib upon request',
+        'Portable fans',
+        'Privacy – no shared spaces except forest trails',
+        'Private entrance',
+        'Wi-Fi over 400 Mbps'
+      ]
+    }
   ];
 
   const reviews = [
@@ -45,6 +154,12 @@ export default function Home() {
     '/images/living-room-view.png',
     '/images/living-room-bathroom.png'
   ];
+
+  const [photoStartIndex, setPhotoStartIndex] = useState(0);
+  const [showPhotoGallery, setShowPhotoGallery] = useState(false);
+  const [showCompleteDescription, setShowCompleteDescription] = useState(false);
+  const [showAllAmenities, setShowAllAmenities] = useState(false);
+  const [isHeaderCompact, setIsHeaderCompact] = useState(false);
 
   const galleryPhotos = [
     '/images/living-room-gallery/1_Photo_Gallery.png',
@@ -100,11 +215,6 @@ export default function Home() {
     '/images/living-room-gallery/51_Photo_Gallery.png'
   ];
 
-  const [photoStartIndex, setPhotoStartIndex] = useState(0);
-  const [showPhotoGallery, setShowPhotoGallery] = useState(false);
-  const [showCompleteDescription, setShowCompleteDescription] = useState(false);
-  const [isHeaderCompact, setIsHeaderCompact] = useState(false);
-
   const visiblePhotos = [0, 1, 2].map((offset) => {
     const photoIndex = (photoStartIndex + offset) % photos.length;
     return photos[photoIndex];
@@ -148,8 +258,8 @@ export default function Home() {
             src="/images/Elevated-Stays-Colorado-Logo.png"
             alt="Elevated Stays Colorado logo"
           />
-        </div>
 
+        </div>
         <nav className="desktop-nav">
           <div className="nav-dropdown">
             <button className="nav-link-button" type="button">Properties</button>
@@ -158,7 +268,6 @@ export default function Home() {
               <a href="#the-living-room">The Living Room</a>
             </div>
           </div>
-
           <a href="#directions">Directions</a>
 
           <div className="nav-dropdown">
@@ -168,38 +277,18 @@ export default function Home() {
               <a href="#shop-your-stay-living-room">Shop Your Stay: The Living Room</a>
             </div>
           </div>
-
           <a href="#description">Description</a>
           <a href="#amenities-title">Amenities</a>
           <a href="#reviews">Reviews</a>
           <a href="#details">Details</a>
-
-          <a href="https://www.airbnb.com/h/the-living-room" className="nav-button">
-            Book Now
-          </a>
-
+          <a href="https://www.airbnb.com/h/the-living-room" className="nav-button">Book Now</a>
           <div className="social-icons">
-            <a
-              href="#facebook"
-              aria-label="Visit us on Facebook"
-              className="social-icon"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-tooltip="Facebook"
-            >
+            <a href="#facebook" aria-label="Visit us on Facebook" className="social-icon" target="_blank" rel="noopener noreferrer" data-tooltip="Facebook">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M14 8.5h2V5.3c-.35-.05-1.55-.15-2.95-.15-2.92 0-4.92 1.78-4.92 5.05v2.8H5v3.6h3.13V24h3.84v-7.4h3.01l.48-3.6h-3.49v-2.44c0-1.04.29-1.76 2.03-1.76Z" />
               </svg>
             </a>
-
-            <a
-              href="#instagram"
-              aria-label="Visit us on Instagram"
-              className="social-icon"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-tooltip="Instagram"
-            >
+            <a href="#instagram" aria-label="Visit us on Instagram" className="social-icon" target="_blank" rel="noopener noreferrer" data-tooltip="Instagram">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5Zm4.25 3.3A4.7 4.7 0 1 1 7.3 12 4.71 4.71 0 0 1 12 7.3Zm0 2A2.7 2.7 0 1 0 14.7 12 2.7 2.7 0 0 0 12 9.3Zm5.05-2.55a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1Z" />
               </svg>
@@ -233,7 +322,6 @@ export default function Home() {
                     >
                       ←
                     </button>
-
                     <button
                       className="more-photos-button"
                       onClick={() => setShowPhotoGallery(true)}
@@ -247,6 +335,7 @@ export default function Home() {
                       />
                       More Photos
                     </button>
+
                   </>
                 )}
 
@@ -302,7 +391,7 @@ export default function Home() {
               <p>☀ Private hot tub filled with fresh water for every guest</p>
               <p>☀ Private sauna for a relaxing spa experience</p>
               <p>☀ Grand fireplace, heated floors, and towel warmers</p>
-              <p>☀ 86” smart TV, fast Wi-Fi, and a peaceful work-friendly setting</p>
+              <p>☀ 86” smart TV, fast Wi‑Fi, and a peaceful work-friendly setting</p>
               <p>☀ Private walking trails and a quiet mountain atmosphere</p>
             </div>
           </div>
@@ -331,7 +420,6 @@ export default function Home() {
           <div id="amenities-title" className="section-heading amenities-heading-wrap">
             <h2>Features &amp; Amenities</h2>
           </div>
-
           <div className="amenity-grid">
             {amenities.map((item) => (
               <div className="amenity" key={item}>
@@ -342,7 +430,11 @@ export default function Home() {
           </div>
 
           <div className="show-all-amenities-wrap">
-            <button className="complete-description-button" type="button">
+            <button
+              className="complete-description-button"
+              onClick={() => setShowAllAmenities(true)}
+              type="button"
+            >
               Show All
             </button>
           </div>
@@ -357,7 +449,6 @@ export default function Home() {
                 The Living Room is more than a place to sleep — it is an experience. Soak under the stars, warm up in the sauna, relax by the fireplace, and enjoy a quiet setting that feels private, peaceful, and elevated.
               </p>
             </div>
-
             <div className="feature-card">
               <h3>Guest Favorites</h3>
               <ul>
@@ -375,7 +466,6 @@ export default function Home() {
             <p className="eyebrow">What Guests Are Saying</p>
             <h2>Warm reviews from peaceful stays</h2>
           </div>
-
           <div className="review-grid">
             {reviews.map((review) => (
               <article className="review-card" key={review.title}>
@@ -398,7 +488,7 @@ export default function Home() {
 
             <h3>Living Space</h3>
             <p>
-              The spacious living area features a grand fireplace, comfortable seating, an 86” smart TV, fast Wi-Fi, and a refined atmosphere that feels both luxurious and comfortable.
+              The spacious living area features a grand fireplace, comfortable seating, an 86” smart TV, fast Wi‑Fi, and a refined atmosphere that feels both luxurious and comfortable.
             </p>
 
             <h3>Outdoor Spa Area</h3>
@@ -554,6 +644,40 @@ export default function Home() {
         </div>
       )}
 
+      {showAllAmenities && (
+        <div className="amenities-modal" role="dialog" aria-modal="true" aria-label="Complete amenities for The Living Room">
+          <button
+            className="amenities-close-button"
+            onClick={() => setShowAllAmenities(false)}
+            aria-label="Close amenities list"
+            type="button"
+          >
+            ×
+          </button>
+
+          <div className="amenities-modal-content">
+            <div className="amenities-modal-heading">
+              <p className="eyebrow">The Living Room</p>
+              <h2>Complete Amenities</h2>
+              <p>Every detail is prepared to make your stay feel easy, comfortable, and thoughtfully cared for.</p>
+            </div>
+
+            <div className="amenities-modal-grid">
+              {amenityGroups.map((group) => (
+                <section className="amenity-category-card" key={group.title}>
+                  <h3>{group.title}</h3>
+                  <ul>
+                    {group.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       {showPhotoGallery && (
         <div className="photo-gallery-modal" role="dialog" aria-modal="true" aria-label="The Living Room photo gallery">
           <button
@@ -581,18 +705,11 @@ export default function Home() {
 function HeadContent() {
   return (
     <>
-      <Head>
-        <title>The Living Room | Elevated Stays Colorado</title>
-        <meta
-          name="description"
-          content="The Living Room is a private luxury spa retreat in Divide, Colorado with a hot tub, sauna, mountain views, fireplace, and peaceful couples-focused experience."
-        />
-      </Head>
-
+      <title>The Living Room | Elevated Stays Colorado</title>
+      <meta name="description" content="The Living Room is a private luxury spa retreat in Divide, Colorado with a hot tub, sauna, mountain views, fireplace, and peaceful couples-focused experience." />
       <style jsx global>{`
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
         @font-face {
           font-family: 'La Luxes Serif';
           src: url('/fonts/La-Luxes-Serif.woff2') format('woff2');
@@ -607,7 +724,6 @@ function HeadContent() {
           color: #2f2a24;
           background: #fbf8f2;
         }
-
         a { color: inherit; text-decoration: none; }
         button { font-family: inherit; }
         img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -625,20 +741,17 @@ function HeadContent() {
           border-bottom: 1px solid rgba(91, 70, 48, 0.12);
           transition: padding .32s ease, box-shadow .32s ease;
         }
-
         .site-header-compact {
           padding-top: 0;
           padding-bottom: 0;
           box-shadow: 0 10px 28px rgba(77, 55, 35, .08);
         }
-
         .brand-wrap {
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: 0;
         }
-
         .brand-logo {
           width: 220px;
           height: 76px;
@@ -646,12 +759,10 @@ function HeadContent() {
           display: block;
           transition: width .32s ease, height .32s ease;
         }
-
         .site-header-compact .brand-logo {
           width: 190px;
           height: 46px;
         }
-
         .property-wordmark-wrap {
           display: flex;
           justify-content: center;
@@ -659,7 +770,6 @@ function HeadContent() {
           max-width: 1420px;
           margin: -10px auto 4px;
         }
-
         .property-wordmark {
           width: 440px;
           max-width: 90vw;
@@ -667,20 +777,13 @@ function HeadContent() {
           display: block;
           object-fit: contain;
         }
-
-        .desktop-nav {
-          display: flex;
-          align-items: center;
-          gap: 26px;
-          font-size: 14px;
-        }
-
+        .brand-wrap strong { font-size: 18px; }
+        .desktop-nav { display: flex; align-items: center; gap: 26px; font-size: 14px; }
         .desktop-nav > a,
         .nav-dropdown > .nav-link-button {
           position: relative;
           padding: 8px 0;
         }
-
         .desktop-nav > a::after,
         .nav-dropdown > .nav-link-button::after {
           content: '';
@@ -693,13 +796,11 @@ function HeadContent() {
           transform: translateX(-50%);
           transition: width .28s ease;
         }
-
         .desktop-nav > a:hover::after,
         .nav-dropdown:hover > .nav-link-button::after,
         .nav-dropdown:focus-within > .nav-link-button::after {
           width: 100%;
         }
-
         .nav-link-button {
           border: none;
           background: transparent;
@@ -708,15 +809,12 @@ function HeadContent() {
           font-size: 14px;
           cursor: pointer;
         }
-
         .nav-link-button:hover { color: #6d4c32; }
-
         .nav-dropdown {
           position: relative;
           display: inline-flex;
           align-items: center;
         }
-
         .dropdown-menu {
           position: absolute;
           top: 100%;
@@ -731,31 +829,26 @@ function HeadContent() {
           border: 1px solid rgba(99, 75, 52, .14);
           box-shadow: 0 18px 42px rgba(77, 55, 35, .14);
         }
-
         .dropdown-menu a {
           display: block;
           padding: 12px 16px;
           font-size: 14px;
           white-space: nowrap;
         }
-
         .dropdown-menu a:hover {
           background: #f3ebdf;
           color: #6d4c32;
         }
-
         .nav-dropdown:hover .dropdown-menu,
         .nav-dropdown:focus-within .dropdown-menu {
           display: flex;
         }
-
         .social-icons {
           display: inline-flex;
           align-items: center;
           gap: 10px;
           margin-left: -12px;
         }
-
         .social-icon {
           position: relative;
           width: 38px;
@@ -768,19 +861,16 @@ function HeadContent() {
           color: #3d2f24;
           transition: transform .2s ease, background .2s ease, color .2s ease;
         }
-
         .social-icon svg {
           width: 18px;
           height: 18px;
           fill: currentColor;
         }
-
         .social-icon:hover {
           transform: translateY(-2px);
           background: #6d4c32;
           color: #fff9f1;
         }
-
         .social-icon::after {
           content: attr(data-tooltip);
           position: absolute;
@@ -798,12 +888,10 @@ function HeadContent() {
           box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
           transition: opacity .2s ease, transform .2s ease;
         }
-
         .social-icon:hover::after {
           opacity: 1;
           transform: translateX(-50%) translateY(0);
         }
-
         .nav-button, .primary-button, .secondary-button {
           display: inline-flex;
           justify-content: center;
@@ -814,27 +902,12 @@ function HeadContent() {
           font-weight: 700;
           transition: transform .2s ease, box-shadow .2s ease;
         }
-
-        .nav-button, .primary-button {
-          background: #6d4c32;
-          color: #fff9f1;
-          box-shadow: 0 12px 24px rgba(73, 48, 30, .18);
-        }
-
+        .nav-button, .primary-button { background: #6d4c32; color: #fff9f1; box-shadow: 0 12px 24px rgba(73, 48, 30, .18); }
         .nav-button { border-radius: 0; }
-
-        .secondary-button {
-          border: 1px solid #c8b59f;
-          color: #4c3a2b;
-          margin-top: 12px;
-        }
-
-        .primary-button:hover, .nav-button:hover, .secondary-button:hover {
-          transform: translateY(-2px);
-        }
+        .secondary-button { border: 1px solid #c8b59f; color: #4c3a2b; margin-top: 12px; }
+        .primary-button:hover, .nav-button:hover, .secondary-button:hover { transform: translateY(-2px); }
 
         .hero { padding: 8px 5vw 0; }
-
         .hero-carousel {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -842,19 +915,29 @@ function HeadContent() {
           max-width: 1420px;
           margin: 0 auto;
         }
-
-        .image-card {
-          border-radius: 24px;
-          overflow: hidden;
-          background: #ded3c5;
-          position: relative;
-        }
-
+        .image-card { border-radius: 24px; overflow: hidden; background: #ded3c5; position: relative; }
         .carousel-photo {
           height: 270px;
           border-radius: 0;
         }
-
+        .hero-overlay {
+          position: absolute;
+          inset: auto 0 0;
+          padding: 42px;
+          background: linear-gradient(transparent, rgba(0,0,0,.68));
+          color: white;
+          z-index: 2;
+          pointer-events: none;
+        }
+        .hero-overlay h1 {
+          max-width: 760px;
+          margin: 8px 0 12px;
+          font-family: Georgia, 'Times New Roman', serif;
+          font-size: clamp(30px, 3.7vw, 52px);
+          line-height: .95;
+          letter-spacing: -1.5px;
+        }
+        .hero-overlay p:last-child { max-width: 620px; font-size: 17px; line-height: 1.55; }
         .carousel-arrow {
           position: absolute;
           right: 22px;
@@ -874,17 +957,10 @@ function HeadContent() {
           z-index: 10;
           pointer-events: auto;
         }
-
         .carousel-arrow-left {
           left: 22px;
           right: auto;
         }
-
-        .carousel-arrow:hover {
-          transform: translateY(-50%) scale(1.06);
-          background: rgba(255, 249, 241, .55);
-        }
-
         .more-photos-button {
           position: absolute;
           left: 22px;
@@ -903,12 +979,10 @@ function HeadContent() {
           box-shadow: 0 12px 28px rgba(0, 0, 0, .18);
           transition: transform .2s ease, background .2s ease;
         }
-
         .more-photos-button:hover {
           transform: translateY(-2px);
           background: #fff9f1;
         }
-
         .camera-icon {
           width: 14px;
           height: 14px;
@@ -916,12 +990,9 @@ function HeadContent() {
           display: inline-block;
           opacity: .50;
         }
+        .carousel-arrow:hover { transform: translateY(-50%) scale(1.06); background: rgba(255, 249, 241, .55); }
 
-        .page-shell {
-          width: min(1180px, 90vw);
-          margin: 0 auto;
-        }
-
+        .page-shell { width: min(1180px, 90vw); margin: 0 auto; }
         .intro-layout {
           display: grid;
           grid-template-columns: 1fr 350px;
@@ -929,9 +1000,7 @@ function HeadContent() {
           padding: 32px 0 58px;
           align-items: start;
         }
-
         .breadcrumb, .location { color: #7b6c5c; }
-
         h2 {
           font-family: Georgia, 'Times New Roman', serif;
           font-size: clamp(32px, 4vw, 52px);
@@ -939,10 +1008,8 @@ function HeadContent() {
           margin: 10px 0 12px;
           color: #30261d;
         }
-
         h3 { color: #33281f; }
         p { line-height: 1.7; }
-
         .eyebrow {
           margin: 0;
           text-transform: uppercase;
@@ -951,27 +1018,21 @@ function HeadContent() {
           font-weight: 800;
           color: #8a6040;
         }
-
-        .lead {
-          font-size: 18px;
-          color: #4d433a;
-        }
-
+        .small { font-size: 10px; }
+        .lead { font-size: 18px; color: #4d433a; }
         .directions-heading-wrap,
         .description-heading-wrap,
         .amenities-heading-wrap {
           scroll-margin-top: 120px;
           margin: 30px 0 8px;
         }
-
         .description-heading-wrap {
           margin-top: 28px;
           margin-bottom: 8px;
         }
-
+        .amenities-heading-wrap h2,
         .directions-heading-wrap h2,
-        .description-heading-wrap h2,
-        .amenities-heading-wrap h2 {
+        .description-heading-wrap h2 {
           margin: 0;
           display: flex;
           align-items: center;
@@ -985,7 +1046,6 @@ function HeadContent() {
           line-height: 1;
           color: #2f2a24;
         }
-
         .directions-heading-wrap h2::after,
         .description-heading-wrap h2::after,
         .amenities-heading-wrap h2::after {
@@ -995,7 +1055,6 @@ function HeadContent() {
           background: rgba(48, 38, 29, 0.35);
           transform: translateY(1px);
         }
-
         .property-map {
           width: 100%;
           height: 340px;
@@ -1005,82 +1064,48 @@ function HeadContent() {
           box-shadow: 0 18px 42px rgba(77, 55, 35, .08);
           background: #ded3c5;
         }
-
         .property-map iframe {
           width: 100%;
           height: 100%;
           border: 0;
           display: block;
         }
-
         .stats-row {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 12px;
           margin: 28px 0;
         }
-
         .stats-row div, .booking-card, .review-card, .details-card, .feature-card {
           background: #fffdf8;
           border: 1px solid rgba(99, 75, 52, .12);
           border-radius: 24px;
           box-shadow: 0 18px 42px rgba(77, 55, 35, .08);
         }
-
         .stats-row div { padding: 22px; }
-
-        .stats-row strong {
-          display: block;
-          font-size: 30px;
-          color: #6d4c32;
-        }
-
-        .stats-row span {
-          color: #7b6c5c;
-          font-size: 14px;
-        }
-
+        .stats-row strong { display: block; font-size: 30px; color: #6d4c32; }
+        .stats-row span { color: #7b6c5c; font-size: 14px; }
         .highlights {
           display: grid;
           grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: 8px 20px;
           margin-top: 24px;
         }
-
-        .highlights p {
-          margin: 0;
-          color: #46382c;
-        }
+        .highlights p { margin: 0; color: #46382c; }
 
         .booking-card {
           position: sticky;
           top: 96px;
           padding: 28px;
         }
-
-        .booking-card h3 {
-          font-size: 28px;
-          margin: 8px 0;
-        }
-
-        .booking-card .primary-button,
-        .booking-card .secondary-button {
-          width: 100%;
-        }
-
-        .trust-note {
-          margin-top: 18px;
-          padding-top: 18px;
-          border-top: 1px solid #eee2d5;
-          color: #7b6c5c;
-          font-size: 14px;
-        }
+        .booking-card h3 { font-size: 28px; margin: 8px 0; }
+        .booking-card .primary-button, .booking-card .secondary-button { width: 100%; }
+        .trust-note { margin-top: 18px; padding-top: 18px; border-top: 1px solid #eee2d5; color: #7b6c5c; font-size: 14px; }
 
         .complete-description-link-wrap {
           margin-top: -16px;
           margin-bottom: 36px;
         }
-
         .complete-description-button {
           display: inline-flex;
           align-items: center;
@@ -1096,27 +1121,12 @@ function HeadContent() {
           box-shadow: 0 12px 24px rgba(73, 48, 30, .18);
           transition: transform .2s ease, box-shadow .2s ease;
         }
-
         .complete-description-button:hover {
           transform: translateY(-2px);
           box-shadow: 0 16px 30px rgba(73, 48, 30, .22);
         }
-
-        .section-heading {
-          max-width: 760px;
-          margin-bottom: 28px;
-        }
-
-        .amenities-heading-wrap {
-          max-width: 100%;
-        }
-
-        .centered {
-          text-align: center;
-          margin-left: auto;
-          margin-right: auto;
-        }
-
+        .section-heading { max-width: 760px; margin-bottom: 28px; }
+        .centered { text-align: center; margin-left: auto; margin-right: auto; }
         .amenity-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -1126,7 +1136,6 @@ function HeadContent() {
         .show-all-amenities-wrap {
           margin-top: 24px;
         }
-
         .amenity {
           display: flex;
           align-items: center;
@@ -1136,7 +1145,6 @@ function HeadContent() {
           background: #fffdf8;
           border: 1px solid rgba(99, 75, 52, .1);
         }
-
         .amenity span {
           width: 28px;
           height: 28px;
@@ -1147,11 +1155,7 @@ function HeadContent() {
           color: #6d4c32;
           font-weight: 900;
         }
-
-        .amenity p {
-          margin: 0;
-          font-weight: 650;
-        }
+        .amenity p { margin: 0; font-weight: 650; }
 
         .wide-feature {
           margin: 72px 0;
@@ -1159,57 +1163,17 @@ function HeadContent() {
           background: #33291f;
           color: #fff9f1;
         }
+        .wide-feature h2, .wide-feature h3 { color: #fff9f1; }
+        .wide-feature p { color: #eadfce; }
+        .feature-layout { display: grid; grid-template-columns: 1fr 380px; gap: 54px; align-items: center; }
+        .feature-card { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.16); padding: 28px; box-shadow: none; }
+        .feature-card li { margin-bottom: 12px; line-height: 1.5; }
 
-        .wide-feature h2,
-        .wide-feature h3 {
-          color: #fff9f1;
-        }
-
-        .wide-feature p {
-          color: #eadfce;
-        }
-
-        .feature-layout {
-          display: grid;
-          grid-template-columns: 1fr 380px;
-          gap: 54px;
-          align-items: center;
-        }
-
-        .feature-card {
-          background: rgba(255,255,255,.08);
-          border-color: rgba(255,255,255,.16);
-          padding: 28px;
-          box-shadow: none;
-        }
-
-        .feature-card li {
-          margin-bottom: 12px;
-          line-height: 1.5;
-        }
-
-        .review-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 20px;
-        }
-
+        .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         .review-card { padding: 28px; }
-
-        .stars {
-          color: #b37a3f;
-          letter-spacing: 2px;
-        }
-
-        .review-card h3 {
-          font-size: 22px;
-          margin-bottom: 6px;
-        }
-
-        .review-card span {
-          color: #7b6c5c;
-          font-weight: 700;
-        }
+        .stars { color: #b37a3f; letter-spacing: 2px; }
+        .review-card h3 { font-size: 22px; margin-bottom: 6px; }
+        .review-card span { color: #7b6c5c; font-weight: 700; }
 
         .details-layout {
           display: grid;
@@ -1217,15 +1181,8 @@ function HeadContent() {
           gap: 52px;
           padding: 78px 0;
         }
-
-        .details-card {
-          padding: 28px;
-          align-self: start;
-        }
-
-        .details-card p {
-          margin: 0 0 14px;
-        }
+        .details-card { padding: 28px; align-self: start; }
+        .details-card p { margin: 0 0 14px; }
 
         .final-cta {
           padding: 88px 0;
@@ -1233,18 +1190,8 @@ function HeadContent() {
           color: white;
           text-align: center;
         }
-
-        .final-cta h2 {
-          color: white;
-          max-width: 780px;
-          margin-left: auto;
-          margin-right: auto;
-        }
-
-        .light {
-          background: #fff9f1;
-          color: #3d2f24;
-        }
+        .final-cta h2 { color: white; max-width: 780px; margin-left: auto; margin-right: auto; }
+        .light { background: #fff9f1; color: #3d2f24; }
 
         .description-modal {
           position: fixed;
@@ -1256,7 +1203,6 @@ function HeadContent() {
           box-shadow: 0 24px 80px rgba(37, 29, 22, .28);
           padding: 90px 5vw 60px;
         }
-
         .description-close-button {
           position: fixed;
           top: 4vh;
@@ -1272,13 +1218,11 @@ function HeadContent() {
           cursor: pointer;
           box-shadow: 0 12px 28px rgba(77, 55, 35, .12);
         }
-
         .description-modal-content {
           max-width: 1120px;
           margin: 0 auto;
           clear: both;
         }
-
         .description-row {
           display: grid;
           grid-template-columns: 300px 1fr;
@@ -1287,16 +1231,10 @@ function HeadContent() {
           padding-bottom: 42px;
           border-bottom: 1px solid rgba(99, 75, 52, .14);
         }
-
-        .description-row + .description-row {
-          padding-top: 42px;
-        }
-
         .description-row h2 {
           margin-top: 0;
           font-size: clamp(28px, 3vw, 42px);
         }
-
         .description-row p,
         .description-text p {
           margin-top: 0;
@@ -1304,11 +1242,94 @@ function HeadContent() {
           line-height: 1.8;
           color: #4d433a;
         }
-
         .description-text h3 {
           margin: 26px 0 10px;
           font-size: 22px;
           color: #33281f;
+        }
+        .description-row + .description-row {
+          padding-top: 42px;
+        }
+
+        .amenities-modal {
+          position: fixed;
+          inset: 4vh 4vw;
+          z-index: 998;
+          overflow-y: auto;
+          background: #fbf8f2;
+          border: 1px solid rgba(99, 75, 52, .16);
+          box-shadow: 0 24px 80px rgba(37, 29, 22, .28);
+          padding: 86px 5vw 60px;
+        }
+        .amenities-close-button {
+          position: fixed;
+          top: 4vh;
+          right: 4vw;
+          z-index: 1000;
+          width: 48px;
+          height: 48px;
+          border: 1px solid rgba(99, 75, 52, .18);
+          background: #fffdf8;
+          color: #3d2f24;
+          font-size: 34px;
+          line-height: 1;
+          cursor: pointer;
+          box-shadow: 0 12px 28px rgba(77, 55, 35, .12);
+        }
+        .amenities-modal-content {
+          max-width: 1180px;
+          margin: 0 auto;
+        }
+        .amenities-modal-heading {
+          max-width: 720px;
+          margin-bottom: 30px;
+        }
+        .amenities-modal-heading h2 {
+          margin: 8px 0 10px;
+        }
+        .amenities-modal-heading p:last-child {
+          margin: 0;
+          font-size: 18px;
+          color: #4d433a;
+        }
+        .amenities-modal-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 18px;
+        }
+        .amenity-category-card {
+          background: #fffdf8;
+          border: 1px solid rgba(99, 75, 52, .12);
+          box-shadow: 0 18px 42px rgba(77, 55, 35, .08);
+          padding: 24px;
+        }
+        .amenity-category-card h3 {
+          margin: 0 0 14px;
+          font-family: Georgia, 'Times New Roman', serif;
+          font-size: 25px;
+          color: #30261d;
+        }
+        .amenity-category-card ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          columns: 2;
+          column-gap: 26px;
+        }
+        .amenity-category-card li {
+          break-inside: avoid;
+          position: relative;
+          padding-left: 18px;
+          margin-bottom: 10px;
+          line-height: 1.45;
+          color: #4d433a;
+        }
+        .amenity-category-card li::before {
+          content: '✓';
+          position: absolute;
+          left: 0;
+          color: #8a6040;
+          font-weight: 900;
         }
 
         .photo-gallery-modal {
@@ -1319,7 +1340,6 @@ function HeadContent() {
           background: #fbf8f2;
           padding: 76px 32px 32px;
         }
-
         .gallery-close-button {
           position: fixed;
           top: 18px;
@@ -1334,7 +1354,6 @@ function HeadContent() {
           cursor: pointer;
           box-shadow: 0 12px 28px rgba(77, 55, 35, .12);
         }
-
         .gallery-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -1342,7 +1361,6 @@ function HeadContent() {
           max-width: 1500px;
           margin: 0 auto;
         }
-
         .gallery-photo {
           aspect-ratio: 4 / 3;
           background: #ded3c5;
@@ -1352,90 +1370,44 @@ function HeadContent() {
         @media (max-width: 900px) {
           .desktop-nav { display: none; }
           .hero-carousel { grid-template-columns: 1fr; }
-
           .carousel-photo {
             height: 210px;
             border-radius: 0;
           }
-
-          .carousel-photo:nth-child(2),
-          .carousel-photo:nth-child(3) {
-            display: none;
-          }
-
-          .carousel-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            right: 18px;
-          }
-
-          .intro-layout,
-          .feature-layout,
-          .details-layout {
-            grid-template-columns: 1fr;
-          }
-
+          .carousel-photo:nth-child(2), .carousel-photo:nth-child(3) { display: none; }
+          .carousel-arrow { display: flex; align-items: center; justify-content: center; right: 18px; }
+          .intro-layout, .feature-layout, .details-layout { grid-template-columns: 1fr; }
           .booking-card { position: static; }
           .amenity-grid { grid-template-columns: repeat(2, 1fr); }
           .review-grid { grid-template-columns: 1fr; }
           .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-
-          .description-row {
-            grid-template-columns: 1fr;
-            gap: 18px;
-          }
-
+          .description-row { grid-template-columns: 1fr; gap: 18px; }
           .stats-row { grid-template-columns: repeat(2, 1fr); }
           .highlights { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 560px) {
           .site-header { padding: 2px 20px; }
-
-          .site-header-compact {
-            padding-top: 0;
-            padding-bottom: 0;
-          }
-
+          .site-header-compact { padding-top: 0; padding-bottom: 0; }
           .hero { padding: 6px 16px 0; }
-
-          .property-wordmark {
-            width: 90vw;
-          }
-
           .carousel-photo {
             height: 260px;
             border-radius: 0;
           }
-
-          .page-shell {
-            width: min(100% - 32px, 1180px);
-          }
-
-          .amenity-grid,
-          .stats-row {
-            grid-template-columns: 1fr;
-          }
-
-          .photo-gallery-modal {
-            padding: 72px 16px 24px;
-          }
-
-          .gallery-grid {
-            grid-template-columns: 1fr;
-            gap: 10px;
-          }
-
-          .description-modal {
-            inset: 3vh 3vw;
-            padding: 82px 24px 42px;
-          }
-
-          .description-close-button {
+          .hero-overlay { padding: 28px; }
+          .page-shell { width: min(100% - 32px, 1180px); }
+          .photo-gallery-modal { padding: 72px 16px 24px; }
+          .gallery-grid { grid-template-columns: 1fr; gap: 10px; }
+          .description-modal,
+          .amenities-modal { inset: 3vh 3vw; padding: 82px 24px 42px; }
+          .amenities-modal-grid { grid-template-columns: 1fr; }
+          .amenity-category-card ul { columns: 1; }
+          .description-close-button,
+          .amenities-close-button {
             top: 3vh;
             right: 3vw;
           }
+          .amenity-grid, .stats-row { grid-template-columns: 1fr; }
         }
       `}</style>
     </>
