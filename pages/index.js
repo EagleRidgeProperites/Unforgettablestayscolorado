@@ -345,7 +345,7 @@ function HeadContent() {
           width: 54px;
           height: 54px;
           border: none;
-          border-radius: 50%;
+          border-radius: 0;
           background: rgba(255, 249, 241, .30);
           color: #3d2f24;
           font-size: 30px;
