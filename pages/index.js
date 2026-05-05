@@ -467,7 +467,7 @@ function HeadContent() {
           align-items: center;
           gap: 8px;
           border: none;
-          background: rgba(255, 249, 241, .86);
+          background: rgba(255, 249, 241, .50);
           color: #3d2f24;
           padding: 12px 18px;
           font-size: 14px;
@@ -485,6 +485,7 @@ function HeadContent() {
           height: 14px;
           object-fit: contain;
           display: inline-block;
+          opacity: .50;
         }
         .carousel-arrow:hover { transform: translateY(-50%) scale(1.06); background: rgba(255, 249, 241, .55); }
 
