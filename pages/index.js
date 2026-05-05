@@ -591,7 +591,7 @@ function HeadContent() {
           justify-content: center;
           align-items: center;
           max-width: 1420px;
-          margin: 0 auto 18px;
+          margin: -10px auto 4px;
         }
         .property-wordmark {
           width: 440px;
@@ -730,7 +730,7 @@ function HeadContent() {
         .secondary-button { border: 1px solid #c8b59f; color: #4c3a2b; margin-top: 12px; }
         .primary-button:hover, .nav-button:hover, .secondary-button:hover { transform: translateY(-2px); }
 
-        .hero { padding: 28px 5vw 0; }
+        .hero { padding: 8px 5vw 0; }
         .hero-carousel {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -1092,7 +1092,7 @@ function HeadContent() {
         @media (max-width: 560px) {
           .site-header { padding: 2px 20px; }
           .site-header-compact { padding-top: 0; padding-bottom: 0; }
-          .hero { padding: 16px 16px 0; }
+          .hero { padding: 6px 16px 0; }
           .carousel-photo {
             height: 260px;
             border-radius: 0;
