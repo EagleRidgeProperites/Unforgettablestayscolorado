@@ -865,22 +865,22 @@ function HeadContent() {
         .lead { font-size: 18px; color: #4d433a; }
         .directions-heading-wrap {
           scroll-margin-top: 120px;
-          margin: 30px 0 12px;
+          margin: 30px 0 0;
         }
         .directions-heading-wrap h2 {
           margin: 0;
           font-family: 'La Luxes Serif', Georgia, 'Times New Roman', serif;
           text-transform: none;
           letter-spacing: 1.2px;
-          font-size: 34px;
-          font-weight: normal;
-          line-height: 1.1;
+          font-size: 17px;
+          font-weight: 700;
+          line-height: 1;
           color: #30261d;
         }
         .property-map {
           width: 100%;
           height: 340px;
-          margin: 28px 0 26px;
+          margin: 0 0 26px;
           overflow: hidden;
           border: 1px solid rgba(99, 75, 52, .14);
           box-shadow: 0 18px 42px rgba(77, 55, 35, .08);
