@@ -553,6 +553,14 @@ function HeadContent() {
       <style jsx global>{`
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
+        @font-face {
+          font-family: 'La Luxes Serif';
+          src: url('/fonts/La-Luxes-Serif.woff2') format('woff2');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+        }
+
         body {
           margin: 0;
           font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -861,13 +869,13 @@ function HeadContent() {
         }
         .directions-heading-wrap h2 {
           margin: 0;
-          font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-          text-transform: uppercase;
-          letter-spacing: 2.2px;
-          font-size: 12px;
-          font-weight: 800;
-          line-height: 1.4;
-          color: #8a6040;
+          font-family: 'La Luxes Serif', Georgia, 'Times New Roman', serif;
+          text-transform: none;
+          letter-spacing: 1.2px;
+          font-size: 34px;
+          font-weight: normal;
+          line-height: 1.1;
+          color: #30261d;
         }
         .property-map {
           width: 100%;
