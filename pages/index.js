@@ -135,6 +135,7 @@ export default function Home() {
             src="/images/Elevated-Stays-Colorado-Logo.png"
             alt="Elevated Stays Colorado logo"
           />
+          <div className="property-name-under-logo">The Living Room</div>
         </div>
         <nav className="desktop-nav">
           <a href="#properties">Properties</a>
@@ -542,12 +543,28 @@ function HeadContent() {
           backdrop-filter: blur(14px);
           border-bottom: 1px solid rgba(91, 70, 48, 0.12);
         }
-        .brand-wrap { display: flex; align-items: center; gap: 12px; }
+        .brand-wrap {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0;
+        }
         .brand-logo {
           width: 220px;
           height: 76px;
           object-fit: contain;
           display: block;
+        }
+        .property-name-under-logo {
+          width: 220px;
+          margin-top: -8px;
+          text-align: center;
+          font-family: Georgia, 'Times New Roman', serif;
+          font-size: 24px;
+          font-weight: 700;
+          letter-spacing: 1.8px;
+          color: #3d2f24;
+          line-height: 1;
         }
         .brand-wrap strong { font-size: 18px; }
         .desktop-nav { display: flex; align-items: center; gap: 26px; font-size: 14px; }
