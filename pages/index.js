@@ -315,7 +315,10 @@ function HeadContent() {
           margin: 0 auto;
         }
         .image-card { border-radius: 24px; overflow: hidden; background: #ded3c5; position: relative; }
-        .carousel-photo { height: 270px; }
+        .carousel-photo {
+          height: 270px;
+          border-radius: 0;
+        }
         .hero-overlay {
           position: absolute;
           inset: auto 0 0;
@@ -486,7 +489,10 @@ function HeadContent() {
         @media (max-width: 900px) {
           .desktop-nav { display: none; }
           .hero-carousel { grid-template-columns: 1fr; }
-          .carousel-photo { height: 210px; }
+          .carousel-photo {
+            height: 210px;
+            border-radius: 0;
+          }
           .carousel-photo:nth-child(2), .carousel-photo:nth-child(3) { display: none; }
           .carousel-arrow { display: flex; align-items: center; justify-content: center; right: 18px; }
           .intro-layout, .feature-layout, .details-layout { grid-template-columns: 1fr; }
@@ -500,7 +506,10 @@ function HeadContent() {
         @media (max-width: 560px) {
           .site-header { padding: 6px 20px; }
           .hero { padding: 16px 16px 0; }
-          .carousel-photo { height: 260px; }
+          .carousel-photo {
+            height: 260px;
+            border-radius: 0;
+          }
           .hero-overlay { padding: 28px; }
           .page-shell { width: min(100% - 32px, 1180px); }
           .amenity-grid, .stats-row { grid-template-columns: 1fr; }
