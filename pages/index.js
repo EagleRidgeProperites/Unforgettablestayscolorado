@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
     'Radiant Heated Floors',
     'Grand Fireplace',
     '86” Smart TV',
-    'Fast Wi‑Fi',
+    'Fast Wi-Fi',
     'Towel Warmers',
     'Private Patio',
     'Luxury King Bedroom',
@@ -44,11 +45,6 @@ export default function Home() {
     '/images/living-room-view.png',
     '/images/living-room-bathroom.png'
   ];
-
-  const [photoStartIndex, setPhotoStartIndex] = useState(0);
-  const [showPhotoGallery, setShowPhotoGallery] = useState(false);
-  const [showCompleteDescription, setShowCompleteDescription] = useState(false);
-  const [isHeaderCompact, setIsHeaderCompact] = useState(false);
 
   const galleryPhotos = [
     '/images/living-room-gallery/1_Photo_Gallery.png',
@@ -104,6 +100,11 @@ export default function Home() {
     '/images/living-room-gallery/51_Photo_Gallery.png'
   ];
 
+  const [photoStartIndex, setPhotoStartIndex] = useState(0);
+  const [showPhotoGallery, setShowPhotoGallery] = useState(false);
+  const [showCompleteDescription, setShowCompleteDescription] = useState(false);
+  const [isHeaderCompact, setIsHeaderCompact] = useState(false);
+
   const visiblePhotos = [0, 1, 2].map((offset) => {
     const photoIndex = (photoStartIndex + offset) % photos.length;
     return photos[photoIndex];
@@ -147,10 +148,11 @@ export default function Home() {
             src="/images/Elevated-Stays-Colorado-Logo.png"
             alt="Elevated Stays Colorado logo"
           />
-          <div className="property-name-under-logo">The Living Room</div>
         </div>
+
         <nav className="desktop-nav">
           <a href="#properties">Properties</a>
+
           <div className="nav-dropdown">
             <button className="nav-link-button" type="button">Shop Your Stay</button>
             <div className="dropdown-menu">
@@ -158,17 +160,35 @@ export default function Home() {
               <a href="#shop-your-stay-living-room">Shop Your Stay: The Living Room</a>
             </div>
           </div>
+
           <a href="#amenities">Amenities</a>
           <a href="#reviews">Reviews</a>
           <a href="#details">Details</a>
+
           <a href="https://www.airbnb.com/h/the-living-room" className="nav-button">Book Now</a>
+
           <div className="social-icons">
-            <a href="#facebook" aria-label="Visit us on Facebook" className="social-icon" target="_blank" rel="noopener noreferrer" data-tooltip="Facebook">
+            <a
+              href="#facebook"
+              aria-label="Visit us on Facebook"
+              className="social-icon"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-tooltip="Facebook"
+            >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M14 8.5h2V5.3c-.35-.05-1.55-.15-2.95-.15-2.92 0-4.92 1.78-4.92 5.05v2.8H5v3.6h3.13V24h3.84v-7.4h3.01l.48-3.6h-3.49v-2.44c0-1.04.29-1.76 2.03-1.76Z" />
               </svg>
             </a>
-            <a href="#instagram" aria-label="Visit us on Instagram" className="social-icon" target="_blank" rel="noopener noreferrer" data-tooltip="Instagram">
+
+            <a
+              href="#instagram"
+              aria-label="Visit us on Instagram"
+              className="social-icon"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-tooltip="Instagram"
+            >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5Zm4.25 3.3A4.7 4.7 0 1 1 7.3 12 4.71 4.71 0 0 1 12 7.3Zm0 2A2.7 2.7 0 1 0 14.7 12 2.7 2.7 0 0 0 12 9.3Zm5.05-2.55a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1Z" />
               </svg>
@@ -179,6 +199,14 @@ export default function Home() {
 
       <main>
         <section className="hero" id="photos">
+          <div className="property-wordmark-wrap">
+            <img
+              className="property-wordmark"
+              src="/images/The_Living_Room_Wording_Chat_Colored.png"
+              alt="The Living Room"
+            />
+          </div>
+
           <div className="hero-carousel" aria-label="The Living Room photo carousel">
             {visiblePhotos.map((photo, index) => (
               <div className="carousel-photo image-card" key={`${photo}-${index}`}>
@@ -194,6 +222,7 @@ export default function Home() {
                     >
                       ←
                     </button>
+
                     <button
                       className="more-photos-button"
                       onClick={() => setShowPhotoGallery(true)}
@@ -207,7 +236,6 @@ export default function Home() {
                       />
                       More Photos
                     </button>
-
                   </>
                 )}
 
@@ -257,7 +285,7 @@ export default function Home() {
               <p>☀ Private hot tub filled with fresh water for every guest</p>
               <p>☀ Private sauna for a relaxing spa experience</p>
               <p>☀ Grand fireplace, heated floors, and towel warmers</p>
-              <p>☀ 86” smart TV, fast Wi‑Fi, and a peaceful work-friendly setting</p>
+              <p>☀ 86” smart TV, fast Wi-Fi, and a peaceful work-friendly setting</p>
               <p>☀ Private walking trails and a quiet mountain atmosphere</p>
             </div>
           </div>
@@ -287,6 +315,7 @@ export default function Home() {
             <p className="eyebrow">Features & Amenities</p>
             <h2>Everything you need for a restorative mountain escape</h2>
           </div>
+
           <div className="amenity-grid">
             {amenities.map((item) => (
               <div className="amenity" key={item}>
@@ -306,6 +335,7 @@ export default function Home() {
                 The Living Room is more than a place to sleep — it is an experience. Soak under the stars, warm up in the sauna, relax by the fireplace, and enjoy a quiet setting that feels private, peaceful, and elevated.
               </p>
             </div>
+
             <div className="feature-card">
               <h3>Guest Favorites</h3>
               <ul>
@@ -323,6 +353,7 @@ export default function Home() {
             <p className="eyebrow">What Guests Are Saying</p>
             <h2>Warm reviews from peaceful stays</h2>
           </div>
+
           <div className="review-grid">
             {reviews.map((review) => (
               <article className="review-card" key={review.title}>
@@ -345,7 +376,7 @@ export default function Home() {
 
             <h3>Living Space</h3>
             <p>
-              The spacious living area features a grand fireplace, comfortable seating, an 86” smart TV, fast Wi‑Fi, and a refined atmosphere that feels both luxurious and comfortable.
+              The spacious living area features a grand fireplace, comfortable seating, an 86” smart TV, fast Wi-Fi, and a refined atmosphere that feels both luxurious and comfortable.
             </p>
 
             <h3>Outdoor Spa Area</h3>
@@ -395,51 +426,28 @@ export default function Home() {
               <h2>What you will experience</h2>
               <div className="description-text">
                 <p>Escape to the mountains of Colorado in this beautiful home. Inside you'll find a perfect blend of modern and rustic design with radiant floor heating, a grand feature fireplace, and 31 windows that flood the space with natural light.</p>
-
                 <p>The large leather sectional with 4 built in motorized recliners and adjustable head rests allows you to enjoy relaxing moments by the fireplace. The spacious main room boasts an 86&quot; smart TV and lightning-fast Wi-Fi with speeds up to 400 Mbps, creating the perfect spot for movie nights or remote work sessions.</p>
-
                 <p>The smart TV provides access to 100's of internet TV channels and apps like YouTube, with the option to add your own account credentials for account-based apps like Netflix. Alternatively, you can simply screen share from your laptop or phone.</p>
-
                 <p>Experience the powerful surround sound system for watching movies, sports or playing music from your mobile phone.</p>
-
                 <p>Sleep soundly in the loft bedroom with a luxurious adjustable base king-size bed with infinite ergonomic positions. Rest your head on premium hotel grade pillows: your choice of goose down feather pillows or non-feather pillows. With a 55&quot; Roku smart TV and IOS Airplay and Android screen sharing capabilities, you can relax and unwind with your favorite shows or movies.</p>
-
                 <p>Step out of the king size bed and continue living like a king or queen by slipping on a plush spa bath robe and slippers.</p>
-
                 <p>For your comfort, protection and as a sign of outstanding cleanliness, all beds are prepared with quality linens, clean ironed sheets, down duvets, freshly laundered duvet covers and bedspreads, mattress protectors and pillow protectors.</p>
-
                 <p>Need more sleeping space? On the main floor you will find the queen-size sofa bed by American Leather, which is the best on the market, with a thick, plush, high-density foam Premier mattress for ultimate comfort. The sofa bed mattress sits on a platform, eliminating the traditional sofa bed bars and springs. The bed can fold out and be ready in minutes.</p>
-
                 <p>The bathroom ... you'll say &quot;Wow&quot; every time you see it featuring its floating back-lit circular mirror and radiant heated floor. High quality soap, shampoo and conditioner are provided, as well as a hair dryer, make-up remover wipes, and a back-lit make-up mirror. And last but not least, a towel warming rack to add to the pampered spa experience.</p>
-
                 <p>The quartz counter-topped kitchen is fully equipped, including items such as a reverse osmosis water filter, insta-hot faucet, microwave oven, full sized fridge, Nespresso coffee maker with multiple pod flavors, regular coffee maker, Nutri Bullet blender combo, toaster, an extra-large air fryer/toaster oven which is large enough for a 15&quot; pizza and adequate for any normal cooking needs and a double burner hot plate. The kitchen is also fully outfitted with dishes, utensils, pots, and pans needed for preparing delicious meals. In addition, the BBQ grill with side burner is available year-round.</p>
-
                 <p>Step outside onto your private patio oasis and take in the stunning view of Pikes Peak, America’s most visited mountain. Enjoy the view while relaxing in one of six comfortable Adirondak chairs.</p>
-
                 <p>Fire up the natural gas barbecue grill or gather around the feature natural gas fire pit for a cozy evening under the stars. For your comfort, cushions are available while sitting on the patio chairs or at the fire pit. If the evening is cool while sitting at the fire pit, wrap yourself in the warm wool fireside blankets.</p>
-
                 <p>If you are planning on riding ATVs in the nearby National Forest, there is ample space and secure parking for your ATV trailer.</p>
-
                 <p>Step into the 6 person 80 jet hot tub and continue to soak up the views. The hot tub is drained and refilled with fresh, clean mountain water before each guest check-in. While sitting inside, out on the patio, or walking the private trail through the forest and meadows, enjoy observing wildlife in their natural habitat, including deer, owls, rabbits, and a variety of birds, with occasional elk sightings.</p>
-
                 <p>Get the full mountain spa experience with your own private custom-built western red cedar sauna.</p>
-
                 <p>Relax and sip coffee, tea, wine, or your favorite drink on the private patio outside or on the luxurious curved leather sofa inside and witness breathtaking views of double rainbows, radiant sunrises / sunsets, and lingering evening alpenglow.</p>
-
                 <p>Air conditioning is available. However, the many large windows provide refreshing ventilation on warm summer days. Evenings in the summer are rarely over 60F and daytime highs are usually mid 70's and rarely hit 80F. This is the perfect retreat from the summer heat.</p>
-
                 <p>Fall and winter are exceptional times at the Living Room with brilliant autumn colors and scenic winter snowscapes outside and a warm romantic atmosphere and huge cozy fireplace inside.</p>
-
                 <p>Enjoy Thanksgiving and Christmas decorations throughout November and December.</p>
-
                 <p>There is beautiful snowfall in the winter months. All roads to and on the property are well maintained and plowed to ensure easy passage with your two-wheel or four-wheel drive vehicle.</p>
-
                 <p>After you make your reservation, we will make available to you our tour guidebook. In the book there are over 50 attractions in the area, including restaurants, outdoor adventures, tourist stops, parks and driving tours. Most of these attractions are available all year round.</p>
-
                 <p>During ski season, you can enjoy an early breakfast at the Living Room, leave at 7:30 and be at the Breckenridge ski area when they open for a day of skiing.</p>
-
                 <p>This home is ideal for honeymoons, anniversaries, and birthday luxury getaways. While there are other homes on the property, and from the Living Room other acreages are in view, your home is completely private with its own patio, hot tub, sauna, and fire pit. It has its own private driveway, parking area, and entrance, ensuring your privacy throughout your stay. With access to private walking trails, for you and the other guests on the property, through the forest and meadows, you can immerse yourself in the natural beauty of Colorado without ever leaving the property.</p>
-
                 <p>Book your stay today and experience the ultimate mountain getaway!</p>
               </div>
             </div>
@@ -448,12 +456,9 @@ export default function Home() {
               <h2>Guest access</h2>
               <div className="description-text">
                 <p>The entire 1400 sq ft home and 1200 sq ft patio are for your private use and are not shared with anyone else. The trails and the forest on the property are shared with the owner and other guests. This place is ideal for celebrating special occasions like a honeymoon or anniversary.</p>
-
                 <p>For guests who book the same day they plan to arrive, please confirm the check-in time with the host as we may need up to 4 hours to clean and prepare for your arrival.</p>
-
                 <h3>Additional Guests</h3>
                 <p>Peace and security are important to us and to all other guests and residents who are on the property. Therefore, only registered guests are allowed on the property. Additional guests, during the daytime or overnight, are not allowed.</p>
-
                 <p>No parties or events are allowed.</p>
               </div>
             </div>
@@ -462,15 +467,10 @@ export default function Home() {
               <h2>Interaction with Guests</h2>
               <div className="description-text">
                 <p>With self-check in, you can make your stay totally private.</p>
-
                 <p>If there is snow in the forecast, we will leave a shovel and broom outside on the patio for your use. We will be plowing the driveway as needed.</p>
-
                 <p>If you need any assistance shoveling, please let us know.</p>
-
                 <p>Your privacy is of upmost importance to us. We will not enter your private space, inside or outside, unless requested by you. For example, we would only drop off fresh towels at the outside bench if requested.</p>
-
                 <p>We are available at any time if you have any questions.</p>
-
                 <p>Mark &amp; Renee</p>
               </div>
             </div>
@@ -479,21 +479,13 @@ export default function Home() {
               <h2>Other Details to Note</h2>
               <div className="description-text">
                 <p>At night, the city lights are far away, providing an ideal setting for stargazing. Book now for a unique Colorado adventure that you'll never forget!</p>
-
                 <p>The sofa bed is always ready. You simply need to pull it out if needed. The feather duvet and pillows are in the ottoman.</p>
-
                 <p>The property does have air conditioning, but it is rarely needed as the evenings are cool and there are many windows that can be opened for excellent ventilation during the day. There are also two powerful ceiling fans for additional comfort.</p>
-
                 <p>This property is close to 9,150 feet above sea level. Good hydration is effective for acclimatization.</p>
-
                 <p>Although this beautiful space is one of several homes on the Eagle Ridge property, it offers a completely private and peaceful retreat.</p>
-
                 <p>This property must remain allergy-free from any pets. Having a certified service dog requires prior approval along with a non-refundable pet deposit of $350 paid in advance. There are no exceptions to this requirement.</p>
-
                 <p>The property is located 35 minutes west of Colorado Springs and is close to many hiking trails, ATV trails, Mueller State Park, Florissant Fossil Beds National Monument, and the Colorado Wolf and Wildlife Center. The property is also 10 minutes away from Charis Bible College and just 12 minutes away is picturesque Woodland Park, with its many coffee shops, restaurants, and parks.</p>
-
                 <p>Planning to ski in Breckenridge? Save a fortune by staying here in luxury and enjoying a 1 hour 35-minute drive to the mountain.</p>
-
                 <p>We have a guidebook available to all guests with over 50 activities and scenic drives in the area.</p>
               </div>
             </div>
@@ -528,8 +520,14 @@ export default function Home() {
 function HeadContent() {
   return (
     <>
-      <title>The Living Room | Elevated Stays Colorado</title>
-      <meta name="description" content="The Living Room is a private luxury spa retreat in Divide, Colorado with a hot tub, sauna, mountain views, fireplace, and peaceful couples-focused experience." />
+      <Head>
+        <title>The Living Room | Elevated Stays Colorado</title>
+        <meta
+          name="description"
+          content="The Living Room is a private luxury spa retreat in Divide, Colorado with a hot tub, sauna, mountain views, fireplace, and peaceful couples-focused experience."
+        />
+      </Head>
+
       <style jsx global>{`
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -578,25 +576,14 @@ function HeadContent() {
           width: 190px;
           height: 46px;
         }
-        .property-name-under-logo {
-          width: 220px;
-          margin-top: -8px;
-          text-align: center;
-          font-family: Georgia, 'Times New Roman', serif;
-          font-size: 24px;
-          font-weight: 700;
-          letter-spacing: 1.8px;
-          color: #3d2f24;
-          line-height: 1;
-          transition: width .32s ease, font-size .32s ease, margin-top .32s ease;
-        }
-        .site-header-compact .property-name-under-logo {
-          width: 190px;
-          margin-top: -3px;
-          font-size: 18px;
-        }
         .brand-wrap strong { font-size: 18px; }
-        .desktop-nav { display: flex; align-items: center; gap: 26px; font-size: 14px; }
+
+        .desktop-nav {
+          display: flex;
+          align-items: center;
+          gap: 26px;
+          font-size: 14px;
+        }
         .desktop-nav > a,
         .nav-dropdown > .nav-link-button {
           position: relative;
@@ -628,6 +615,7 @@ function HeadContent() {
           cursor: pointer;
         }
         .nav-link-button:hover { color: #6d4c32; }
+
         .nav-dropdown {
           position: relative;
           display: inline-flex;
@@ -661,6 +649,7 @@ function HeadContent() {
         .nav-dropdown:focus-within .dropdown-menu {
           display: flex;
         }
+
         .social-icons {
           display: inline-flex;
           align-items: center;
@@ -710,6 +699,7 @@ function HeadContent() {
           opacity: 1;
           transform: translateX(-50%) translateY(0);
         }
+
         .nav-button, .primary-button, .secondary-button {
           display: inline-flex;
           justify-content: center;
@@ -720,12 +710,36 @@ function HeadContent() {
           font-weight: 700;
           transition: transform .2s ease, box-shadow .2s ease;
         }
-        .nav-button, .primary-button { background: #6d4c32; color: #fff9f1; box-shadow: 0 12px 24px rgba(73, 48, 30, .18); }
+        .nav-button, .primary-button {
+          background: #6d4c32;
+          color: #fff9f1;
+          box-shadow: 0 12px 24px rgba(73, 48, 30, .18);
+        }
         .nav-button { border-radius: 0; }
-        .secondary-button { border: 1px solid #c8b59f; color: #4c3a2b; margin-top: 12px; }
-        .primary-button:hover, .nav-button:hover, .secondary-button:hover { transform: translateY(-2px); }
+        .secondary-button {
+          border: 1px solid #c8b59f;
+          color: #4c3a2b;
+          margin-top: 12px;
+        }
+        .primary-button:hover, .nav-button:hover, .secondary-button:hover {
+          transform: translateY(-2px);
+        }
 
         .hero { padding: 28px 5vw 0; }
+        .property-wordmark-wrap {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          max-width: 1420px;
+          margin: 0 auto 18px;
+        }
+        .property-wordmark {
+          width: 440px;
+          max-width: 90vw;
+          height: auto;
+          display: block;
+          object-fit: contain;
+        }
         .hero-carousel {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -733,29 +747,16 @@ function HeadContent() {
           max-width: 1420px;
           margin: 0 auto;
         }
-        .image-card { border-radius: 24px; overflow: hidden; background: #ded3c5; position: relative; }
+        .image-card {
+          border-radius: 24px;
+          overflow: hidden;
+          background: #ded3c5;
+          position: relative;
+        }
         .carousel-photo {
           height: 270px;
           border-radius: 0;
         }
-        .hero-overlay {
-          position: absolute;
-          inset: auto 0 0;
-          padding: 42px;
-          background: linear-gradient(transparent, rgba(0,0,0,.68));
-          color: white;
-          z-index: 2;
-          pointer-events: none;
-        }
-        .hero-overlay h1 {
-          max-width: 760px;
-          margin: 8px 0 12px;
-          font-family: Georgia, 'Times New Roman', serif;
-          font-size: clamp(30px, 3.7vw, 52px);
-          line-height: .95;
-          letter-spacing: -1.5px;
-        }
-        .hero-overlay p:last-child { max-width: 620px; font-size: 17px; line-height: 1.55; }
         .carousel-arrow {
           position: absolute;
           right: 22px;
@@ -778,6 +779,10 @@ function HeadContent() {
         .carousel-arrow-left {
           left: 22px;
           right: auto;
+        }
+        .carousel-arrow:hover {
+          transform: translateY(-50%) scale(1.06);
+          background: rgba(255, 249, 241, .55);
         }
         .more-photos-button {
           position: absolute;
@@ -808,9 +813,11 @@ function HeadContent() {
           display: inline-block;
           opacity: .50;
         }
-        .carousel-arrow:hover { transform: translateY(-50%) scale(1.06); background: rgba(255, 249, 241, .55); }
 
-        .page-shell { width: min(1180px, 90vw); margin: 0 auto; }
+        .page-shell {
+          width: min(1180px, 90vw);
+          margin: 0 auto;
+        }
         .intro-layout {
           display: grid;
           grid-template-columns: 1fr 350px;
@@ -836,7 +843,6 @@ function HeadContent() {
           font-weight: 800;
           color: #8a6040;
         }
-        .small { font-size: 10px; }
         .lead { font-size: 18px; color: #4d433a; }
         .property-map {
           width: 100%;
@@ -853,6 +859,7 @@ function HeadContent() {
           border: 0;
           display: block;
         }
+
         .stats-row {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -866,24 +873,46 @@ function HeadContent() {
           box-shadow: 0 18px 42px rgba(77, 55, 35, .08);
         }
         .stats-row div { padding: 22px; }
-        .stats-row strong { display: block; font-size: 30px; color: #6d4c32; }
-        .stats-row span { color: #7b6c5c; font-size: 14px; }
+        .stats-row strong {
+          display: block;
+          font-size: 30px;
+          color: #6d4c32;
+        }
+        .stats-row span {
+          color: #7b6c5c;
+          font-size: 14px;
+        }
         .highlights {
           display: grid;
           grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: 8px 20px;
           margin-top: 24px;
         }
-        .highlights p { margin: 0; color: #46382c; }
+        .highlights p {
+          margin: 0;
+          color: #46382c;
+        }
 
         .booking-card {
           position: sticky;
           top: 96px;
           padding: 28px;
         }
-        .booking-card h3 { font-size: 28px; margin: 8px 0; }
-        .booking-card .primary-button, .booking-card .secondary-button { width: 100%; }
-        .trust-note { margin-top: 18px; padding-top: 18px; border-top: 1px solid #eee2d5; color: #7b6c5c; font-size: 14px; }
+        .booking-card h3 {
+          font-size: 28px;
+          margin: 8px 0;
+        }
+        .booking-card .primary-button,
+        .booking-card .secondary-button {
+          width: 100%;
+        }
+        .trust-note {
+          margin-top: 18px;
+          padding-top: 18px;
+          border-top: 1px solid #eee2d5;
+          color: #7b6c5c;
+          font-size: 14px;
+        }
 
         .complete-description-link-wrap {
           margin-top: -16px;
@@ -908,8 +937,16 @@ function HeadContent() {
           transform: translateY(-2px);
           box-shadow: 0 16px 30px rgba(73, 48, 30, .22);
         }
-        .section-heading { max-width: 760px; margin-bottom: 28px; }
-        .centered { text-align: center; margin-left: auto; margin-right: auto; }
+
+        .section-heading {
+          max-width: 760px;
+          margin-bottom: 28px;
+        }
+        .centered {
+          text-align: center;
+          margin-left: auto;
+          margin-right: auto;
+        }
         .amenity-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -934,7 +971,10 @@ function HeadContent() {
           color: #6d4c32;
           font-weight: 900;
         }
-        .amenity p { margin: 0; font-weight: 650; }
+        .amenity p {
+          margin: 0;
+          font-weight: 650;
+        }
 
         .wide-feature {
           margin: 72px 0;
@@ -942,17 +982,48 @@ function HeadContent() {
           background: #33291f;
           color: #fff9f1;
         }
-        .wide-feature h2, .wide-feature h3 { color: #fff9f1; }
-        .wide-feature p { color: #eadfce; }
-        .feature-layout { display: grid; grid-template-columns: 1fr 380px; gap: 54px; align-items: center; }
-        .feature-card { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.16); padding: 28px; box-shadow: none; }
-        .feature-card li { margin-bottom: 12px; line-height: 1.5; }
+        .wide-feature h2,
+        .wide-feature h3 {
+          color: #fff9f1;
+        }
+        .wide-feature p {
+          color: #eadfce;
+        }
+        .feature-layout {
+          display: grid;
+          grid-template-columns: 1fr 380px;
+          gap: 54px;
+          align-items: center;
+        }
+        .feature-card {
+          background: rgba(255,255,255,.08);
+          border-color: rgba(255,255,255,.16);
+          padding: 28px;
+          box-shadow: none;
+        }
+        .feature-card li {
+          margin-bottom: 12px;
+          line-height: 1.5;
+        }
 
-        .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .review-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+        }
         .review-card { padding: 28px; }
-        .stars { color: #b37a3f; letter-spacing: 2px; }
-        .review-card h3 { font-size: 22px; margin-bottom: 6px; }
-        .review-card span { color: #7b6c5c; font-weight: 700; }
+        .stars {
+          color: #b37a3f;
+          letter-spacing: 2px;
+        }
+        .review-card h3 {
+          font-size: 22px;
+          margin-bottom: 6px;
+        }
+        .review-card span {
+          color: #7b6c5c;
+          font-weight: 700;
+        }
 
         .details-layout {
           display: grid;
@@ -960,8 +1031,13 @@ function HeadContent() {
           gap: 52px;
           padding: 78px 0;
         }
-        .details-card { padding: 28px; align-self: start; }
-        .details-card p { margin: 0 0 14px; }
+        .details-card {
+          padding: 28px;
+          align-self: start;
+        }
+        .details-card p {
+          margin: 0 0 14px;
+        }
 
         .final-cta {
           padding: 88px 0;
@@ -969,8 +1045,16 @@ function HeadContent() {
           color: white;
           text-align: center;
         }
-        .final-cta h2 { color: white; max-width: 780px; margin-left: auto; margin-right: auto; }
-        .light { background: #fff9f1; color: #3d2f24; }
+        .final-cta h2 {
+          color: white;
+          max-width: 780px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .light {
+          background: #fff9f1;
+          color: #3d2f24;
+        }
 
         .description-modal {
           position: fixed;
@@ -1010,6 +1094,9 @@ function HeadContent() {
           padding-bottom: 42px;
           border-bottom: 1px solid rgba(99, 75, 52, .14);
         }
+        .description-row + .description-row {
+          padding-top: 42px;
+        }
         .description-row h2 {
           margin-top: 0;
           font-size: clamp(28px, 3vw, 42px);
@@ -1025,9 +1112,6 @@ function HeadContent() {
           margin: 26px 0 10px;
           font-size: 22px;
           color: #33281f;
-        }
-        .description-row + .description-row {
-          padding-top: 42px;
         }
 
         .photo-gallery-modal {
@@ -1072,36 +1156,69 @@ function HeadContent() {
             height: 210px;
             border-radius: 0;
           }
-          .carousel-photo:nth-child(2), .carousel-photo:nth-child(3) { display: none; }
-          .carousel-arrow { display: flex; align-items: center; justify-content: center; right: 18px; }
-          .intro-layout, .feature-layout, .details-layout { grid-template-columns: 1fr; }
+          .carousel-photo:nth-child(2),
+          .carousel-photo:nth-child(3) {
+            display: none;
+          }
+          .carousel-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            right: 18px;
+          }
+          .intro-layout,
+          .feature-layout,
+          .details-layout {
+            grid-template-columns: 1fr;
+          }
           .booking-card { position: static; }
           .amenity-grid { grid-template-columns: repeat(2, 1fr); }
           .review-grid { grid-template-columns: 1fr; }
           .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-          .description-row { grid-template-columns: 1fr; gap: 18px; }
+          .description-row {
+            grid-template-columns: 1fr;
+            gap: 18px;
+          }
           .stats-row { grid-template-columns: repeat(2, 1fr); }
           .highlights { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 560px) {
           .site-header { padding: 2px 20px; }
-          .site-header-compact { padding-top: 0; padding-bottom: 0; }
+          .site-header-compact {
+            padding-top: 0;
+            padding-bottom: 0;
+          }
           .hero { padding: 16px 16px 0; }
+          .property-wordmark {
+            width: 90vw;
+          }
           .carousel-photo {
             height: 260px;
             border-radius: 0;
           }
-          .hero-overlay { padding: 28px; }
-          .page-shell { width: min(100% - 32px, 1180px); }
-          .photo-gallery-modal { padding: 72px 16px 24px; }
-          .gallery-grid { grid-template-columns: 1fr; gap: 10px; }
-          .description-modal { inset: 3vh 3vw; padding: 82px 24px 42px; }
+          .page-shell {
+            width: min(100% - 32px, 1180px);
+          }
+          .amenity-grid,
+          .stats-row {
+            grid-template-columns: 1fr;
+          }
+          .photo-gallery-modal {
+            padding: 72px 16px 24px;
+          }
+          .gallery-grid {
+            grid-template-columns: 1fr;
+            gap: 10px;
+          }
+          .description-modal {
+            inset: 3vh 3vw;
+            padding: 82px 24px 42px;
+          }
           .description-close-button {
             top: 3vh;
             right: 3vw;
           }
-          .amenity-grid, .stats-row { grid-template-columns: 1fr; }
         }
       `}</style>
     </>
