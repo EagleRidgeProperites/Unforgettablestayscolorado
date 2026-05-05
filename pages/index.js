@@ -1088,13 +1088,13 @@ function HeadContent() {
           gap: 12px;
           margin: 28px 0;
         }
-        .stats-row div, .booking-card, .review-card, .details-card, .feature-card {
+        .stats-row > div, .booking-card, .review-card, .details-card, .feature-card {
           background: #fffdf8;
           border: 1px solid rgba(99, 75, 52, .12);
           border-radius: 24px;
           box-shadow: 0 18px 42px rgba(77, 55, 35, .08);
         }
-        .stats-row div { padding: 22px; }
+        .stats-row > div { padding: 22px; }
         .stats-row strong {
           display: block;
           font-size: 30px;
