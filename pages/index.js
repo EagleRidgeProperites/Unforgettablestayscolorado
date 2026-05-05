@@ -149,6 +149,18 @@ export default function Home() {
           <a href="#reviews">Reviews</a>
           <a href="#details">Details</a>
           <a href="https://www.airbnb.com/h/the-living-room" className="nav-button">Book Now</a>
+          <div className="social-icons">
+            <a href="#facebook" aria-label="Visit us on Facebook" className="social-icon" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 8.5h2V5.3c-.35-.05-1.55-.15-2.95-.15-2.92 0-4.92 1.78-4.92 5.05v2.8H5v3.6h3.13V24h3.84v-7.4h3.01l.48-3.6h-3.49v-2.44c0-1.04.29-1.76 2.03-1.76Z" />
+              </svg>
+            </a>
+            <a href="#instagram" aria-label="Visit us on Instagram" className="social-icon" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5Zm4.25 3.3A4.7 4.7 0 1 1 7.3 12 4.71 4.71 0 0 1 12 7.3Zm0 2A2.7 2.7 0 1 0 14.7 12 2.7 2.7 0 0 0 12 9.3Zm5.05-2.55a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1Z" />
+              </svg>
+            </a>
+          </div>
         </nav>
       </header>
 
@@ -602,6 +614,33 @@ function HeadContent() {
         .nav-dropdown:hover .dropdown-menu,
         .nav-dropdown:focus-within .dropdown-menu {
           display: flex;
+        }
+        .social-icons {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          margin-left: -12px;
+        }
+        .social-icon {
+          width: 38px;
+          height: 38px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid rgba(99, 75, 52, .18);
+          background: #fffdf8;
+          color: #3d2f24;
+          transition: transform .2s ease, background .2s ease, color .2s ease;
+        }
+        .social-icon svg {
+          width: 18px;
+          height: 18px;
+          fill: currentColor;
+        }
+        .social-icon:hover {
+          transform: translateY(-2px);
+          background: #6d4c32;
+          color: #fff9f1;
         }
         .nav-button, .primary-button, .secondary-button {
           display: inline-flex;
