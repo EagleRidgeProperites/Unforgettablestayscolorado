@@ -1106,12 +1106,18 @@ function HeadContent() {
           border: none !important;
           border-radius: 0 !important;
           box-shadow: none !important;
+          padding: 0 !important;
         }
 
         .bedroom-stat-content {
           display: flex;
           align-items: center;
           gap: 12px;
+          padding: 22px;
+          background: #fffdf8;
+          border: 1px solid rgba(99, 75, 52, .12);
+          border-radius: 24px;
+          box-shadow: 0 18px 42px rgba(77, 55, 35, .08);
         }
 
         .stat-text-stack {
