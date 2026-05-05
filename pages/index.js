@@ -268,15 +268,15 @@ function HeadContent() {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 18px 5vw;
+          padding: 8px 5vw;
           background: rgba(251, 248, 242, 0.92);
           backdrop-filter: blur(14px);
           border-bottom: 1px solid rgba(91, 70, 48, 0.12);
         }
         .brand-wrap { display: flex; align-items: center; gap: 12px; }
         .brand-logo {
-          width: 512px;
-          height: 256px;
+          width: 256px;
+          height: 128px;
           object-fit: contain;
           display: block;
         }
@@ -480,7 +480,7 @@ function HeadContent() {
         }
 
         @media (max-width: 560px) {
-          .site-header { padding: 14px 20px; }
+          .site-header { padding: 6px 20px; }
           .hero { padding: 16px 16px 0; }
           .carousel-photo { height: 520px; }
           .hero-overlay { padding: 28px; }
