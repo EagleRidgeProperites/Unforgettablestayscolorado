@@ -213,6 +213,16 @@ export default function Home() {
               <div><strong>1,400</strong><span>Sq. Ft.</span></div>
             </div>
 
+            <div className="property-map">
+              <iframe
+                title="Map to The Living Room at 391 County Road 51, Divide, CO"
+                src="https://www.google.com/maps?q=391%20County%20Road%2051%2C%20Divide%2C%20CO&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              ></iframe>
+            </div>
+
             <p className="lead">
               Welcome to The Living Room — a private, spa-inspired mountain retreat created for rest, romance, and renewal. Enjoy a freshly filled hot tub, a private sauna, radiant heated floors, a grand fireplace, expansive patio space, and peaceful views near Pikes Peak.
             </p>
@@ -558,6 +568,21 @@ function HeadContent() {
         }
         .small { font-size: 10px; }
         .lead { font-size: 18px; color: #4d433a; }
+        .property-map {
+          width: 100%;
+          height: 340px;
+          margin: 28px 0 26px;
+          overflow: hidden;
+          border: 1px solid rgba(99, 75, 52, .14);
+          box-shadow: 0 18px 42px rgba(77, 55, 35, .08);
+          background: #ded3c5;
+        }
+        .property-map iframe {
+          width: 100%;
+          height: 100%;
+          border: 0;
+          display: block;
+        }
         .stats-row {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
