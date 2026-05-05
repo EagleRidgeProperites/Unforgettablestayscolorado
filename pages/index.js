@@ -136,7 +136,6 @@ export default function Home() {
           />
         </div>
         <nav className="desktop-nav">
-          <button className="nav-link-button" onClick={() => setShowPhotoGallery(true)} type="button">More Photos</button>
           <a href="#amenities">Amenities</a>
           <a href="#reviews">Reviews</a>
           <a href="#details">Details</a>
@@ -160,6 +159,13 @@ export default function Home() {
                       type="button"
                     >
                       ←
+                    </button>
+                    <button
+                      className="more-photos-button"
+                      onClick={() => setShowPhotoGallery(true)}
+                      type="button"
+                    >
+                      More Photos
                     </button>
 
                   </>
@@ -445,6 +451,25 @@ function HeadContent() {
         .carousel-arrow-left {
           left: 22px;
           right: auto;
+        }
+        .more-photos-button {
+          position: absolute;
+          left: 22px;
+          bottom: 18px;
+          z-index: 11;
+          border: none;
+          background: rgba(255, 249, 241, .86);
+          color: #3d2f24;
+          padding: 12px 18px;
+          font-size: 14px;
+          font-weight: 800;
+          cursor: pointer;
+          box-shadow: 0 12px 28px rgba(0, 0, 0, .18);
+          transition: transform .2s ease, background .2s ease;
+        }
+        .more-photos-button:hover {
+          transform: translateY(-2px);
+          background: #fff9f1;
         }
         .carousel-arrow:hover { transform: translateY(-50%) scale(1.06); background: rgba(255, 249, 241, .55); }
 
