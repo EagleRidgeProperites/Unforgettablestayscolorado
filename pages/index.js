@@ -118,7 +118,7 @@ export default function Home() {
   useEffect(() => {
     const carouselTimer = setInterval(() => {
       setPhotoStartIndex((currentIndex) => (currentIndex + 1) % photos.length);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(carouselTimer);
   }, [photos.length]);
@@ -136,6 +136,8 @@ export default function Home() {
           />
         </div>
         <nav className="desktop-nav">
+          <a href="#properties">Properties</a>
+          <a href="#shop-your-stay">Shop Your Stay</a>
           <a href="#amenities">Amenities</a>
           <a href="#reviews">Reviews</a>
           <a href="#details">Details</a>
