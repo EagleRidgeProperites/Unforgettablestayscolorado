@@ -516,21 +516,52 @@ export default function Home() {
           </div>
 
           <div className="rates-availability-section" id="rates-availability">
-            <div className="rates-availability-content">
-              <div>
-                <p className="eyebrow">Plan Your Stay</p>
-                <h2>Rates &amp; Availability</h2>
-                <p>
-                  Check available dates, review current rates, and reserve your private mountain retreat.
-                </p>
+            <div className="rates-availability-header">
+              <h2>Rates and Availability</h2>
+              <p>Taxes and fees are additional</p>
+              <button className="clear-dates-button" type="button">Clear Dates</button>
+     ([mhmluxuryproperties.com](https://mhmluxuryproperties.com/property/4br-luxury-retreat-by-mhm-luxury-properties/))            <div className="rates-booking-panel">
+              <div className="rates-form-grid">
+                <label className="rates-field">
+                  <span>Check In</span>
+                  <input type="text" placeholder="Select date" readOnly />
+                </label>
+
+                <label className="rates-field">
+                  <span>Check Out</span>
+                  <input type="text" placeholder="Select date" readOnly />
+                </label>
+
+                <label className="rates-field rates-field-guests">
+                  <span>Guests</span>
+                  <select defaultValue="2">
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                  </select>
+                </label>
               </div>
 
-              <div className="rates-availability-card hostfully-widget-card">
-                <h3>Check Availability</h3>
-                <p>
-                  Select your dates below to view availability for The Living Room.
-                </p>
+              <div className="hostfully-calendar-wrap">
                 <div id="widget222768" className="hostfully-calendar-widget"></div>
+              </div>
+
+              <div className="rates-booking-details">
+                <div className="coupon-row">
+                  <span>I have a coupon</span>
+                  <button type="button">Apply</button>
+                </div>
+
+                <div className="price-row">
+                  <span>Add-ons</span>
+                  <strong>—</strong>
+                </div>
+
+                <div className="price-row total-row">
+                  <span>Total</span>
+                  <strong>Select dates</strong>
+                </div>
+
+                <button className="price-details-button" type="button">Price Details</button>
               </div>
             </div>
           </div>
@@ -1276,45 +1307,142 @@ function HeadContent() {
 
         .rates-availability-section {
           margin-top: 34px;
-          padding: 34px;
+          padding: 0;
+          background: transparent;
+          border: none;
+          border-radius: 0;
+          box-shadow: none;
+        }
+
+        .rates-availability-header {
+          margin-bottom: 18px;
+        }
+
+        .rates-availability-header h2 {
+          margin: 0 0 6px;
+          font-family: inherit;
+          font-size: 28px;
+          font-weight: 600;
+          line-height: 1.2;
+          color: #2f2a24;
+        }
+
+        .rates-availability-header p {
+          margin: 0 0 12px;
+          color: #7b6c5c;
+          font-size: 15px;
+        }
+
+        .clear-dates-button {
+          border: none;
+          background: transparent;
+          color: #6d4c32;
+          padding: 0;
+          font-size: 14px;
+          font-weight: 700;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+
+        .rates-booking-panel {
           background: #fffdf8;
-          border: 1px solid rgba(99, 75, 52, .12);
+          border: 1px solid rgba(99, 75, 52, .14);
           border-radius: 24px;
           box-shadow: 0 18px 42px rgba(77, 55, 35, .08);
+          padding: 26px;
         }
 
-        .rates-availability-content {
+        .rates-form-grid {
           display: grid;
-          grid-template-columns: 1fr 340px;
-          gap: 32px;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 14px;
+          margin-bottom: 18px;
+        }
+
+        .rates-field {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .rates-field span {
+          color: #2f2a24;
+          font-size: 14px;
+          font-weight: 700;
+        }
+
+        .rates-field input,
+        .rates-field select {
+          width: 100%;
+          min-height: 48px;
+          border: 1px solid rgba(99, 75, 52, .20);
+          background: #fbf8f2;
+          color: #4d433a;
+          padding: 0 14px;
+          font-size: 15px;
+          outline: none;
+        }
+
+        .rates-field input:focus,
+        .rates-field select:focus {
+          border-color: #6d4c32;
+          box-shadow: 0 0 0 3px rgba(109, 76, 50, .10);
+        }
+
+        .hostfully-calendar-wrap {
+          background: #fbf8f2;
+          border: 1px solid rgba(99, 75, 52, .12);
+          padding: 18px;
+          margin-bottom: 18px;
+          min-height: 320px;
+        }
+
+        .hostfully-calendar-widget {
+          width: 100%;
+          min-height: 300px;
+        }
+
+        .rates-booking-details {
+          border-top: 1px solid rgba(99, 75, 52, .14);
+          padding-top: 16px;
+        }
+
+        .coupon-row,
+        .price-row {
+          display: flex;
+          justify-content: space-between;
           align-items: center;
-        }
-
-        .rates-availability-content h2 {
-          margin: 8px 0 10px;
-          font-size: clamp(30px, 3.2vw, 44px);
-        }
-
-        .rates-availability-content p {
-          margin-bottom: 0;
+          gap: 18px;
+          padding: 12px 0;
+          border-bottom: 1px solid rgba(99, 75, 52, .10);
           color: #4d433a;
         }
 
-        .rates-availability-card {
-          padding: 24px;
-          background: #fbf8f2;
-          border: 1px solid rgba(99, 75, 52, .12);
-          border-radius: 20px;
+        .coupon-row button,
+        .price-details-button {
+          border: 1px solid rgba(99, 75, 52, .22);
+          background: #fffdf8;
+          color: #6d4c32;
+          padding: 10px 16px;
+          font-weight: 800;
+          cursor: pointer;
         }
 
-        .rates-availability-card h3 {
-          margin: 0 0 8px;
-          font-size: 24px;
+        .coupon-row button:hover,
+        .price-details-button:hover {
+          background: #f3ebdf;
         }
 
-        .rates-availability-card .primary-button {
+        .total-row {
+          font-size: 18px;
+          font-weight: 800;
+          color: #2f2a24;
+        }
+
+        .price-details-button {
           width: 100%;
-          margin-top: 18px;
+          margin-top: 16px;
+          min-height: 46px;
         }
 
         .hostfully-widget-card {
@@ -1574,6 +1702,7 @@ function HeadContent() {
           .description-row { grid-template-columns: 1fr; gap: 18px; }
           .stats-row { grid-template-columns: repeat(2, 1fr); }
           .highlights { grid-template-columns: 1fr; }
+          .rates-form-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 560px) {
