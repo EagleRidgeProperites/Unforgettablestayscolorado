@@ -519,8 +519,7 @@ export default function Home() {
             <div className="rates-availability-header">
               <h2>Rates and Availability</h2>
               <p>Taxes and fees are additional</p>
-              <button className="clear-dates-button" type="button">Clear Dates</button>
-     ([mhmluxuryproperties.com](https://mhmluxuryproperties.com/property/4br-luxury-retreat-by-mhm-luxury-properties/))            <div className="rates-booking-panel">
+              <button className="clear-dates-button" type="button">Clear Dates</button><div className="rates-booking-panel">
               <div className="rates-form-grid">
                 <label className="rates-field">
                   <span>Check In</span>
