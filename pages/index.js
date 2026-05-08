@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
@@ -275,6 +276,21 @@ export default function Home() {
     <>
       <HeadContent />
 
+      <Script
+        src="https://platform.hostfully.com/assets/js/orbirental_calendar_widget_v2.js"
+        strategy="afterInteractive"
+        onLoad={() => {
+          if (typeof window !== 'undefined' && window.orbiwidget) {
+            new window.orbiwidget('widget222768', {
+              id: 222768,
+              showTentative: 0,
+              monthsToDisplay: 2,
+              name: 'The Living Room'
+            });
+          }
+        }}
+      />
+
       <header className={`site-header ${isHeaderCompact ? 'site-header-compact' : ''}`}>
         <div className="brand-wrap">
           <img
@@ -509,14 +525,12 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="rates-availability-card">
-                <h3>Ready to book?</h3>
+              <div className="rates-availability-card hostfully-widget-card">
+                <h3>Check Availability</h3>
                 <p>
-                  Select your dates to view pricing and availability for The Living Room.
+                  Select your dates below to view availability for The Living Room.
                 </p>
-                <a href="https://www.airbnb.com/h/the-living-room" className="primary-button">
-                  Check Rates &amp; Availability
-                </a>
+                <div id="widget222768" className="hostfully-calendar-widget"></div>
               </div>
             </div>
           </div>
@@ -1301,6 +1315,16 @@ function HeadContent() {
         .rates-availability-card .primary-button {
           width: 100%;
           margin-top: 18px;
+        }
+
+        .hostfully-widget-card {
+          min-height: 360px;
+        }
+
+        .hostfully-calendar-widget {
+          margin-top: 18px;
+          width: 100%;
+          min-height: 300px;
         }
         .amenity {
           display: flex;
