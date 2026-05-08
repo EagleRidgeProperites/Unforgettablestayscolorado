@@ -237,12 +237,36 @@ export default function Home() {
   }, [photos.length]);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsHeaderCompact(window.scrollY > 20);
+      if (ticking) return;
+
+      ticking = true;
+
+      window.requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+
+        setIsHeaderCompact((currentlyCompact) => {
+          // Only shrink after scrolling well past the top.
+          if (!currentlyCompact && scrollY > 160) {
+            return true;
+          }
+
+          // Only expand when almost completely back to the top.
+          if (currentlyCompact && scrollY < 8) {
+            return false;
+          }
+
+          return currentlyCompact;
+        });
+
+        ticking = false;
+      });
     };
 
     handleScroll();
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
