@@ -498,6 +498,28 @@ export default function Home() {
               Show All
             </button>
           </div>
+
+          <div className="rates-availability-section" id="rates-availability">
+            <div className="rates-availability-content">
+              <div>
+                <p className="eyebrow">Plan Your Stay</p>
+                <h2>Rates &amp; Availability</h2>
+                <p>
+                  Check available dates, review current rates, and reserve your private mountain retreat.
+                </p>
+              </div>
+
+              <div className="rates-availability-card">
+                <h3>Ready to book?</h3>
+                <p>
+                  Select your dates to view pricing and availability for The Living Room.
+                </p>
+                <a href="https://www.airbnb.com/h/the-living-room" className="primary-button">
+                  Check Rates &amp; Availability
+                </a>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section className="wide-feature">
@@ -1236,6 +1258,49 @@ function HeadContent() {
 
         .show-all-amenities-wrap {
           margin-top: 24px;
+        }
+
+        .rates-availability-section {
+          margin-top: 34px;
+          padding: 34px;
+          background: #fffdf8;
+          border: 1px solid rgba(99, 75, 52, .12);
+          border-radius: 24px;
+          box-shadow: 0 18px 42px rgba(77, 55, 35, .08);
+        }
+
+        .rates-availability-content {
+          display: grid;
+          grid-template-columns: 1fr 340px;
+          gap: 32px;
+          align-items: center;
+        }
+
+        .rates-availability-content h2 {
+          margin: 8px 0 10px;
+          font-size: clamp(30px, 3.2vw, 44px);
+        }
+
+        .rates-availability-content p {
+          margin-bottom: 0;
+          color: #4d433a;
+        }
+
+        .rates-availability-card {
+          padding: 24px;
+          background: #fbf8f2;
+          border: 1px solid rgba(99, 75, 52, .12);
+          border-radius: 20px;
+        }
+
+        .rates-availability-card h3 {
+          margin: 0 0 8px;
+          font-size: 24px;
+        }
+
+        .rates-availability-card .primary-button {
+          width: 100%;
+          margin-top: 18px;
         }
         .amenity {
           display: flex;
