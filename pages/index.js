@@ -519,49 +519,11 @@ export default function Home() {
             <div className="rates-availability-header">
               <h2>Rates and Availability</h2>
               <p>Taxes and fees are additional</p>
-              <button className="clear-dates-button" type="button">Clear Dates</button><div className="rates-booking-panel">
-              <div className="rates-form-grid">
-                <label className="rates-field">
-                  <span>Check In</span>
-                  <input type="text" placeholder="Select date" readOnly />
-                </label>
+              <button className="clear-dates-button" type="button">Clear Dates</button>
+            </div>
 
-                <label className="rates-field">
-                  <span>Check Out</span>
-                  <input type="text" placeholder="Select date" readOnly />
-                </label>
-
-                <label className="rates-field rates-field-guests">
-                  <span>Guests</span>
-                  <select defaultValue="2">
-                    <option value="1">1 Guest</option>
-                    <option value="2">2 Guests</option>
-                  </select>
-                </label>
-              </div>
-
-              <div className="hostfully-calendar-wrap">
-                <div id="widget222768" className="hostfully-calendar-widget"></div>
-              </div>
-
-              <div className="rates-booking-details">
-                <div className="coupon-row">
-                  <span>I have a coupon</span>
-                  <button type="button">Apply</button>
-                </div>
-
-                <div className="price-row">
-                  <span>Add-ons</span>
-                  <strong>—</strong>
-                </div>
-
-                <div className="price-row total-row">
-                  <span>Total</span>
-                  <strong>Select dates</strong>
-                </div>
-
-                <button className="price-details-button" type="button">Price Details</button>
-              </div>
+            <div className="rates-calendar-panel">
+              <div id="widget222768" className="hostfully-calendar-widget"></div>
             </div>
           </div>
         </section>
@@ -1305,7 +1267,7 @@ function HeadContent() {
         }
 
         .rates-availability-section {
-          margin-top: 34px;
+          margin-top: 46px;
           padding: 0;
           background: transparent;
           border: none;
@@ -1318,7 +1280,7 @@ function HeadContent() {
         }
 
         .rates-availability-header h2 {
-          margin: 0 0 6px;
+          margin: 0 0 8px;
           font-family: inherit;
           font-size: 28px;
           font-weight: 600;
@@ -1327,7 +1289,7 @@ function HeadContent() {
         }
 
         .rates-availability-header p {
-          margin: 0 0 12px;
+          margin: 0 0 10px;
           color: #7b6c5c;
           font-size: 15px;
         }
@@ -1343,88 +1305,18 @@ function HeadContent() {
           cursor: pointer;
         }
 
-        .rates-booking-panel {
+        .rates-calendar-panel {
           background: #fffdf8;
-          border: 1px solid rgba(99, 75, 52, .14);
-          border-radius: 24px;
-          box-shadow: 0 18px 42px rgba(77, 55, 35, .08);
-          padding: 26px;
-        }
-
-        .rates-form-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 14px;
-          margin-bottom: 18px;
-        }
-
-        .rates-field {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-        }
-
-        .rates-field span {
-          color: #2f2a24;
-          font-size: 14px;
-          font-weight: 700;
-        }
-
-        .rates-field input,
-        .rates-field select {
-          width: 100%;
-          min-height: 48px;
-          border: 1px solid rgba(99, 75, 52, .20);
-          background: #fbf8f2;
-          color: #4d433a;
-          padding: 0 14px;
-          font-size: 15px;
-          outline: none;
-        }
-
-        .rates-field input:focus,
-        .rates-field select:focus {
-          border-color: #6d4c32;
-          box-shadow: 0 0 0 3px rgba(109, 76, 50, .10);
-        }
-
-        .hostfully-calendar-wrap {
-          background: #fbf8f2;
           border: 1px solid rgba(99, 75, 52, .12);
-          padding: 18px;
-          margin-bottom: 18px;
-          min-height: 320px;
+          border-radius: 0;
+          box-shadow: none;
+          padding: 0;
+          min-height: 340px;
         }
 
         .hostfully-calendar-widget {
           width: 100%;
-          min-height: 300px;
-        }
-
-        .rates-booking-details {
-          border-top: 1px solid rgba(99, 75, 52, .14);
-          padding-top: 16px;
-        }
-
-        .coupon-row,
-        .price-row {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 18px;
-          padding: 12px 0;
-          border-bottom: 1px solid rgba(99, 75, 52, .10);
-          color: #4d433a;
-        }
-
-        .coupon-row button,
-        .price-details-button {
-          border: 1px solid rgba(99, 75, 52, .22);
-          background: #fffdf8;
-          color: #6d4c32;
-          padding: 10px 16px;
-          font-weight: 800;
-          cursor: pointer;
+          min-height: 320px;
         }
 
         .coupon-row button:hover,
