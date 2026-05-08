@@ -360,7 +360,20 @@ export default function Home() {
                 </div>
               </div>
 
-              <div><strong>1</strong><span>Bathroom</span></div>
+              <div className="bathroom-stat">
+                <div className="bathroom-stat-content">
+                  <div className="stat-text-stack">
+                    <strong>1</strong>
+                    <span>Bathroom</span>
+                  </div>
+                  <img
+                    className="bathroom-stat-icon"
+                    src="/images/shower-icon-for-bathroom-with-water-spray-vector brown.png"
+                    alt="Shower icon"
+                  />
+                </div>
+              </div>
+
               <div><strong>1,400</strong><span>Sq. Ft.</span></div>
             </div>
 
@@ -1122,7 +1135,8 @@ function HeadContent() {
           color: #6d4c32;
         }
 
-        .bedroom-stat {
+        .bedroom-stat,
+        .bathroom-stat {
           background: transparent !important;
           border: none !important;
           border-radius: 0 !important;
@@ -1130,7 +1144,8 @@ function HeadContent() {
           padding: 0 !important;
         }
 
-        .bedroom-stat-content {
+        .bedroom-stat-content,
+        .bathroom-stat-content {
           display: flex;
           align-items: center;
           gap: 12px;
@@ -1146,7 +1161,8 @@ function HeadContent() {
           flex-direction: column;
         }
 
-        .bedroom-stat-icon {
+        .bedroom-stat-icon,
+        .bathroom-stat-icon {
           width: 84px;
           height: 64px;
           object-fit: contain;
