@@ -321,7 +321,7 @@ export default function Home() {
                 backgroundColor: '#6d4c32'
               },
               showPriceDetailsLink: true,
-              showGetQuoteLink: true,
+              showGetQuoteLink: false,
               labelColor: '#6d4c32',
               showTotalWithoutSD: true,
               redirectURL: false,
