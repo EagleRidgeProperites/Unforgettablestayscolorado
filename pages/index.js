@@ -510,7 +510,7 @@ export default function Home() {
           </div>
           <a href="#description">Description</a>
           <a href="#amenities-title">Amenities</a>
-          <a href="#reviews">Reviews</a>
+          <a href="#reviews-title">Reviews</a>
           <a href="#details">Details</a>
           <a href="#rates-availability-title" className="nav-button">Book Now</a>
           <div className="social-icons">
@@ -758,7 +758,7 @@ export default function Home() {
 
         <section className="page-shell" id="reviews">
           <div className="section-heading centered">
-            <p className="eyebrow">What Guests Are Saying</p>
+            <p id="reviews-title" className="eyebrow">What Guests Are Saying</p>
             <h2>Warm reviews from peaceful stays</h2>
           </div>
           <div className="review-grid">
@@ -1316,6 +1316,7 @@ function HeadContent() {
         h3 { color: #33281f; }
         p { line-height: 1.7; }
         .eyebrow {
+          scroll-margin-top: 120px;
           margin: 0;
           text-transform: uppercase;
           letter-spacing: 2.2px;
