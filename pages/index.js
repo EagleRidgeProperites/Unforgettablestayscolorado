@@ -1544,6 +1544,59 @@ function HeadContent() {
           font-size: 16px !important;
         }
 
+        #widget222768 .pika-prev,
+        #widget222768 .pika-next,
+        #widget222768 button.pika-prev,
+        #widget222768 button.pika-next {
+          width: 34px !important;
+          height: 34px !important;
+          background-image: none !important;
+          background-color: transparent !important;
+          border: none !important;
+          color: #6d4c32 !important;
+          opacity: 1 !important;
+          overflow: hidden !important;
+          text-indent: 0 !important;
+          font-size: 0 !important;
+          line-height: 34px !important;
+          position: relative !important;
+        }
+
+        #widget222768 .pika-prev::after,
+        #widget222768 button.pika-prev::after {
+          content: '‹';
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #6d4c32;
+          font-size: 32px;
+          font-weight: 400;
+          line-height: 1;
+        }
+
+        #widget222768 .pika-next::after,
+        #widget222768 button.pika-next::after {
+          content: '›';
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #6d4c32;
+          font-size: 32px;
+          font-weight: 400;
+          line-height: 1;
+        }
+
+        #widget222768 .pika-prev:hover::after,
+        #widget222768 .pika-next:hover::after,
+        #widget222768 button.pika-prev:hover::after,
+        #widget222768 button.pika-next:hover::after {
+          color: #2f2a24;
+        }
+
         .rates-booking-card {
           background: #fffdf8;
           border: none;
