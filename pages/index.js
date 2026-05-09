@@ -410,6 +410,7 @@ export default function Home() {
 
   return (
     <>
+      <div id="page-top" aria-hidden="true"></div>
       <HeadContent />
 
       <Script
@@ -495,7 +496,7 @@ export default function Home() {
             <button className="nav-link-button" type="button">Properties</button>
             <div className="dropdown-menu">
               <a href="#the-cabin">The Cabin</a>
-              <a href="#top">The Living Room</a>
+              <a href="#page-top">The Living Room</a>
             </div>
           </div>
           <a href="#directions">Directions</a>
@@ -527,7 +528,7 @@ export default function Home() {
         </nav>
       </header>
 
-      <main id="top">
+      <main>
         <section className="hero" id="photos">
           <div className="property-wordmark-wrap">
             <img
