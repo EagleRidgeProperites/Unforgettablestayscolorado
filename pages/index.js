@@ -494,7 +494,7 @@ export default function Home() {
         </div>
         <nav className="desktop-nav">
           <div
-            className="nav-dropdown properties-dropdown"
+            className={`nav-dropdown properties-dropdown ${isPropertiesMenuOpen ? 'properties-dropdown-open' : ''}`}
             onMouseEnter={() => setIsPropertiesMenuOpen(true)}
             onMouseLeave={() => setIsPropertiesMenuOpen(false)}
           >
@@ -505,25 +505,16 @@ export default function Home() {
             >
               Properties
             </button>
-            <div
-              className="dropdown-menu"
-              style={{ display: isPropertiesMenuOpen ? 'flex' : 'none' }}
-            >
+            <div className="dropdown-menu">
               <a
                 href="#the-cabin"
-                onClick={() => {
-                  setIsPropertiesMenuOpen(false);
-                  setTimeout(() => document.activeElement?.blur(), 0);
-                }}
+                onClick={() => setIsPropertiesMenuOpen(false)}
               >
                 The Cabin
               </a>
               <a
                 href="#page-top"
-                onClick={() => {
-                  setIsPropertiesMenuOpen(false);
-                  setTimeout(() => document.activeElement?.blur(), 0);
-                }}
+                onClick={() => setIsPropertiesMenuOpen(false)}
               >
                 The Living Room
               </a>
@@ -1171,18 +1162,8 @@ function HeadContent() {
           color: #6d4c32;
         }
         .nav-dropdown:not(.properties-dropdown):hover .dropdown-menu,
-        .nav-dropdown:not(.properties-dropdown):focus-within .dropdown-menu,
-        .nav-dropdown:not(.properties-dropdown).nav-dropdown-open .dropdown-menu {
+        .nav-dropdown:not(.properties-dropdown):focus-within .dropdown-menu {
           display: flex;
-        }
-
-        .properties-dropdown.nav-dropdown-open:not(.nav-dropdown-closed-after-click) .dropdown-menu {
-          display: flex;
-        }
-
-        .properties-dropdown .dropdown-menu,
-        .properties-dropdown.nav-dropdown-closed-after-click .dropdown-menu {
-          display: none !important;
         }
         .social-icons {
           display: inline-flex;
@@ -1945,7 +1926,15 @@ function HeadContent() {
           overflow: hidden;
         }
 
-        @media (min-width: 901px) {
+        .properties-dropdown .dropdown-menu {
+          display: none !important;
+        }
+
+        .properties-dropdown.properties-dropdown-open .dropdown-menu {
+          display: flex !important;
+        }
+
+        @media
           .booking-card-floating {
             position: fixed;
             top: 96px;
