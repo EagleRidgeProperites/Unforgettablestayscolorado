@@ -1482,12 +1482,7 @@ function HeadContent() {
           background: rgba(48, 38, 29, 0.35);
         }
 
-        .rates-availability-layout {
-          display: grid;
-          grid-template-columns: minmax(0, 1.4fr) 360px;
-          gap: 48px;
-          align-items: start;
-        }
+        
 
         .rates-calendar-panel {
           background: transparent;
@@ -1495,7 +1490,7 @@ function HeadContent() {
           box-shadow: none;
           padding: 0;
           min-height: 420px;
-          width: 140%;
+          width: 100%;
           max-width: 100%;
         }
 
@@ -1503,9 +1498,7 @@ function HeadContent() {
           width: 100%;
           min-height: 420px;
           font-size: 18px;
-        }
-
-        .hostfully-calendar-widget *,
+    et *,
         #widget222768 * {
           font-size: 18px !important;
         }
