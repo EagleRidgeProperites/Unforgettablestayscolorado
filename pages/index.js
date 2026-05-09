@@ -234,31 +234,6 @@ export default function Home() {
     setPhotoStartIndex((currentIndex) => (currentIndex - 1 + photos.length) % photos.length);
   };
 
-  const shortenCalendarWeekdayLabels = () => {
-    if (typeof document === 'undefined') return;
-
-    const weekdayMap = {
-      SU: 'S',
-      MO: 'M',
-      TU: 'T',
-      WE: 'W',
-      TH: 'T',
-      FR: 'F',
-      SA: 'S'
-    };
-
-    const calendarRoot = document.getElementById('widget222768');
-    if (!calendarRoot) return;
-
-    calendarRoot.querySelectorAll('*').forEach((element) => {
-      const text = element.textContent?.trim();
-
-      if (weekdayMap[text] && element.children.length === 0) {
-        element.textContent = weekdayMap[text];
-      }
-    });
-  };
-
   const resetHostfullyWidget = () => {
     if (typeof window === 'undefined' || !window.Widget) return;
 
@@ -340,12 +315,6 @@ export default function Home() {
   }; 
 
   useEffect(() => {
-    const calendarLabelTimer = setInterval(shortenCalendarWeekdayLabels, 1000);
-
-    return () => clearInterval(calendarLabelTimer);
-  }, []);
-
-  useEffect(() => {
     const carouselTimer = setInterval(() => {
       setPhotoStartIndex((currentIndex) => (currentIndex + 1) % photos.length);
     }, 5000);
@@ -425,9 +394,6 @@ export default function Home() {
               monthsToDisplay: 2,
               name: 'The Living Room'
             });
-
-            setTimeout(shortenCalendarWeekdayLabels, 500);
-            setTimeout(shortenCalendarWeekdayLabels, 1200);
           }
         }}
       />
@@ -1580,65 +1546,6 @@ function HeadContent() {
         .hostfully-calendar-widget {
           width: 100%;
           min-height: 420px;
-          font-size: 14px;
-        }
-
-        .hostfully-calendar-widget *,
-        #widget222768 * {
-          font-size: 14px !important;
-        }
-
-        #widget222768 .pika-prev,
-        #widget222768 .pika-next,
-        #widget222768 button.pika-prev,
-        #widget222768 button.pika-next {
-          width: 34px !important;
-          height: 34px !important;
-          background-image: none !important;
-          background-color: transparent !important;
-          border: none !important;
-          color: #6d4c32 !important;
-          opacity: 1 !important;
-          overflow: hidden !important;
-          text-indent: 0 !important;
-          font-size: 0 !important;
-          line-height: 34px !important;
-          position: relative !important;
-        }
-
-        #widget222768 .pika-prev::after,
-        #widget222768 button.pika-prev::after {
-          content: '<';
-          position: absolute;
-          inset: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: #6d4c32;
-          font-size: 32px;
-          font-weight: 400;
-          line-height: 1;
-        }
-
-        #widget222768 .pika-next::after,
-        #widget222768 button.pika-next::after {
-          content: '>';
-          position: absolute;
-          inset: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: #6d4c32;
-          font-size: 32px;
-          font-weight: 400;
-          line-height: 1;
-        }
-
-        #widget222768 .pika-prev:hover::after,
-        #widget222768 .pika-next:hover::after,
-        #widget222768 button.pika-prev:hover::after,
-        #widget222768 button.pika-next:hover::after {
-          color: #2f2a24;
         }
 
         .rates-booking-card {
