@@ -162,6 +162,7 @@ export default function Home() {
   const [showAllAmenities, setShowAllAmenities] = useState(false);
   const [isHeaderCompact, setIsHeaderCompact] = useState(false);
   const [isBookingCardFloating, setIsBookingCardFloating] = useState(false);
+  const [bookingCardTop, setBookingCardTop] = useState(96);
 
   const galleryPhotos = [
     '/images/living-room-gallery/1_Photo_Gallery.png',
@@ -329,12 +330,16 @@ export default function Home() {
       window.requestAnimationFrame(() => {
         const scrollY = window.scrollY;
         const experienceSection = document.querySelector('.wide-feature');
+        const bookingCard = document.querySelector('.booking-card');
         const experienceTop = experienceSection
           ? experienceSection.getBoundingClientRect().top + window.scrollY
           : Number.POSITIVE_INFINITY;
-        const stopFloatingAt = experienceTop - 560;
+        const bookingCardHeight = bookingCard ? bookingCard.offsetHeight : 360;
+        const safeTop = experienceTop - scrollY - bookingCardHeight - 28;
+        const nextBookingCardTop = Math.min(96, Math.max(12, safeTop));
 
-        setIsBookingCardFloating(scrollY > 420 && scrollY < stopFloatingAt);
+        setBookingCardTop(nextBookingCardTop);
+        setIsBookingCardFloating(scrollY > 420);
 
         setIsHeaderCompact((currentlyCompact) => {
           // Only shrink after scrolling well past the top.
@@ -611,7 +616,10 @@ export default function Home() {
             </div>
           </div>
 
-          <aside className={`booking-card ${isBookingCardFloating ? 'booking-card-floating' : ''}`}>
+          <aside
+            className={`booking-card ${isBookingCardFloating ? 'booking-card-floating' : ''}`}
+            style={isBookingCardFloating ? { top: `${bookingCardTop}px` } : undefined}
+          >
             <p className="eyebrow">Ready to unwind?</p>
             <h3>Book The Living Room</h3>
             <p>Check availability, rates, and secure your stay through Airbnb.</p>
