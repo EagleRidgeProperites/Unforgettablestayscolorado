@@ -1500,6 +1500,12 @@ function HeadContent() {
         .hostfully-calendar-widget {
           width: 100%;
           min-height: 420px;
+          font-size: 18px;
+        }
+
+        .hostfully-calendar-widget *,
+        #widget222768 * {
+          font-size: 18px !important;
         }
 
         .rates-booking-card {
