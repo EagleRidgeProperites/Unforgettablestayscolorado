@@ -501,7 +501,10 @@ export default function Home() {
                 setIsPropertiesMenuOpen(true);
               }
             }}
-            onMouseLeave={()
+            onMouseLeave={() => {
+              setIsPropertiesMenuOpen(false);
+              setIsPropertiesMenuClosedAfterClick(false);
+            }}
           >
             <button
               className="nav-link-button"
@@ -511,9 +514,12 @@ export default function Home() {
               Properties
             </button>
             <div className="dropdown-menu">
-              <a href="#the-cabin" onClick={() => setIsPropertiesMenuOpen(false)}>The Cabin</a>
-              <a href="#page-top" onClick=<a
+              <a
                 href="#the-cabin"
+                onMouseDown={() => {
+                  setIsPropertiesMenuOpen(false);
+                  setIsPropertiesMenuClosedAfterClick(true);
+                }}
                 onClick={() => {
                   setIsPropertiesMenuOpen(false);
                   setIsPropertiesMenuClosedAfterClick(true);
@@ -523,13 +529,21 @@ export default function Home() {
               </a>
               <a
                 href="#page-top"
-                onClick={() => {
+                onMouseDown={() => {
                   setIsPropertiesMenuOpen(false);
                   setIsPropertiesMenuClosedAfterClick(true);
                 }}
+                onClick={() => {
+                  setIsPropertiesMenuOpen(false);
+                  setIsPropertiesMenuClosedAfterClick(true);
               >
                 The Living Room
-              </a>>
+              </a>
+            </div>
+          </div>
+          <a href="#directions">Directions</a>
+
+          <div className="nav-dropdown">
             <button className="nav-link-button" type="button">Shop Your Stay</button>
             <div className="dropdown-menu">
               <a href="#shop-your-stay-cabin">Shop Your Stay: The Cabin</a>
@@ -1167,11 +1181,25 @@ function HeadContent() {
           background: #f3ebdf;
           color: #6d4c32;
         }
-        .nav-dropdown:hover .dropdown-menu,
-        .nav-dropdown:focus-within .dropdown-menu,
-        .nav-dropdown-open .dropdown-.nav-dropdown:hover .dropdown-menu,
-        .nav-dropdown:focus-within .dropdown-menu,
-        .nav-dropdown-open .dropdn-left: -12px;
+        .nav-dropdown:not(.properties-dropdown):hover .dropdown-menu,
+        .nav-dropdown:not(.properties-dropdown):focus-within .dropdown-menu,
+        .nav-dropdown:not(.properties-dropdown).nav-dropdown-open .dropdown-menu {
+          display: flex;
+        }
+
+        .properties-dropdown.nav-dropdown-open:not(.nav-dropdown-closed-after-click) .dropdown-menu {
+          display: flex;
+        }
+
+        .properties-dropdown .dropdown-menu,
+        .properties-dropdown.nav-dropdown-closed-after-click .dropdown-menu {
+          display: none !important;
+        }
+        .social-icons {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          margin-left: -12px;
         }
         .social-icon {
           position: relative;
