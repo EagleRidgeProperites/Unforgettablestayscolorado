@@ -528,7 +528,7 @@ export default function Home() {
             <p className="eyebrow">Ready to unwind?</p>
             <h3>Book The Living Room</h3>
             <p>Check availability, rates, and secure your stay through Airbnb.</p>
-            <a href="https://www.airbnb.com/h/the-living-room" className="primary-button">Check Availability</a>
+            <a href="#rates-availability" className="primary-button">Check Availability</a>
             <a href="mailto:info@elevatedstayscolorado.com" className="secondary-button">Ask a Question</a>
             <div className="trust-note">Warmly hosted by Mark & Renee</div>
           </aside>
