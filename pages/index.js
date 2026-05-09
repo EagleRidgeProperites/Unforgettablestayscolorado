@@ -1212,7 +1212,7 @@ function HeadContent() {
           border-radius: 0;
           background: rgba(255, 249, 241, .30);
           color: #3d2f24;
-          font-size: 30px;
+          font-size: 26px;
           line-height: 1;
           cursor: pointer;
           box-shadow: 0 12px 28px rgba(0, 0, 0, .22);
