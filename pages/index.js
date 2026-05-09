@@ -161,6 +161,7 @@ export default function Home() {
   const [showCompleteDescription, setShowCompleteDescription] = useState(false);
   const [showAllAmenities, setShowAllAmenities] = useState(false);
   const [isHeaderCompact, setIsHeaderCompact] = useState(false);
+  const [isBookingCardFloating, setIsBookingCardFloating] = useState(false);
 
   const galleryPhotos = [
     '/images/living-room-gallery/1_Photo_Gallery.png',
@@ -247,6 +248,7 @@ export default function Home() {
 
       window.requestAnimationFrame(() => {
         const scrollY = window.scrollY;
+        setIsBookingCardFloating(scrollY > 420);
 
         setIsHeaderCompact((currentlyCompact) => {
           // Only shrink after scrolling well past the top.
@@ -522,7 +524,7 @@ export default function Home() {
             </div>
           </div>
 
-          <aside className="booking-card">
+          <aside className={`booking-card ${isBookingCardFloating ? 'booking-card-floating' : ''}`}>
             <p className="eyebrow">Ready to unwind?</p>
             <h3>Book The Living Room</h3>
             <p>Check availability, rates, and secure your stay through Airbnb.</p>
@@ -1648,7 +1650,7 @@ function HeadContent() {
         }
 
         @media (min-width: 901px) {
-          .booking-card {
+          .booking-card-floating {
             position: fixed;
             top: 96px;
             right: max(5vw, calc((100vw - 1180px) / 2));
