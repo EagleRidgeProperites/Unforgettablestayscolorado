@@ -702,7 +702,7 @@ useEffect(() => {
                 alt="The Living Room"
               />
             </h3>
-            <p>Check availability, rates, and secure your stay through Airbnb.</p>
+            <p>Check availability, rates, and secure your stay.</p>
             <a href="#rates-availability-title" className="primary-button">Check Availability</a>
             <a href="mailto:info@elevatedstayscolorado.com" className="secondary-button">Ask a Question</a>
             <div className="trust-note">Warmly hosted by Mark & Renee</div>
