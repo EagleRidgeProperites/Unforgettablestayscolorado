@@ -373,7 +373,7 @@ export default function Home() {
           <a href="#amenities-title">Amenities</a>
           <a href="#reviews">Reviews</a>
           <a href="#details">Details</a>
-          <a href="https://www.airbnb.com/h/the-living-room" className="nav-button">Book Now</a>
+          <a href="#rates-availability" className="nav-button">Book Now</a>
           <div className="social-icons">
             <a href="#facebook" aria-label="Visit us on Facebook" className="social-icon" target="_blank" rel="noopener noreferrer" data-tooltip="Facebook">
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1048,7 +1048,7 @@ function HeadContent() {
           transition: transform .2s ease, box-shadow .2s ease;
         }
         .nav-button, .primary-button { background: #6d4c32; color: #fff9f1; box-shadow: 0 12px 24px rgba(73, 48, 30, .18); }
-        .nav-button { border-radius: 0; }
+        .nav-button { border-radius: 12px; }
         .secondary-button { border: 1px solid #c8b59f; color: #4c3a2b; margin-top: 12px; }
         .primary-button:hover, .nav-button:hover, .secondary-button:hover { transform: translateY(-2px); }
 
@@ -1063,7 +1063,7 @@ function HeadContent() {
         .image-card { border-radius: 24px; overflow: hidden; background: #ded3c5; position: relative; }
         .carousel-photo {
           height: 270px;
-          border-radius: 0;
+          border-radius: 24px;
         }
         .hero-overlay {
           position: absolute;
@@ -1299,6 +1299,7 @@ function HeadContent() {
           min-height: 46px;
           padding: 0 22px;
           border: none;
+          border-radius: 12px;
           background: #6d4c32;
           color: #fff9f1;
           font-size: 15px;
@@ -1671,7 +1672,7 @@ function HeadContent() {
           .hero-carousel { grid-template-columns: 1fr; }
           .carousel-photo {
             height: 210px;
-            border-radius: 0;
+            border-radius: 24px;
           }
           .carousel-photo:nth-child(2), .carousel-photo:nth-child(3) { display: none; }
           .carousel-arrow { display: flex; align-items: center; justify-content: center; right: 18px; }
@@ -1694,7 +1695,7 @@ function HeadContent() {
           .hero { padding: 6px 16px 0; }
           .carousel-photo {
             height: 260px;
-            border-radius: 0;
+            border-radius: 24px;
           }
           .hero-overlay { padding: 28px; }
           .page-shell { width: min(100% - 32px, 1180px); }
