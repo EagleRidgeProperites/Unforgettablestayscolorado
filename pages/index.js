@@ -291,6 +291,56 @@ export default function Home() {
         }}
       />
 
+      <Script
+        src="https://platform.hostfully.com/assets/js/pikaday.js"
+        strategy="afterInteractive"
+      />
+
+      <Script
+        src="https://platform.hostfully.com/assets/js/leadCaptureWidget_2.0.js"
+        strategy="afterInteractive"
+        onLoad={() => {
+          if (typeof window !== 'undefined' && window.Widget) {
+            new window.Widget('leadWidget', '466e439f-ae4b-4ef0-94c5-8cb63da0f2b1', {
+              maximun_availability: '2029-05-08T00:13:33.698Z',
+              type: 'agency',
+              fields: ['phone', 'notes'],
+              showAvailability: true,
+              lang: 'US',
+              minStay: true,
+              price: true,
+              hidePriceWithoutDates: false,
+              cc: false,
+              emailClient: true,
+              saveCookie: true,
+              showDynamicMinStay: true,
+              backgroundColor: '#FFFFFF',
+              buttonSubmit: {
+                backgroundColor: '#6d4c32'
+              },
+              showPriceDetailsLink: true,
+              showGetQuoteLink: false,
+              labelColor: '#6d4c32',
+              showTotalWithoutSD: true,
+              redirectURL: false,
+              showDiscount: true,
+              includeReferrerToRequest: true,
+              customDomainName: null,
+              source: null,
+              aid: 'ORB-49587220416635719',
+              clickID: null,
+              valuesByDefaults: {
+                checkIn: { value: '' },
+                checkOut: { value: '' },
+                guests: { value: '' },
+                discountCode: { value: '' }
+              },
+              pathRoot: 'https://platform.hostfully.com/'
+            });
+          }
+        }}
+      />
+
       <header className={`site-header ${isHeaderCompact ? 'site-header-compact' : ''}`}>
         <div className="brand-wrap">
           <img
@@ -526,32 +576,8 @@ export default function Home() {
                 <div id="widget222768" className="hostfully-calendar-widget"></div>
               </div>
 
-              <aside className="rates-booking-card">
-                <h3>Starting at $87.00 / night</h3>
-
-                <div className="rates-date-row">
-                  <label>
-                    <span>Check In</span>
-                    <input type="text" placeholder="Check In" readOnly />
-                  </label>
-
-                  <label>
-                    <span>Check Out</span>
-                    <input type="text" placeholder="Check Out" readOnly />
-                  </label>
-                </div>
-
-                <label className="rates-guests-field">
-                  <span>Guests</span>
-                  <select defaultValue="1">
-                    <option value="1">1 Guest</option>
-                    <option value="2">2 Guests</option>
-                  </select>
-                </label>
-
-                <a href="https://www.airbnb.com/h/the-living-room" className="rates-check-button">
-                  Check Availability
-                </a>
+              <aside className="rates-booking-card hostfully-booking-card">
+                <div id="leadWidget" className="hostfully-booking-widget"></div>
               </aside>
             </div>
           </div>
@@ -1355,71 +1381,13 @@ function HeadContent() {
           padding: 28px;
         }
 
-        .rates-booking-card h3 {
-          margin: 0 0 24px;
-          font-size: 20px;
-          font-weight: 500;
-          color: #2f2a24;
+        .hostfully-booking-card {
+          min-height: 460px;
         }
 
-        .rates-date-row {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 14px;
-          margin-bottom: 18px;
-        }
-
-        .rates-date-row label,
-        .rates-guests-field {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-        }
-
-        .rates-date-row span,
-        .rates-guests-field span {
-          font-size: 15px;
-          color: #2f2a24;
-        }
-
-        .rates-date-row input,
-        .rates-guests-field select {
+        .hostfully-booking-widget {
           width: 100%;
-          min-height: 50px;
-          border: 1px solid rgba(99, 75, 52, .16);
-          background: #fffdf8;
-          color: #7b6c5c;
-          padding: 0 14px;
-          font-size: 16px;
-          border-radius: 0;
-          outline: none;
-        }
-
-        .rates-guests-field {
-          margin-bottom: 14px;
-        }
-
-        .rates-check-button {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-          min-height: 58px;
-          margin-top: 14px;
-          background: #e5c69b;
-          color: #17120e;
-          border: none;
-          text-transform: uppercase;
-          letter-spacing: .5px;
-          font-size: 15px;
-          font-weight: 600;
-          cursor: pointer;
-          transition: background .2s ease, transform .2s ease;
-        }
-
-        .rates-check-button:hover {
-          background: #d8b783;
-          transform: translateY(-1px);
+          min-height: 420px;
         }
 
         .coupon-row button:hover,
