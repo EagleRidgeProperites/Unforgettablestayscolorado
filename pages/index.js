@@ -1346,6 +1346,7 @@ function HeadContent() {
         }
 
         .rates-title-row h2 {
+          scroll-margin-top: 120px;
           margin: 0;
           font-family: inherit;
           font-size: 30px;
