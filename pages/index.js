@@ -1041,7 +1041,7 @@ function HeadContent() {
           display: block;
           object-fit: contain;
         }
-        .brand-wrap strong { font-size: 18px; }
+        .brand-wrap strong { font-size: 16px; }
         .desktop-nav { display: flex; align-items: center; gap: 26px; font-size: 14px; }
         .desktop-nav > a,
         .nav-dropdown > .nav-link-button {
@@ -1288,7 +1288,7 @@ function HeadContent() {
           color: #8a6040;
         }
         .small { font-size: 10px; }
-        .lead { font-size: 18px; color: #4d433a; }
+        .lead { font-size: 16px; color: #4d433a; }
         .directions-heading-wrap,
         .description-heading-wrap,
         .amenities-heading-wrap {
@@ -1502,12 +1502,12 @@ function HeadContent() {
         .hostfully-calendar-widget {
           width: 100%;
           min-height: 420px;
-          font-size: 18px;
+          font-size: 16px;
         }
 
         .hostfully-calendar-widget *,
         #widget222768 * {
-          font-size: 18px !important;
+          font-size: 16px !important;
         }
 
         .rates-booking-card {
@@ -1563,7 +1563,7 @@ function HeadContent() {
         }
 
         .total-row {
-          font-size: 18px;
+          font-size: 16px;
           font-weight: 800;
           color: #2f2a24;
         }
@@ -1685,7 +1685,7 @@ function HeadContent() {
         .description-row p,
         .description-text p {
           margin-top: 0;
-          font-size: 18px;
+          font-size: 16px;
           line-height: 1.8;
           color: #4d433a;
         }
@@ -1736,7 +1736,7 @@ function HeadContent() {
         }
         .amenities-modal-heading p:last-child {
           margin: 0;
-          font-size: 18px;
+          font-size: 16px;
           color: #4d433a;
         }
         .amenities-modal-grid {
