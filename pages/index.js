@@ -163,6 +163,7 @@ export default function Home() {
   const [showAllAmenities, setShowAllAmenities] = useState(false);
   const [isHeaderCompact, setIsHeaderCompact] = useState(false);
   const [isPropertiesMenuOpen, setIsPropertiesMenuOpen] = useState(false);
+  const [isPropertiesMenuClosedAfterClick, setIsPropertiesMenuClosedAfterClick] = useState(false);
   const [isBookingCardFloating, setIsBookingCardFloating] = useState(false);
   const [isBookingCardStopped, setIsBookingCardStopped] = useState(false);
   const [bookingCardStopTop, setBookingCardStopTop] = useState(0);
@@ -494,9 +495,13 @@ export default function Home() {
         </div>
         <nav className="desktop-nav">
           <div
-            className={`nav-dropdown ${isPropertiesMenuOpen ? 'nav-dropdown-open' : ''}`}
-            onMouseEnter={() => setIsPropertiesMenuOpen(true)}
-            onMouseLeave={() => setIsPropertiesMenuOpen(false)}
+            className={`nav-dropdown properties-dropdown ${isPropertiesMenuOpen ? 'nav-dropdown-open' : ''} ${isPropertiesMenuClosedAfterClick ? 'nav-dropdown-closed-after-click' : ''}`}
+            onMouseEnter={() => {
+              if (!isPropertiesMenuClosedAfterClick) {
+                setIsPropertiesMenuOpen(true);
+              }
+            }}
+            onMouseLeave={()
           >
             <button
               className="nav-link-button"
@@ -507,12 +512,24 @@ export default function Home() {
             </button>
             <div className="dropdown-menu">
               <a href="#the-cabin" onClick={() => setIsPropertiesMenuOpen(false)}>The Cabin</a>
-              <a href="#page-top" onClick={() => setIsPropertiesMenuOpen(false)}>The Living Room</a>
-            </div>
-          </div>
-          <a href="#directions">Directions</a>
-
-          <div className="nav-dropdown">
+              <a href="#page-top" onClick=<a
+                href="#the-cabin"
+                onClick={() => {
+                  setIsPropertiesMenuOpen(false);
+                  setIsPropertiesMenuClosedAfterClick(true);
+                }}
+              >
+                The Cabin
+              </a>
+              <a
+                href="#page-top"
+                onClick={() => {
+                  setIsPropertiesMenuOpen(false);
+                  setIsPropertiesMenuClosedAfterClick(true);
+                }}
+              >
+                The Living Room
+              </a>>
             <button className="nav-link-button" type="button">Shop Your Stay</button>
             <div className="dropdown-menu">
               <a href="#shop-your-stay-cabin">Shop Your Stay: The Cabin</a>
@@ -1152,14 +1169,9 @@ function HeadContent() {
         }
         .nav-dropdown:hover .dropdown-menu,
         .nav-dropdown:focus-within .dropdown-menu,
-        .nav-dropdown-open .dropdown-menu {
-          display: flex;
-        }
-        .social-icons {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          margin-left: -12px;
+        .nav-dropdown-open .dropdown-.nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown:focus-within .dropdown-menu,
+        .nav-dropdown-open .dropdn-left: -12px;
         }
         .social-icon {
           position: relative;
