@@ -1479,18 +1479,18 @@ function HeadContent() {
         }
 
         .hostfully-booking-card {
-          min-height: 460px;
+          min-height: auto;
         }
 
         .hostfully-booking-widget {
           width: 100%;
-          min-height: 420px;
+          min-height: 0;
         }
 
         .clear-widget-dates-button {
           width: 100%;
           min-height: 46px;
-          margin-top: 16px;
+          margin-top: 10px;
           border: 1px solid rgba(99, 75, 52, .22);
           border-radius: 12px;
           background: #fffdf8;
