@@ -335,7 +335,7 @@ export default function Home() {
               valuesByDefaults: {
                 checkIn: { value: '' },
                 checkOut: { value: '' },
-                guests: { value: '' },
+                guests: { value: '2' },
                 discountCode: { value: '' }
               },
               pathRoot: 'https://platform.hostfully.com/'
