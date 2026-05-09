@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
 
@@ -963,8 +964,13 @@ export default function Home() {
 function HeadContent() {
   return (
     <>
-      <title>The Living Room | Elevated Stays Colorado</title>
-      <meta name="description" content="The Living Room is a private luxury spa retreat in Divide, Colorado with a hot tub, sauna, mountain views, fireplace, and peaceful couples-focused experience." />
+      <Head>
+        <title>The Living Room | Elevated Stays Colorado</title>
+        <meta
+          name="description"
+          content="The Living Room is a private luxury spa retreat in Divide, Colorado with a hot tub, sauna, mountain views, fireplace, and peaceful couples-focused experience."
+        />
+      </Head>
       <style jsx global>{`
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -1212,7 +1218,7 @@ function HeadContent() {
           border-radius: 0;
           background: rgba(255, 249, 241, .30);
           color: #3d2f24;
-          font-size: 26px;
+          font-size: 22px;
           line-height: 1;
           cursor: pointer;
           box-shadow: 0 12px 28px rgba(0, 0, 0, .22);
@@ -1304,7 +1310,7 @@ function HeadContent() {
           font-family: inherit;
           text-transform: none;
           letter-spacing: 0;
-          font-size: 16px;
+          font-size: 22px;
           font-weight: 400;
           line-height: 1;
           color: #2f2a24;
@@ -1462,7 +1468,7 @@ function HeadContent() {
           scroll-margin-top: 120px;
           margin: 0;
           font-family: inherit;
-          font-size: 30px;
+          font-size: 22px;
           font-weight: 400;
           line-height: 1.2;
           color: #2f2a24;
