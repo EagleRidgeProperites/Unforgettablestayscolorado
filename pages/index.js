@@ -233,6 +233,31 @@ export default function Home() {
     setPhotoStartIndex((currentIndex) => (currentIndex - 1 + photos.length) % photos.length);
   };
 
+  const shortenCalendarWeekdayLabels = () => {
+    if (typeof document === 'undefined') return;
+
+    const weekdayMap = {
+      SU: 'S',
+      MO: 'M',
+      TU: 'T',
+      WE: 'W',
+      TH: 'T',
+      FR: 'F',
+      SA: 'S'
+    };
+
+    const calendarRoot = document.getElementById('widget222768');
+    if (!calendarRoot) return;
+
+    calendarRoot.querySelectorAll('*').forEach((element) => {
+      const text = element.textContent?.trim();
+
+      if (weekdayMap[text] && element.children.length === 0) {
+        element.textContent = weekdayMap[text];
+      }
+    });
+  };
+
   const resetHostfullyWidget = () => {
     if (typeof window === 'undefined' || !window.Widget) return;
 
@@ -314,6 +339,12 @@ export default function Home() {
   }; 
 
   useEffect(() => {
+    const calendarLabelTimer = setInterval(shortenCalendarWeekdayLabels, 1000);
+
+    return () => clearInterval(calendarLabelTimer);
+  }, []);
+
+  useEffect(() => {
     const carouselTimer = setInterval(() => {
       setPhotoStartIndex((currentIndex) => (currentIndex + 1) % photos.length);
     }, 5000);
@@ -392,6 +423,9 @@ export default function Home() {
               monthsToDisplay: 2,
               name: 'The Living Room'
             });
+
+            setTimeout(shortenCalendarWeekdayLabels, 500);
+            setTimeout(shortenCalendarWeekdayLabels, 1200);
           }
         }}
       />
