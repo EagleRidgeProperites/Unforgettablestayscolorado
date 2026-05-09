@@ -163,7 +163,6 @@ export default function Home() {
   const [showAllAmenities, setShowAllAmenities] = useState(false);
   const [isHeaderCompact, setIsHeaderCompact] = useState(false);
   const [isPropertiesMenuOpen, setIsPropertiesMenuOpen] = useState(false);
-  const [isPropertiesMenuClosedAfterClick, setIsPropertiesMenuClosedAfterClick] = useState(false);
   const [isBookingCardFloating, setIsBookingCardFloating] = useState(false);
   const [isBookingCardStopped, setIsBookingCardStopped] = useState(false);
   const [bookingCardStopTop, setBookingCardStopTop] = useState(0);
@@ -495,16 +494,9 @@ export default function Home() {
         </div>
         <nav className="desktop-nav">
           <div
-            className={`nav-dropdown properties-dropdown ${isPropertiesMenuOpen ? 'nav-dropdown-open' : ''} ${isPropertiesMenuClosedAfterClick ? 'nav-dropdown-closed-after-click' : ''}`}
-            onMouseEnter={() => {
-              if (!isPropertiesMenuClosedAfterClick) {
-                setIsPropertiesMenuOpen(true);
-              }
-            }}
-            onMouseLeave={() => {
-              setIsPropertiesMenuOpen(false);
-              setIsPropertiesMenuClosedAfterClick(false);
-            }}
+            className="nav-dropdown properties-dropdown"
+            onMouseEnter={() => setIsPropertiesMenuOpen(true)}
+            onMouseLeave={() => setIsPropertiesMenuOpen(false)}
           >
             <button
               className="nav-link-button"
@@ -513,34 +505,31 @@ export default function Home() {
             >
               Properties
             </button>
-            <div className="dropdown-menu">
+            <div
+              className="dropdown-menu"
+              style={{ display: isPropertiesMenuOpen ? 'flex' : 'none' }}
+            >
               <a
                 href="#the-cabin"
-                onMouseDown={() => {
-                  setIsPropertiesMenuOpen(false);
-                  setIsPropertiesMenuClosedAfterClick(true);
-                }}
                 onClick={() => {
                   setIsPropertiesMenuOpen(false);
-                  setIsPropertiesMenuClosedAfterClick(true);
+                  setTimeout(() => document.activeElement?.blur(), 0);
                 }}
               >
                 The Cabin
               </a>
               <a
                 href="#page-top"
-                onMouseDown={() => {
-                  setIsPropertiesMenuOpen(false);
-                  setIsPropertiesMenuClosedAfterClick(true);
-                }}
                 onClick={() => {
                   setIsPropertiesMenuOpen(false);
-                  setIsPropertiesMenuClosedAfterClick(true);
+                  setTimeout(() => document.activeElement?.blur(), 0);
+                }}
               >
                 The Living Room
               </a>
             </div>
           </div>
+
           <a href="#directions">Directions</a>
 
           <div className="nav-dropdown">
