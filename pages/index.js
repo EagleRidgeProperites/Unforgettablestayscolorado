@@ -234,6 +234,27 @@ export default function Home() {
     setPhotoStartIndex((currentIndex) => (currentIndex - 1 + photos.length) % photos.length);
   };
 
+  const updateHostfullyBookingButtonText = () => {
+    if (typeof document === 'undefined') return;
+
+    const widgetRoot = document.getElementById('leadWidget');
+    if (!widgetRoot) return;
+
+    const buttons = widgetRoot.querySelectorAll('button, input[type="button"], input[type="submit"]');
+
+    buttons.forEach((button) => {
+      const currentText = (button.innerText || button.value || '').trim().toLowerCase();
+
+      if (currentText === 'book now' || currentText.includes('book now')) {
+        if ('value' in button) {
+          button.value = 'Booking Next Step';
+        }
+        button.innerText = 'Booking Next Step';
+        button.textContent = 'Booking Next Step';
+      }
+    });
+  };
+
   const resetHostfullyWidget = () => {
     if (typeof window === 'undefined' || !window.Widget) return;
 
@@ -311,8 +332,17 @@ export default function Home() {
       },
       pathRoot: 'https://platform.hostfully.com/'
       });
+
+      setTimeout(updateHostfullyBookingButtonText, 500);
+      setTimeout(updateHostfullyBookingButtonText, 1500);
     }, 0);
   }; 
+
+useEffect(() => {
+    const bookingButtonTextTimer = setInterval(updateHostfullyBookingButtonText, 1000);
+
+    return () => clearInterval(bookingButtonTextTimer);
+  }, []);
 
 useEffect(() => {
     const carouselTimer = setInterval(() => {
@@ -445,6 +475,9 @@ useEffect(() => {
               },
               pathRoot: 'https://platform.hostfully.com/'
             });
+
+            setTimeout(updateHostfullyBookingButtonText, 500);
+            setTimeout(updateHostfullyBookingButtonText, 1500);
           }
         }}
       />
@@ -1924,4 +1957,3 @@ function HeadContent() {
     </>
   );
 }
-
