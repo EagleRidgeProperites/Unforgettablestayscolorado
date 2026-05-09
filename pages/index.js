@@ -233,13 +233,44 @@ export default function Home() {
   const resetHostfullyWidget = () => {
     if (typeof window === 'undefined' || !window.Widget) return;
 
+    try {
+      Object.keys(window.localStorage || {}).forEach((key) => {
+        const lowerKey = key.toLowerCase();
+        if (
+          lowerKey.includes('hostfully') ||
+          lowerKey.includes('orbi') ||
+          lowerKey.includes('leadwidget') ||
+          lowerKey.includes('lead_widget') ||
+          lowerKey.includes('widget')
+        ) {
+          window.localStorage.removeItem(key);
+        }
+      });
+
+      Object.keys(window.sessionStorage || {}).forEach((key) => {
+        const lowerKey = key.toLowerCase();
+        if (
+          lowerKey.includes('hostfully') ||
+          lowerKey.includes('orbi') ||
+          lowerKey.includes('leadwidget') ||
+          lowerKey.includes('lead_widget') ||
+          lowerKey.includes('widget')
+        ) {
+          window.sessionStorage.removeItem(key);
+        }
+      });
+    } catch (error) {
+      console.warn('Unable to clear Hostfully storage values.', error);
+    }
+
     const widgetContainer = document.getElementById('leadWidget');
 
     if (widgetContainer) {
       widgetContainer.innerHTML = '';
     }
 
-    new window.Widget('leadWidget', '466e439f-ae4b-4ef0-94c5-8cb63da0f2b1', {
+    setTimeout(() => {
+      new window.Widget('leadWidget', '466e439f-ae4b-4ef0-94c5-8cb63da0f2b1', {
       maximun_availability: '2029-05-08T00:13:33.698Z',
       type: 'agency',
       fields: [],
@@ -250,7 +281,7 @@ export default function Home() {
       hidePriceWithoutDates: false,
       cc: false,
       emailClient: true,
-      saveCookie: true,
+      saveCookie: false,
       showDynamicMinStay: true,
       backgroundColor: '#FFFFFF',
       buttonSubmit: {
@@ -275,7 +306,8 @@ export default function Home() {
         discountCode: { value: '' }
       },
       pathRoot: 'https://platform.hostfully.com/'
-    });
+      });
+    }, 0);
   }; 
 
   useEffect(() => {
@@ -362,7 +394,7 @@ export default function Home() {
               hidePriceWithoutDates: false,
               cc: false,
               emailClient: true,
-              saveCookie: true,
+              saveCookie: false,
               showDynamicMinStay: true,
               backgroundColor: '#FFFFFF',
               buttonSubmit: {
