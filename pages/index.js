@@ -311,6 +311,49 @@ export default function Home() {
   }; 
 
   useEffect(() => {
+    const moveClearDatesButton = () => {
+      const widgetRoot = document.getElementById('leadWidget');
+      const clearButton = document.getElementById('clearHostfullyDatesButton');
+
+      if (!widgetRoot || !clearButton) return;
+
+      const widgetButtons = Array.from(
+        widgetRoot.querySelectorAll('button, input[type="button"], input[type="submit"]')
+      );
+
+      const bookNowButton = widgetButtons.find((button) => {
+        const buttonText = (button.innerText || button.value || '').toLowerCase();
+        return (
+          buttonText.includes('book') ||
+          buttonText.includes('submit') ||
+          buttonText.includes('request') ||
+          buttonText.includes('availability')
+        );
+      });
+
+      if (bookNowButton && bookNowButton.parentElement) {
+        bookNowButton.insertAdjacentElement('afterend', clearButton);
+        clearButton.classList.add('clear-widget-dates-button-visible');
+      }
+    };
+
+    const observer = new MutationObserver(moveClearDatesButton);
+    const widgetRoot = document.getElementById('leadWidget');
+
+    if (widgetRoot) {
+      observer.observe(widgetRoot, { childList: true, subtree: true });
+    }
+
+    const moveTimer = setInterval(moveClearDatesButton, 500);
+    moveClearDatesButton();
+
+    return () => {
+      observer.disconnect();
+      clearInterval(moveTimer);
+    };
+  }, []);
+
+  useEffect(() => {
     const carouselTimer = setInterval(() => {
       setPhotoStartIndex((currentIndex) => (currentIndex + 1) % photos.length);
     }, 5000);
@@ -662,6 +705,7 @@ export default function Home() {
               <aside className="rates-booking-card hostfully-booking-card">
                 <div id="leadWidget" className="hostfully-booking-widget"></div>
                 <button
+                  id="clearHostfullyDatesButton"
                   className="clear-widget-dates-button"
                   type="button"
                   onClick={resetHostfullyWidget}
@@ -1490,7 +1534,7 @@ function HeadContent() {
         .clear-widget-dates-button {
           width: 100%;
           min-height: 46px;
-          margin-top: 16px;
+          margin-top: 10px;
           border: 1px solid rgba(99, 75, 52, .22);
           border-radius: 12px;
           background: #fffdf8;
