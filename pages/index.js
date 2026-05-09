@@ -1548,6 +1548,57 @@ function HeadContent() {
           min-height: 420px;
         }
 
+        #widget222768 .pika-prev,
+        #widget222768 .pika-next,
+        #widget222768 button.pika-prev,
+        #widget222768 button.pika-next {
+          width: 36px !important;
+          height: 36px !important;
+          background-image: none !important;
+          background-color: #fffdf8 !important;
+          border: 1px solid rgba(109, 76, 50, .24) !important;
+          border-radius: 50% !important;
+          color: transparent !important;
+          opacity: 1 !important;
+          text-indent: -9999px !important;
+          overflow: hidden !important;
+          position: relative !important;
+          box-shadow: 0 6px 16px rgba(77, 55, 35, .10) !important;
+        }
+
+        #widget222768 .pika-prev::after,
+        #widget222768 button.pika-prev::after,
+        #widget222768 .pika-next::after,
+        #widget222768 button.pika-next::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 10px;
+          height: 10px;
+          border-top: 2px solid #6d4c32;
+          border-right: 2px solid #6d4c32;
+          transform-origin: center;
+        }
+
+        #widget222768 .pika-prev::after,
+        #widget222768 button.pika-prev::after {
+          transform: translate(-35%, -50%) rotate(-135deg);
+        }
+
+        #widget222768 .pika-next::after,
+        #widget222768 button.pika-next::after {
+          transform: translate(-65%, -50%) rotate(45deg);
+        }
+
+        #widget222768 .pika-prev:hover,
+        #widget222768 .pika-next:hover,
+        #widget222768 button.pika-prev:hover,
+        #widget222768 button.pika-next:hover {
+          background-color: #f3ebdf !important;
+          border-color: rgba(109, 76, 50, .42) !important;
+        }
+
         .rates-booking-card {
           background: #fffdf8;
           border: none;
