@@ -234,72 +234,6 @@ export default function Home() {
     setPhotoStartIndex((currentIndex) => (currentIndex - 1 + photos.length) % photos.length);
   };
 
-  const updateHostfullyCalendarArrows = () => {
-    if (typeof document === 'undefined') return;
-
-    const calendarRoot = document.getElementById('widget222768');
-    if (!calendarRoot) return;
-
-    const possibleArrowControls = calendarRoot.querySelectorAll(
-      'button, a, span, div, input[type="button"]'
-    );
-
-    possibleArrowControls.forEach((control) => {
-      const className = String(control.className || '').toLowerCase();
-      const ariaLabel = String(control.getAttribute('aria-label') || '').toLowerCase();
-      const title = String(control.getAttribute('title') || '').toLowerCase();
-      const text = String(control.textContent || control.value || '').trim().toLowerCase();
-      const combined = `${className} ${ariaLabel} ${title} ${text}`;
-
-      const isPrevious =
-        combined.includes('prev') ||
-        combined.includes('previous') ||
-        combined.includes('back') ||
-        text === '<' ||
-        text === '‹' ||
-        text === '«';
-
-      const isNext =
-        combined.includes('next') ||
-        combined.includes('forward') ||
-        text === '>' ||
-        text === '›' ||
-        text === '»';
-
-      if (isPrevious || isNext) {
-        control.classList.add('hostfully-clean-arrow');
-        control.textContent = isPrevious ? '<' : '>';
-        if ('value' in control) {
-          control.value = isPrevious ? '<' : '>';
-        }
-      }
-    });
-
-    calendarRoot.querySelectorAll('img').forEach((image) => {
-      const src = String(image.getAttribute('src') || '').toLowerCase();
-      const alt = String(image.getAttribute('alt') || '').toLowerCase();
-
-      if (
-        src.includes('arrow') ||
-        src.includes('next') ||
-        src.includes('prev') ||
-        alt.includes('arrow') ||
-        alt.includes('next') ||
-        alt.includes('prev')
-      ) {
-        const parent = image.parentElement;
-        if (parent) {
-          const parentText = String(parent.textContent || '').toLowerCase();
-          const parentClass = String(parent.className || '').toLowerCase();
-          const isPrevious = parentText.includes('prev') || parentClass.includes('prev');
-          parent.classList.add('hostfully-clean-arrow');
-          parent.textContent = isPrevious ? '<' : '>';
-        }
-        image.style.display = 'none';
-      }
-    });
-  };
-
   const resetHostfullyWidget = () => {
     if (typeof window === 'undefined' || !window.Widget) return;
 
@@ -380,13 +314,7 @@ export default function Home() {
     }, 0);
   }; 
 
-  useEffect(() => {
-    const arrowTimer = setInterval(updateHostfullyCalendarArrows, 1200);
-
-    return () => clearInterval(arrowTimer);
-  }, []);
-
-  useEffect(() => {
+useEffect(() => {
     const carouselTimer = setInterval(() => {
       setPhotoStartIndex((currentIndex) => (currentIndex + 1) % photos.length);
     }, 5000);
@@ -466,10 +394,6 @@ export default function Home() {
               monthsToDisplay: 2,
               name: 'The Living Room'
             });
-
-            setTimeout(updateHostfullyCalendarArrows, 500);
-            setTimeout(updateHostfullyCalendarArrows, 1500);
-            setTimeout(updateHostfullyCalendarArrows, 3000);
           }
         }}
       />
@@ -1623,83 +1547,7 @@ function HeadContent() {
           width: 100%;
           min-height: 420px;
         }
-
-        #widget222768 .pika-prev,
-        #widget222768 .pika-next,
-        #widget222768 button.pika-prev,
-        #widget222768 button.pika-next {
-          width: 36px !important;
-          height: 36px !important;
-          background-image: none !important;
-          background-color: #fffdf8 !important;
-          border: 1px solid rgba(109, 76, 50, .24) !important;
-          border-radius: 50% !important;
-          color: transparent !important;
-          opacity: 1 !important;
-          text-indent: -9999px !important;
-          overflow: hidden !important;
-          position: relative !important;
-          box-shadow: 0 6px 16px rgba(77, 55, 35, .10) !important;
-        }
-
-        #widget222768 .pika-prev::after,
-        #widget222768 button.pika-prev::after,
-        #widget222768 .pika-next::after,
-        #widget222768 button.pika-next::after {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 10px;
-          height: 10px;
-          border-top: 2px solid #6d4c32;
-          border-right: 2px solid #6d4c32;
-          transform-origin: center;
-        }
-
-        #widget222768 .pika-prev::after,
-        #widget222768 button.pika-prev::after {
-          transform: translate(-35%, -50%) rotate(-135deg);
-        }
-
-        #widget222768 .pika-next::after,
-        #widget222768 button.pika-next::after {
-          transform: translate(-65%, -50%) rotate(45deg);
-        }
-
-        #widget222768 .pika-prev:hover,
-        #widget222768 .pika-next:hover,
-        #widget222768 button.pika-prev:hover,
-        #widget222768 button.pika-next:hover {
-          background-color: #f3ebdf !important;
-          border-color: rgba(109, 76, 50, .42) !important;
-        }
-
-        #widget222768 .hostfully-clean-arrow {
-          width: 36px !important;
-          height: 36px !important;
-          display: inline-flex !important;
-          align-items: center !important;
-          justify-content: center !important;
-          background: #fffdf8 !important;
-          background-image: none !important;
-          border: 1px solid rgba(109, 76, 50, .24) !important;
-          border-radius: 50% !important;
-          color: #6d4c32 !important;
-          font-family: inherit !important;
-          font-size: 24px !important;
-          font-weight: 600 !important;
-          line-height: 1 !important;
-          text-indent: 0 !important;
-          opacity: 1 !important;
-          box-shadow: 0 6px 16px rgba(77, 55, 35, .10) !important;
-        }
-
-        #widget222768 .hostfully-clean-arrow:hover {
-          background: #f3ebdf !important;
-          color: #2f2a24 !important;
-
-        .rates-booking-card {
+.rates-booking-card {
           background: #fffdf8;
           border: none;
           box-shadow: 0 18px 42px rgba(77, 55, 35, .08);
