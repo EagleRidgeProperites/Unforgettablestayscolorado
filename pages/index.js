@@ -163,6 +163,7 @@ export default function Home() {
   const [showAllAmenities, setShowAllAmenities] = useState(false);
   const [isHeaderCompact, setIsHeaderCompact] = useState(false);
   const [isBookingCardFloating, setIsBookingCardFloating] = useState(false);
+  const [shopMessage, setShopMessage] = useState('');
   const [isBookingCardStopped, setIsBookingCardStopped] = useState(false);
   const [bookingCardStopTop, setBookingCardStopTop] = useState(0);
 
@@ -509,7 +510,8 @@ export default function Home() {
                 href="#shop-your-stay-cabin"
                 onClick={(event) => {
                   event.preventDefault();
-                  window.alert('Coming Soon');
+                  setShopMessage('Coming Soon');
+                  setTimeout(() => setShopMessage(''), 3000);
                 }}
               >
                 Shop Your Stay: The Cabin
@@ -518,8 +520,12 @@ export default function Home() {
                 href="#shop-your-stay-living-room"
                 onClick={(event) => {
                   event.preventDefault();
-                  window.alert('Coming Soon');
+                  setShopMessage('Coming Soon');
+                  setTimeout(() => setShopMessage(''), 3000);
                 }}
+              >
+                Shop Your Stay: The Living Room
+              </a>
             </div>
           </div>
           <a href="#description">Description</a>
@@ -541,6 +547,12 @@ export default function Home() {
           </div>
         </nav>
       </header>
+
+      {shopMessage && (
+        <div className="shop-coming-soon-message" role="status" aria-live="polite">
+          {shopMessage}
+        </div>
+      )}
 
       <main>
         <section className="hero" id="photos">
@@ -1092,6 +1104,21 @@ function HeadContent() {
           object-fit: contain;
         }
         .brand-wrap strong { font-size: 14px; }
+        .shop-coming-soon-message {
+          position: fixed;
+          top: 92px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 1001;
+          padding: 14px 24px;
+          background: #6d4c32;
+          color: #fff9f1;
+          border-radius: 12px;
+          box-shadow: 0 18px 42px rgba(77, 55, 35, .22);
+          font-size: 16px;
+          font-weight: 800;
+        }
+
         .desktop-nav { display: flex; align-items: center; gap: 26px; font-size: 14px; }
         .desktop-nav > a,
         .nav-dropdown > .nav-link-button {
