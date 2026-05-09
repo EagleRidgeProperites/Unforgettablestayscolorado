@@ -694,7 +694,14 @@ useEffect(() => {
             style={isBookingCardStopped ? { top: `${bookingCardStopTop}px` } : undefined}
           >
             <p className="eyebrow">Ready to unwind?</p>
-            <h3>Book<br />The Living Room</h3>
+            <h3 className="booking-card-title">
+              <span>Book</span>
+              <img
+                className="booking-card-wordmark"
+                src="/images/The_Living_Room_Wording_Chat_Colored.png"
+                alt="The Living Room"
+              />
+            </h3>
             <p>Check availability, rates, and secure your stay through Airbnb.</p>
             <a href="#rates-availability-title" className="primary-button">Check Availability</a>
             <a href="mailto:info@elevatedstayscolorado.com" className="secondary-button">Ask a Question</a>
@@ -1485,7 +1492,24 @@ function HeadContent() {
           top: 96px;
           padding: 28px;
         }
-        .booking-card h3 { font-size: 28px; margin: 8px 0; }
+        .booking-card h3 {
+          font-size: 28px;
+          margin: 8px 0;
+        }
+
+        .booking-card-title {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+
+        .booking-card-wordmark {
+          width: 230px;
+          max-width: 100%;
+          height: auto;
+          object-fit: contain;
+        }
         .booking-card .primary-button, .booking-card .secondary-button { width: 100%; }
         .trust-note { margin-top: 18px; padding-top: 18px; border-top: 1px solid #eee2d5; color: #7b6c5c; font-size: 14px; }
 
