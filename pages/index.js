@@ -162,6 +162,7 @@ export default function Home() {
   const [showCompleteDescription, setShowCompleteDescription] = useState(false);
   const [showAllAmenities, setShowAllAmenities] = useState(false);
   const [isHeaderCompact, setIsHeaderCompact] = useState(false);
+  const [isPropertiesMenuOpen, setIsPropertiesMenuOpen] = useState(false);
   const [isBookingCardFloating, setIsBookingCardFloating] = useState(false);
   const [isBookingCardStopped, setIsBookingCardStopped] = useState(false);
   const [bookingCardStopTop, setBookingCardStopTop] = useState(0);
@@ -492,11 +493,21 @@ export default function Home() {
 
         </div>
         <nav className="desktop-nav">
-          <div className="nav-dropdown">
-            <button className="nav-link-button" type="button">Properties</button>
+          <div
+            className={`nav-dropdown ${isPropertiesMenuOpen ? 'nav-dropdown-open' : ''}`}
+            onMouseEnter={() => setIsPropertiesMenuOpen(true)}
+            onMouseLeave={() => setIsPropertiesMenuOpen(false)}
+          >
+            <button
+              className="nav-link-button"
+              type="button"
+              onClick={() => setIsPropertiesMenuOpen((isOpen) => !isOpen)}
+            >
+              Properties
+            </button>
             <div className="dropdown-menu">
-              <a href="#the-cabin">The Cabin</a>
-              <a href="#page-top">The Living Room</a>
+              <a href="#the-cabin" onClick={() => setIsPropertiesMenuOpen(false)}>The Cabin</a>
+              <a href="#page-top" onClick={() => setIsPropertiesMenuOpen(false)}>The Living Room</a>
             </div>
           </div>
           <a href="#directions">Directions</a>
@@ -1140,7 +1151,8 @@ function HeadContent() {
           color: #6d4c32;
         }
         .nav-dropdown:hover .dropdown-menu,
-        .nav-dropdown:focus-within .dropdown-menu {
+        .nav-dropdown:focus-within .dropdown-menu,
+        .nav-dropdown-open .dropdown-menu {
           display: flex;
         }
         .social-icons {
