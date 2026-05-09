@@ -328,7 +328,13 @@ export default function Home() {
 
       window.requestAnimationFrame(() => {
         const scrollY = window.scrollY;
-        setIsBookingCardFloating(scrollY > 420);
+        const experienceSection = document.querySelector('.wide-feature');
+        const experienceTop = experienceSection
+          ? experienceSection.getBoundingClientRect().top + window.scrollY
+          : Number.POSITIVE_INFINITY;
+        const stopFloatingAt = experienceTop - 560;
+
+        setIsBookingCardFloating(scrollY > 420 && scrollY < stopFloatingAt);
 
         setIsHeaderCompact((currentlyCompact) => {
           // Only shrink after scrolling well past the top.
@@ -743,7 +749,7 @@ export default function Home() {
           <div className="page-shell">
             <p className="eyebrow">Your mountain retreat is waiting</p>
             <h2>Come relax, reconnect, and experience The Living Room.</h2>
-            <a href="https://www.airbnb.com/h/the-living-room" className="primary-button light">Book Your Stay</a>
+            <a href="#rates-availability-title" className="primary-button light">Book Your Stay</a>
           </div>
         </section>
       </main>
