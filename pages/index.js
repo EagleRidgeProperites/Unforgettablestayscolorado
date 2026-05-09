@@ -318,7 +318,8 @@ export default function Home() {
               showDynamicMinStay: true,
               backgroundColor: '#FFFFFF',
               buttonSubmit: {
-                backgroundColor: '#6d4c32'
+                backgroundColor: '#6d4c32',
+                borderRadius: '12px'
               },
               showPriceDetailsLink: true,
               showGetQuoteLink: false,
@@ -1397,6 +1398,15 @@ function HeadContent() {
         .hostfully-booking-widget {
           width: 100%;
           min-height: 420px;
+        }
+
+        .hostfully-booking-widget button,
+        .hostfully-booking-widget input[type='button'],
+        .hostfully-booking-widget input[type='submit'],
+        #leadWidget button,
+        #leadWidget input[type='button'],
+        #leadWidget input[type='submit'] {
+          border-radius: 12px !important;
         }
 
         .coupon-row button:hover,
