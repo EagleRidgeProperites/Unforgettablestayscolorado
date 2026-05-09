@@ -759,7 +759,7 @@ export default function Home() {
           <div className="details-card">
             <h3>Good to Know</h3>
             <p><strong>Check-in:</strong> 4:00 PM</p>
-            <p><strong>Check-out:</strong> 10:00 AM</p>
+            <p><strong>Check-out:</strong> 11:00 AM</p>
             <p><strong>Best for:</strong> Couples, anniversaries, romantic getaways, peaceful retreats</p>
             <p><strong>Laundry:</strong> No washer/dryer onsite; a 24-hour laundromat is about 10 minutes away.</p>
           </div>
