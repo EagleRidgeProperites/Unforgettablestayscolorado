@@ -310,7 +310,7 @@ export default function Home() {
               showAvailability: true,
               lang: 'US',
               minStay: true,
-              price: true,
+              price: false,
               hidePriceWithoutDates: false,
               cc: false,
               emailClient: true,
@@ -321,7 +321,7 @@ export default function Home() {
                 backgroundColor: '#6d4c32'
               },
               showPriceDetailsLink: true,
-              showGetQuoteLink: false,
+              showGetQuoteLink: true,
               labelColor: '#6d4c32',
               showTotalWithoutSD: true,
               redirectURL: false,
