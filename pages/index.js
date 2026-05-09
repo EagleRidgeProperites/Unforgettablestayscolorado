@@ -1048,9 +1048,11 @@ function HeadContent() {
           transition: transform .2s ease, box-shadow .2s ease;
         }
         .nav-button, .primary-button { background: #6d4c32; color: #fff9f1; box-shadow: 0 12px 24px rgba(73, 48, 30, .18); }
-        s: 12px;
+        .nav-button {
+          border-radius: 12px;
           min-height: auto;
-          padding: 12px 12px;
+          padding: 12px 20px;
+          min-width: 98px;
         }
         .secondary-button { border: 1px solid #c8b59f; color: #4c3a2b; margin-top: 12px; }
         .primary-button:hover, .nav-button:hover, .secondary-button:hover { transform: translateY(-2px); }
