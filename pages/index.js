@@ -306,7 +306,7 @@ export default function Home() {
             new window.Widget('leadWidget', '466e439f-ae4b-4ef0-94c5-8cb63da0f2b1', {
               maximun_availability: '2029-05-08T00:13:33.698Z',
               type: 'agency',
-              fields: ['phone', 'notes'],
+              fields: [],
               showAvailability: true,
               lang: 'US',
               minStay: true,
