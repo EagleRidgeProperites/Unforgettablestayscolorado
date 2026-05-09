@@ -373,7 +373,7 @@ export default function Home() {
           <a href="#amenities-title">Amenities</a>
           <a href="#reviews">Reviews</a>
           <a href="#details">Details</a>
-          <a href="#rates-availability" className="nav-button">Book Now</a>
+          <a href="#rates-availability-title" className="nav-button">Book Now</a>
           <div className="social-icons">
             <a href="#facebook" aria-label="Visit us on Facebook" className="social-icon" target="_blank" rel="noopener noreferrer" data-tooltip="Facebook">
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -528,7 +528,7 @@ export default function Home() {
             <p className="eyebrow">Ready to unwind?</p>
             <h3>Book The Living Room</h3>
             <p>Check availability, rates, and secure your stay through Airbnb.</p>
-            <a href="#rates-availability" className="primary-button">Check Availability</a>
+            <a href="#rates-availability-title" className="primary-button">Check Availability</a>
             <a href="mailto:info@elevatedstayscolorado.com" className="secondary-button">Ask a Question</a>
             <div className="trust-note">Warmly hosted by Mark & Renee</div>
           </aside>
@@ -569,7 +569,7 @@ export default function Home() {
 
           <div className="rates-availability-section" id="rates-availability">
             <div className="rates-title-row">
-              <h2>Rates and Availability</h2>
+              <h2 id="rates-availability-title">Rates and Availability</h2>
               <span></span>
             </div>
 
