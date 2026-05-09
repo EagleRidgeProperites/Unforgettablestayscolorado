@@ -321,7 +321,7 @@ export default function Home() {
                 backgroundColor: '#6d4c32',
                 borderRadius: '12px'
               },
-              showPriceDetailsLink: true,
+              showPriceDetailsLink: false,
               showGetQuoteLink: false,
               labelColor: '#6d4c32',
               showTotalWithoutSD: true,
