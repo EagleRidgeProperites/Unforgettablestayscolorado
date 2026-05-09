@@ -1550,6 +1550,9 @@ function HeadContent() {
         #leadWidget input[type='button'],
         #leadWidget input[type='submit'] {
           border-radius: 12px !important;
+          font-family: inherit !important;
+          font-size: 14px !important;
+          font-weight: 800 !important;
         }
 
         .coupon-row button:hover,
