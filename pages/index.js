@@ -162,7 +162,6 @@ export default function Home() {
   const [showCompleteDescription, setShowCompleteDescription] = useState(false);
   const [showAllAmenities, setShowAllAmenities] = useState(false);
   const [isHeaderCompact, setIsHeaderCompact] = useState(false);
-  const [isPropertiesMenuOpen, setIsPropertiesMenuOpen] = useState(false);
   const [isBookingCardFloating, setIsBookingCardFloating] = useState(false);
   const [isBookingCardStopped, setIsBookingCardStopped] = useState(false);
   const [bookingCardStopTop, setBookingCardStopTop] = useState(0);
@@ -493,31 +492,11 @@ export default function Home() {
 
         </div>
         <nav className="desktop-nav">
-          <div
-            className={`nav-dropdown properties-dropdown ${isPropertiesMenuOpen ? 'properties-dropdown-open' : ''}`}
-            onMouseEnter={() => setIsPropertiesMenuOpen(true)}
-            onMouseLeave={() => setIsPropertiesMenuOpen(false)}
-          >
-            <button
-              className="nav-link-button"
-              type="button"
-              onClick={() => setIsPropertiesMenuOpen((isOpen) => !isOpen)}
-            >
-              Properties
-            </button>
+          <div className="nav-dropdown">
+            <button className="nav-link-button" type="button">Properties</button>
             <div className="dropdown-menu">
-              <a
-                href="#the-cabin"
-                onClick={() => setIsPropertiesMenuOpen(false)}
-              >
-                The Cabin
-              </a>
-              <a
-                href="#page-top"
-                onClick={() => setIsPropertiesMenuOpen(false)}
-              >
-                The Living Room
-              </a>
+              <a href="#the-cabin">The Cabin</a>
+              <a href="#page-top">The Living Room</a>
             </div>
           </div>
 
@@ -1161,8 +1140,8 @@ function HeadContent() {
           background: #f3ebdf;
           color: #6d4c32;
         }
-        .nav-dropdown:not(.properties-dropdown):hover .dropdown-menu,
-        .nav-dropdown:not(.properties-dropdown):focus-within .dropdown-menu {
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown:focus-within .dropdown-menu {
           display: flex;
         }
         .social-icons {
@@ -1926,15 +1905,7 @@ function HeadContent() {
           overflow: hidden;
         }
 
-        .properties-dropdown .dropdown-menu {
-          display: none !important;
-        }
-
-        .properties-dropdown.properties-dropdown-open .dropdown-menu {
-          display: flex !important;
-        }
-
-        @media
+        @media (min-width: 901px) {
           .booking-card-floating {
             position: fixed;
             top: 96px;
