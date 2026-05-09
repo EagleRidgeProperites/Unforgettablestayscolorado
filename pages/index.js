@@ -1484,7 +1484,7 @@ function HeadContent() {
 
         .rates-availability-layout {
           display: grid;
-          grid-template-columns: minmax(0, 1fr) 360px;
+          grid-template-columns: minmax(0, 1.4fr) 360px;
           gap: 48px;
           align-items: start;
         }
@@ -1495,6 +1495,8 @@ function HeadContent() {
           box-shadow: none;
           padding: 0;
           min-height: 420px;
+          width: 140%;
+          max-width: 100%;
         }
 
         .hostfully-calendar-widget {
