@@ -162,7 +162,8 @@ export default function Home() {
   const [showAllAmenities, setShowAllAmenities] = useState(false);
   const [isHeaderCompact, setIsHeaderCompact] = useState(false);
   const [isBookingCardFloating, setIsBookingCardFloating] = useState(false);
-  const [bookingCardTop, setBookingCardTop] = useState(96);
+  const [isBookingCardStopped, setIsBookingCardStopped] = useState(false);
+  const [bookingCardStopTop, setBookingCardStopTop] = useState(0);
 
   const galleryPhotos = [
     '/images/living-room-gallery/1_Photo_Gallery.png',
@@ -335,11 +336,21 @@ export default function Home() {
           ? experienceSection.getBoundingClientRect().top + window.scrollY
           : Number.POSITIVE_INFINITY;
         const bookingCardHeight = bookingCard ? bookingCard.offsetHeight : 360;
-        const safeTop = experienceTop - scrollY - bookingCardHeight - 28;
-        const nextBookingCardTop = Math.min(96, Math.max(12, safeTop));
+        const startFloatingAt = 420;
+        const stopFloatingAt = experienceTop - bookingCardHeight - 28 - 96;
+        const stoppedTop = experienceTop - bookingCardHeight - 28;
 
-        setBookingCardTop(nextBookingCardTop);
-        setIsBookingCardFloating(scrollY > 420);
+        if (scrollY < startFloatingAt) {
+          setIsBookingCardFloating(false);
+          setIsBookingCardStopped(false);
+        } else if (scrollY < stopFloatingAt) {
+          setIsBookingCardFloating(true);
+          setIsBookingCardStopped(false);
+        } else {
+          setBookingCardStopTop(stoppedTop);
+          setIsBookingCardFloating(false);
+          setIsBookingCardStopped(true);
+        }
 
         setIsHeaderCompact((currentlyCompact) => {
           // Only shrink after scrolling well past the top.
@@ -617,8 +628,8 @@ export default function Home() {
           </div>
 
           <aside
-            className={`booking-card ${isBookingCardFloating ? 'booking-card-floating' : ''}`}
-            style={isBookingCardFloating ? { top: `${bookingCardTop}px` } : undefined}
+            className={`booking-card ${isBookingCardFloating ? 'booking-card-floating' : ''} ${isBookingCardStopped ? 'booking-card-stopped' : ''}`}
+            style={isBookingCardStopped ? { top: `${bookingCardStopTop}px` } : undefined}
           >
             <p className="eyebrow">Ready to unwind?</p>
             <h3>Book The Living Room</h3>
@@ -1793,6 +1804,13 @@ function HeadContent() {
             right: max(5vw, calc((100vw - 1180px) / 2));
             width: 350px;
             z-index: 45;
+          }
+
+          .booking-card-stopped {
+            position: absolute;
+            right: max(5vw, calc((100vw - 1180px) / 2));
+            width: 350px;
+            z-index: 30;
           }
 
           .complete-description-link-wrap,
