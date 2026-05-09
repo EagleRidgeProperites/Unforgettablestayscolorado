@@ -1647,6 +1647,23 @@ function HeadContent() {
           overflow: hidden;
         }
 
+        @media (min-width: 901px) {
+          .booking-card {
+            position: fixed;
+            top: 96px;
+            right: max(5vw, calc((100vw - 1180px) / 2));
+            width: 350px;
+            z-index: 45;
+          }
+
+          .complete-description-link-wrap,
+          #amenities {
+            width: min(calc(90vw - 404px), 776px);
+            margin-left: max(5vw, calc((100vw - 1180px) / 2));
+            margin-right: auto;
+          }
+        }
+
         @media (max-width: 900px) {
           .desktop-nav { display: none; }
           .hero-carousel { grid-template-columns: 1fr; }
