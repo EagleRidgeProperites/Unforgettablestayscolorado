@@ -516,14 +516,43 @@ export default function Home() {
           </div>
 
           <div className="rates-availability-section" id="rates-availability">
-            <div className="rates-availability-header">
+            <div className="rates-title-row">
               <h2>Rates and Availability</h2>
-              <p>Taxes and fees are additional</p>
-              <button className="clear-dates-button" type="button">Clear Dates</button>
+              <span></span>
             </div>
 
-            <div className="rates-calendar-panel">
-              <div id="widget222768" className="hostfully-calendar-widget"></div>
+            <div className="rates-availability-layout">
+              <div className="rates-calendar-panel">
+                <div id="widget222768" className="hostfully-calendar-widget"></div>
+              </div>
+
+              <aside className="rates-booking-card">
+                <h3>Starting at $87.00 / night</h3>
+
+                <div className="rates-date-row">
+                  <label>
+                    <span>Check In</span>
+                    <input type="text" placeholder="Check In" readOnly />
+                  </label>
+
+                  <label>
+                    <span>Check Out</span>
+                    <input type="text" placeholder="Check Out" readOnly />
+                  </label>
+                </div>
+
+                <label className="rates-guests-field">
+                  <span>Guests</span>
+                  <select defaultValue="1">
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                  </select>
+                </label>
+
+                <a href="https://www.airbnb.com/h/the-living-room" className="rates-check-button">
+                  Check Availability
+                </a>
+              </aside>
             </div>
           </div>
         </section>
@@ -1267,7 +1296,7 @@ function HeadContent() {
         }
 
         .rates-availability-section {
-          margin-top: 46px;
+          margin-top: 54px;
           padding: 0;
           background: transparent;
           border: none;
@@ -1275,48 +1304,122 @@ function HeadContent() {
           box-shadow: none;
         }
 
-        .rates-availability-header {
-          margin-bottom: 18px;
+        .rates-title-row {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          margin-bottom: 34px;
         }
 
-        .rates-availability-header h2 {
-          margin: 0 0 8px;
+        .rates-title-row h2 {
+          margin: 0;
           font-family: inherit;
-          font-size: 28px;
-          font-weight: 600;
+          font-size: 30px;
+          font-weight: 400;
           line-height: 1.2;
           color: #2f2a24;
+          white-space: nowrap;
         }
 
-        .rates-availability-header p {
-          margin: 0 0 10px;
-          color: #7b6c5c;
-          font-size: 15px;
+        .rates-title-row span {
+          display: block;
+          flex: 1;
+          height: 1px;
+          background: rgba(48, 38, 29, 0.35);
         }
 
-        .clear-dates-button {
-          border: none;
-          background: transparent;
-          color: #6d4c32;
-          padding: 0;
-          font-size: 14px;
-          font-weight: 700;
-          text-decoration: underline;
-          cursor: pointer;
+        .rates-availability-layout {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) 360px;
+          gap: 48px;
+          align-items: start;
         }
 
         .rates-calendar-panel {
-          background: #fffdf8;
-          border: 1px solid rgba(99, 75, 52, .12);
-          border-radius: 0;
+          background: transparent;
+          border: none;
           box-shadow: none;
           padding: 0;
-          min-height: 340px;
+          min-height: 420px;
         }
 
         .hostfully-calendar-widget {
           width: 100%;
-          min-height: 320px;
+          min-height: 420px;
+        }
+
+        .rates-booking-card {
+          background: #fffdf8;
+          border: none;
+          box-shadow: 0 18px 42px rgba(77, 55, 35, .08);
+          padding: 28px;
+        }
+
+        .rates-booking-card h3 {
+          margin: 0 0 24px;
+          font-size: 20px;
+          font-weight: 500;
+          color: #2f2a24;
+        }
+
+        .rates-date-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 14px;
+          margin-bottom: 18px;
+        }
+
+        .rates-date-row label,
+        .rates-guests-field {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .rates-date-row span,
+        .rates-guests-field span {
+          font-size: 15px;
+          color: #2f2a24;
+        }
+
+        .rates-date-row input,
+        .rates-guests-field select {
+          width: 100%;
+          min-height: 50px;
+          border: 1px solid rgba(99, 75, 52, .16);
+          background: #fffdf8;
+          color: #7b6c5c;
+          padding: 0 14px;
+          font-size: 16px;
+          border-radius: 0;
+          outline: none;
+        }
+
+        .rates-guests-field {
+          margin-bottom: 14px;
+        }
+
+        .rates-check-button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          min-height: 58px;
+          margin-top: 14px;
+          background: #e5c69b;
+          color: #17120e;
+          border: none;
+          text-transform: uppercase;
+          letter-spacing: .5px;
+          font-size: 15px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: background .2s ease, transform .2s ease;
+        }
+
+        .rates-check-button:hover {
+          background: #d8b783;
+          transform: translateY(-1px);
         }
 
         .coupon-row button:hover,
@@ -1593,6 +1696,8 @@ function HeadContent() {
           .description-row { grid-template-columns: 1fr; gap: 18px; }
           .stats-row { grid-template-columns: repeat(2, 1fr); }
           .highlights { grid-template-columns: 1fr; }
+          .rates-availability-layout { grid-template-columns: 1fr; }
+          .rates-booking-card { max-width: 420px; }
           .rates-form-grid { grid-template-columns: 1fr; }
         }
 
