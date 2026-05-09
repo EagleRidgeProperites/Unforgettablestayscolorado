@@ -230,6 +230,54 @@ export default function Home() {
     setPhotoStartIndex((currentIndex) => (currentIndex - 1 + photos.length) % photos.length);
   };
 
+  const resetHostfullyWidget = () => {
+    if (typeof window === 'undefined' || !window.Widget) return;
+
+    const widgetContainer = document.getElementById('leadWidget');
+
+    if (widgetContainer) {
+      widgetContainer.innerHTML = '';
+    }
+
+    new window.Widget('leadWidget', '466e439f-ae4b-4ef0-94c5-8cb63da0f2b1', {
+      maximun_availability: '2029-05-08T00:13:33.698Z',
+      type: 'agency',
+      fields: [],
+      showAvailability: true,
+      lang: 'US',
+      minStay: true,
+      price: false,
+      hidePriceWithoutDates: false,
+      cc: false,
+      emailClient: true,
+      saveCookie: true,
+      showDynamicMinStay: true,
+      backgroundColor: '#FFFFFF',
+      buttonSubmit: {
+        backgroundColor: '#6d4c32',
+        borderRadius: '12px'
+      },
+      showPriceDetailsLink: false,
+      showGetQuoteLink: false,
+      labelColor: '#6d4c32',
+      showTotalWithoutSD: true,
+      redirectURL: false,
+      showDiscount: true,
+      includeReferrerToRequest: true,
+      customDomainName: null,
+      source: null,
+      aid: 'ORB-49587220416635719',
+      clickID: null,
+      valuesByDefaults: {
+        checkIn: { value: '' },
+        checkOut: { value: '' },
+        guests: { value: '2' },
+        discountCode: { value: '' }
+      },
+      pathRoot: 'https://platform.hostfully.com/'
+    });
+  }; 
+
   useEffect(() => {
     const carouselTimer = setInterval(() => {
       setPhotoStartIndex((currentIndex) => (currentIndex + 1) % photos.length);
@@ -581,6 +629,13 @@ export default function Home() {
 
               <aside className="rates-booking-card hostfully-booking-card">
                 <div id="leadWidget" className="hostfully-booking-widget"></div>
+                <button
+                  className="clear-widget-dates-button"
+                  type="button"
+                  onClick={resetHostfullyWidget}
+                >
+                  Clear Dates
+                </button>
               </aside>
             </div>
           </div>
@@ -1398,6 +1453,25 @@ function HeadContent() {
         .hostfully-booking-widget {
           width: 100%;
           min-height: 420px;
+        }
+
+        .clear-widget-dates-button {
+          width: 100%;
+          min-height: 46px;
+          margin-top: 16px;
+          border: 1px solid rgba(99, 75, 52, .22);
+          border-radius: 12px;
+          background: #fffdf8;
+          color: #6d4c32;
+          font-size: 14px;
+          font-weight: 800;
+          cursor: pointer;
+          transition: background .2s ease, transform .2s ease;
+        }
+
+        .clear-widget-dates-button:hover {
+          background: #f3ebdf;
+          transform: translateY(-1px);
         }
 
         .hostfully-booking-widget button,
