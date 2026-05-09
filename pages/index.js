@@ -495,7 +495,7 @@ export default function Home() {
             <button className="nav-link-button" type="button">Properties</button>
             <div className="dropdown-menu">
               <a href="#the-cabin">The Cabin</a>
-              <a href="#the-living-room">The Living Room</a>
+              <a href="#top">The Living Room</a>
             </div>
           </div>
           <a href="#directions">Directions</a>
@@ -527,7 +527,7 @@ export default function Home() {
         </nav>
       </header>
 
-      <main>
+      <main id="top">
         <section className="hero" id="photos">
           <div className="property-wordmark-wrap">
             <img
