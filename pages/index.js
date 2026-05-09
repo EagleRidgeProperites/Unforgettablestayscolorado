@@ -694,7 +694,7 @@ useEffect(() => {
             style={isBookingCardStopped ? { top: `${bookingCardStopTop}px` } : undefined}
           >
             <p className="eyebrow">Ready to unwind?</p>
-            <h3>Book The Living Room</h3>
+            <h3>Book<br />The Living Room</h3>
             <p>Check availability, rates, and secure your stay through Airbnb.</p>
             <a href="#rates-availability-title" className="primary-button">Check Availability</a>
             <a href="mailto:info@elevatedstayscolorado.com" className="secondary-button">Ask a Question</a>
