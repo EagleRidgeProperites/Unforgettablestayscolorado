@@ -505,8 +505,21 @@ export default function Home() {
           <div className="nav-dropdown">
             <button className="nav-link-button" type="button">Shop Your Stay</button>
             <div className="dropdown-menu">
-              <a href="#shop-your-stay-cabin">Shop Your Stay: The Cabin</a>
-              <a href="#shop-your-stay-living-room">Shop Your Stay: The Living Room</a>
+              <a
+                href="#shop-your-stay-cabin"
+                onClick={(event) => {
+                  event.preventDefault();
+                  window.alert('Coming Soon');
+                }}
+              >
+                Shop Your Stay: The Cabin
+              </a>
+              <a
+                href="#shop-your-stay-living-room"
+                onClick={(event) => {
+                  event.preventDefault();
+                  window.alert('Coming Soon');
+                }}
             </div>
           </div>
           <a href="#description">Description</a>
