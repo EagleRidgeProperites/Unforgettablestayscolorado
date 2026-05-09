@@ -1564,7 +1564,7 @@ function HeadContent() {
 
         #widget222768 .pika-prev::after,
         #widget222768 button.pika-prev::after {
-          content: '‹';
+          content: '<';
           position: absolute;
           inset: 0;
           display: flex;
@@ -1578,7 +1578,7 @@ function HeadContent() {
 
         #widget222768 .pika-next::after,
         #widget222768 button.pika-next::after {
-          content: '›';
+          content: '>';
           position: absolute;
           inset: 0;
           display: flex;
