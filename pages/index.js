@@ -301,7 +301,7 @@ export default function Home() {
       fields: [],
       showAvailability: true,
       lang: 'US',
-      minStay: 300,
+      minStay: true,
       price: false,
       hidePriceWithoutDates: false,
       cc: false,
@@ -444,7 +444,7 @@ useEffect(() => {
               fields: [],
               showAvailability: true,
               lang: 'US',
-              minStay: 300,
+              minStay: true,
               price: false,
               hidePriceWithoutDates: false,
               cc: false,
@@ -754,6 +754,7 @@ useEffect(() => {
               </div>
 
               <aside className="rates-booking-card hostfully-booking-card">
+                <p className="minimum-stay-note">Minimum stay: 300 nights</p>
                 <div id="leadWidget" className="hostfully-booking-widget"></div>
                 <button
                   className="clear-widget-dates-button"
@@ -1386,7 +1387,14 @@ function HeadContent() {
         .amenities-heading-wrap h2,
         .directions-heading-wrap h2,
         .description-heading-wrap h2 {
-          margin: 0;
+          font-family: Montserrat, sans-serif;
+          font-size: 32px;
+          font-weight: 400;
+          line-height: 41.6px;
+          text-transform: uppercase;
+          letter-spacing: normal;
+          color: #000;
+          margin: 0 0 20px;
           display: flex;
           align-items: center;
           gap: 12px;
@@ -1613,6 +1621,18 @@ function HeadContent() {
 
         .hostfully-booking-card {
           min-height: auto;
+        }
+
+        .minimum-stay-note {
+          margin: 0 0 14px;
+          padding: 12px 14px;
+          background: #fbf8f2;
+          border: 1px solid rgba(99, 75, 52, .14);
+          border-radius: 12px;
+          color: #6d4c32;
+          font-size: 14px;
+          font-weight: 800;
+          text-align: center;
         }
 
         .hostfully-booking-widget {
