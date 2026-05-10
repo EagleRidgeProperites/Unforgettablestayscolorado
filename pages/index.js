@@ -1044,7 +1044,7 @@ function HeadContent() {
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         @font-face {
-          font-family: 'La Luxes Serif';
+          font-family: Montserrat, sans-serif;
           src: url('/fonts/La-Luxes-Serif.woff2') format('woff2');
           font-weight: normal;
           font-style: normal;
@@ -1053,12 +1053,12 @@ function HeadContent() {
 
         body {
           margin: 0;
-          font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+          font-family: Montserrat, sans-serif;
           color: #2f2a24;
           background: #fbf8f2;
         }
         a { color: inherit; text-decoration: none; }
-        button { font-family: inherit; }
+        button { font-family: Montserrat, sans-serif; }
         img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         .site-header {
@@ -1285,7 +1285,7 @@ function HeadContent() {
         .hero-overlay h1 {
           max-width: 760px;
           margin: 8px 0 12px;
-          font-family: Georgia, 'Times New Roman', serif;
+          font-family: Montserrat, sans-serif;
           font-size: clamp(30px, 3.7vw, 52px);
           line-height: .95;
           letter-spacing: -1.5px;
@@ -1355,7 +1355,7 @@ function HeadContent() {
         }
         .breadcrumb, .location { color: #7b6c5c; }
         h2 {
-          font-family: Georgia, 'Times New Roman', serif;
+          font-family: Montserrat, sans-serif;
           font-size: clamp(32px, 4vw, 52px);
           line-height: 1.05;
           margin: 10px 0 12px;
@@ -1399,7 +1399,7 @@ function HeadContent() {
           align-items: center;
           gap: 12px;
           width: 100%;
-          font-family: inherit;
+          font-family: Montserrat, sans-serif;
           text-transform: none;
           letter-spacing: 0;
           font-size: 22px;
@@ -1576,7 +1576,7 @@ function HeadContent() {
         .rates-title-row h2 {
           scroll-margin-top: 120px;
           margin: 0;
-          font-family: inherit;
+          font-family: Montserrat, sans-serif;
           font-size: 22px;
           font-weight: 400;
           line-height: 1.2;
@@ -1666,7 +1666,7 @@ function HeadContent() {
         #leadWidget input[type='button'],
         #leadWidget input[type='submit'] {
           border-radius: 12px !important;
-          font-family: inherit !important;
+          font-family: Montserrat, sans-serif !important;
           font-size: 14px !important;
           font-weight: 800 !important;
         }
@@ -1866,7 +1866,7 @@ function HeadContent() {
         }
         .amenity-category-card h3 {
           margin: 0 0 14px;
-          font-family: Georgia, 'Times New Roman', serif;
+          font-family: Montserrat, sans-serif;
           font-size: 25px;
           color: #30261d;
         }
