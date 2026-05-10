@@ -162,6 +162,7 @@ export default function Home() {
   const [showCompleteDescription, setShowCompleteDescription] = useState(false);
   const [showAllAmenities, setShowAllAmenities] = useState(false);
   const [isHeaderCompact, setIsHeaderCompact] = useState(false);
+  const [hidePropertiesMenu, setHidePropertiesMenu] = useState(false);
   const [isBookingCardFloating, setIsBookingCardFloating] = useState(false);
   const [shopMessage, setShopMessage] = useState('');
   const [isBookingCardStopped, setIsBookingCardStopped] = useState(false);
@@ -492,11 +493,24 @@ useEffect(() => {
 
         </div>
         <nav className="desktop-nav">
-          <div className="nav-dropdown">
+          <div
+            className={`nav-dropdown properties-dropdown ${hidePropertiesMenu ? 'properties-menu-hidden' : ''}`}
+            onMouseLeave={() => setHidePropertiesMenu(false)}
+          >
             <button className="nav-link-button" type="button">Properties</button>
             <div className="dropdown-menu">
-              <a href="#the-cabin">The Cabin</a>
-              <a href="#page-top">The Living Room</a>
+              <a
+                href="#the-cabin"
+                onClick={() => setHidePropertiesMenu(true)}
+              >
+                The Cabin
+              </a>
+              <a
+                href="#page-top"
+                onClick={() => setHidePropertiesMenu(true)}
+              >
+                The Living Room
+              </a>
             </div>
           </div>
 
@@ -1190,6 +1204,12 @@ function HeadContent() {
         .nav-dropdown:hover .dropdown-menu,
         .nav-dropdown:focus-within .dropdown-menu {
           display: flex;
+        }
+
+        .properties-dropdown.properties-menu-hidden .dropdown-menu,
+        .properties-dropdown.properties-menu-hidden:hover .dropdown-menu,
+        .properties-dropdown.properties-menu-hidden:focus-within .dropdown-menu {
+          display: none !important;
         }
         .social-icons {
           display: inline-flex;
