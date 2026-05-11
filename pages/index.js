@@ -818,7 +818,7 @@ useEffect(() => {
             ))}
           </div>
 
-          <p className="airbnb-review-note">With over 250 reviews on Airbnb, the average rating is 5.0 stars</p>
+          <p className="airbnb-review-note">With over 250 reviews on Airbnb, our average rating is a perfect 5.0 stars</p>
         </section>
 
         <section className="page-shell details-layout" id="details">
