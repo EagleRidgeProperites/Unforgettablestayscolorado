@@ -821,6 +821,7 @@ useEffect(() => {
 
         <section className="page-shell details-layout" id="details">
           <div>
+            <p className="airbnb-review-note">With over 250 reviews on Airbnb, the average rating is 5.0 stars</p>
             <p className="eyebrow">Description</p>
             <h2>Private, peaceful, and thoughtfully designed</h2>
             <p>
@@ -1742,6 +1743,13 @@ function HeadContent() {
         .stars { color: #b37a3f; letter-spacing: 2px; }
         .review-card h3 { font-size: 22px; margin-bottom: 6px; }
         .review-card span { color: #7b6c5c; font-weight: 700; }
+
+        .airbnb-review-note {
+          margin: 0 0 18px;
+          color: #6d4c32;
+          font-size: 16px;
+          font-weight: 700;
+        }
 
         .details-layout {
           display: grid;
