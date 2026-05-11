@@ -817,11 +817,12 @@ useEffect(() => {
               </article>
             ))}
           </div>
+
+          <p className="airbnb-review-note">With over 250 reviews on Airbnb, the average rating is 5.0 stars</p>
         </section>
 
         <section className="page-shell details-layout" id="details">
           <div>
-            <p className="airbnb-review-note">With over 250 reviews on Airbnb, the average rating is 5.0 stars</p>
             <p className="eyebrow">Description</p>
             <h2>Private, peaceful, and thoughtfully designed</h2>
             <p>
@@ -1745,10 +1746,11 @@ function HeadContent() {
         .review-card span { color: #7b6c5c; font-weight: 700; }
 
         .airbnb-review-note {
-          margin: 0 0 18px;
+          margin: 28px auto 0;
           color: #6d4c32;
           font-size: 16px;
           font-weight: 700;
+          text-align: center;
         }
 
         .details-layout {
