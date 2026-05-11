@@ -768,7 +768,6 @@ useEffect(() => {
               </div>
 
               <aside className="rates-booking-card hostfully-booking-card">
-                <p className="minimum-stay-note">Minimum stay: 300 nights</p>
                 <div id="leadWidget" className="hostfully-booking-widget"></div>
                 <button
                   className="clear-widget-dates-button"
@@ -1641,18 +1640,6 @@ function HeadContent() {
 
         .hostfully-booking-card {
           min-height: auto;
-        }
-
-        .minimum-stay-note {
-          margin: 0 0 14px;
-          padding: 12px 14px;
-          background: #fbf8f2;
-          border: 1px solid rgba(99, 75, 52, .14);
-          border-radius: 12px;
-          color: #6d4c32;
-          font-size: 14px;
-          font-weight: 800;
-          text-align: center;
         }
 
         .hostfully-booking-widget {
