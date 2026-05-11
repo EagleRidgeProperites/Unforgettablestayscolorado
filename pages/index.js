@@ -695,7 +695,7 @@ useEffect(() => {
 
             <div className="highlights">
               <p>🏔️ Mountain Views</p>
-              <p>🌿 Private</p>
+              <p>🌿 Private sauna for a relaxing spa experience</p>
               <p>🚶 Private walking trails and a quiet mountain atmosphere</p>
               <p>📺 86” smart TV, fast Wi-Fi, and a peaceful work-friendly setting</p>
               <p>♨️ Private hot tub filled with fresh water for every guest</p>
