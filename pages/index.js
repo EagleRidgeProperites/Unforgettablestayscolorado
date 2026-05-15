@@ -421,21 +421,6 @@ useEffect(() => {
       <HeadContent />
 
       <Script
-        src="https://platform.hostfully.com/assets/js/orbirental_calendar_widget_v2.js"
-        strategy="afterInteractive"
-        onLoad={() => {
-          if (typeof window !== 'undefined' && window.orbiwidget) {
-            new window.orbiwidget('widget222768', {
-              id: 222768,
-              showTentative: 0,
-              monthsToDisplay: 2,
-              name: 'The Living Room'
-            });
-          }
-        }}
-      />
-
-      <Script
         src="https://platform.hostfully.com/assets/js/pikaday.js"
         strategy="afterInteractive"
       />
@@ -802,16 +787,11 @@ useEffect(() => {
 
           <div className="rates-availability-section" id="rates-availability">
             <div className="rates-title-row">
-              <h2 id="rates-availability-title">Rates and Availability</h2>
+              <h2 id="rates-availability-title">Booking Request</h2>
               <span></span>
             </div>
 
-            <div className="rates-availability-layout">
-              <div className="rates-calendar-panel">
-                <div id="widget222768" className="hostfully-calendar-widget"></div>
-              </div>
-
-              <aside className="rates-booking-card hostfully-booking-card">
+            <div className="rates-availability-layout rates-booking-only-layout">              <aside className="rates-booking-card hostfully-booking-card">
                 <div id="leadWidget" className="hostfully-booking-widget"></div>
                 <button
                   className="clear-widget-dates-button"
@@ -1674,6 +1654,16 @@ function HeadContent() {
           align-items: start;
         }
 
+
+        .rates-booking-only-layout {
+          display: flex;
+          justify-content: center;
+        }
+
+        .rates-booking-only-layout .rates-booking-card {
+          width: min(100%, 460px);
+        }
+
         .rates-calendar-panel {
           background: transparent;
           border: none;
@@ -2026,6 +2016,16 @@ function HeadContent() {
 
         @media (max-width: 900px) {
           .desktop-nav { display: none; }
+
+          .rates-booking-only-layout {
+            display: block;
+          }
+
+          .rates-booking-only-layout .rates-booking-card {
+            width: 100%;
+          }
+
+
 
           .site-header {
             position: sticky;
