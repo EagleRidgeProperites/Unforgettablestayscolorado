@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 export default function Home() {
   const amenities = [
-    'Private Hot Tub',
+    'Private Hot Tub',`
     'Private Sauna',
     'Mountain Views',
     'Radiant Heated Floors',
@@ -2204,17 +2204,17 @@ function HeadContent() {
 
         }
 
-        /* Strong mobile white background override */
+        /* Mobile background restored to original warm page color */
         @media (max-width: 900px) {
           html,
           body,
           #__next,
           main {
-            background: #ffffff !important;
+            background: #fbf8f2 !important;
           }
 
           .site-header {
-            background: rgba(255, 255, 255, 0.96) !important;
+            background: rgba(251, 248, 242, 0.92) !important;
           }
 
           .hero,
@@ -2225,17 +2225,16 @@ function HeadContent() {
           #reviews,
           #details,
           .rates-availability-section {
-            background: #ffffff !important;
+            background: transparent !important;
           }
 
           .description-modal,
-          .amenities-modal,
-          .photo-gallery-modal {
-            background: #ffffff !important;
+          .amenities-modal {
+            background: #fbf8f2 !important;
           }
         }
 
-      `}</style>
+`}</style>
     </>
   );
 }
