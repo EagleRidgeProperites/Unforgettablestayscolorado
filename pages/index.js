@@ -571,8 +571,13 @@ useEffect(() => {
         <section className="hero" id="photos">
           <div className="property-wordmark-wrap">
             <img
-              className="property-wordmark"
+              className="property-wordmark property-wordmark-desktop"
               src="/images/The_Living_Room_Wording_Chat_Colored.png"
+              alt="The Living Room"
+            />
+            <img
+              className="property-wordmark property-wordmark-mobile"
+              src="/images/The-Living-Room-Mobile.png"
               alt="The Living Room"
             />
           </div>
@@ -1124,6 +1129,10 @@ function HeadContent() {
           height: auto;
           display: block;
           object-fit: contain;
+        }
+
+        .property-wordmark-mobile {
+          display: none;
         }
         .brand-wrap strong { font-size: 14px; }
         .shop-coming-soon-message {
@@ -2013,6 +2022,22 @@ function HeadContent() {
             right: 3vw;
           }
           .amenity-grid, .stats-row { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 760px) {
+
+          .property-wordmark-desktop {
+            display: none;
+          }
+
+          .property-wordmark-mobile {
+            display: block;
+            width: min(92vw, 520px);
+            max-width: 92vw;
+            height: auto;
+            object-fit: contain;
+          }
+
         }
       `}</style>
     </>
