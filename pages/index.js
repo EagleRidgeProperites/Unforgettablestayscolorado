@@ -2015,6 +2015,21 @@ function HeadContent() {
         }
 
         @media (max-width: 900px) {
+
+          body {
+            background: #ffffff;
+          }
+
+          .site-header {
+            background: rgba(255, 255, 255, 0.94);
+          }
+
+          .description-modal,
+          .amenities-modal,
+          .photo-gallery-modal {
+            background: #ffffff;
+          }
+
           .desktop-nav { display: none; }
 
           .rates-booking-only-layout {
