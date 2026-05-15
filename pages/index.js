@@ -2015,21 +2015,6 @@ function HeadContent() {
         }
 
         @media (max-width: 900px) {
-
-          body {
-            background: #ffffff;
-          }
-
-          .site-header {
-            background: rgba(255, 255, 255, 0.94);
-          }
-
-          .description-modal,
-          .amenities-modal,
-          .photo-gallery-modal {
-            background: #ffffff;
-          }
-
           .desktop-nav { display: none; }
 
           .rates-booking-only-layout {
@@ -2218,6 +2203,38 @@ function HeadContent() {
           }
 
         }
+
+        /* Strong mobile white background override */
+        @media (max-width: 900px) {
+          html,
+          body,
+          #__next,
+          main {
+            background: #ffffff !important;
+          }
+
+          .site-header {
+            background: rgba(255, 255, 255, 0.96) !important;
+          }
+
+          .hero,
+          .page-shell,
+          .intro-layout,
+          .complete-description-link-wrap,
+          #amenities,
+          #reviews,
+          #details,
+          .rates-availability-section {
+            background: #ffffff !important;
+          }
+
+          .description-modal,
+          .amenities-modal,
+          .photo-gallery-modal {
+            background: #ffffff !important;
+          }
+        }
+
       `}</style>
     </>
   );
