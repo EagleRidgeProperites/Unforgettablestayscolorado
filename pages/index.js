@@ -163,6 +163,7 @@ export default function Home() {
   const [showAllAmenities, setShowAllAmenities] = useState(false);
   const [isHeaderCompact, setIsHeaderCompact] = useState(false);
   const [hidePropertiesMenu, setHidePropertiesMenu] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isBookingCardFloating, setIsBookingCardFloating] = useState(false);
   const [shopMessage, setShopMessage] = useState('');
   const [isBookingCardStopped, setIsBookingCardStopped] = useState(false);
@@ -234,6 +235,11 @@ export default function Home() {
   const showPreviousPhotos = () => {
     setPhotoStartIndex((currentIndex) => (currentIndex - 1 + photos.length) % photos.length);
   };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
 
   const updateHostfullyBookingButtonText = () => {
     if (typeof document === 'undefined') return;
@@ -559,7 +565,40 @@ useEffect(() => {
             </a>
           </div>
         </nav>
+        <button
+          className={`mobile-menu-button ${isMobileMenuOpen ? 'mobile-menu-button-open' : ''}`}
+          type="button"
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setIsMobileMenuOpen((isOpen) => !isOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav
+          id="mobile-navigation"
+          className={`mobile-nav ${isMobileMenuOpen ? 'mobile-nav-open' : ''}`}
+          aria-label="Mobile navigation"
+        >
+          <a href="#photos" onClick={closeMobileMenu}>Photos</a>
+          <a href="#directions" onClick={closeMobileMenu}>Directions</a>
+          <a href="#description" onClick={closeMobileMenu}>Description</a>
+          <a href="#amenities-title" onClick={closeMobileMenu}>Amenities</a>
+          <a href="#reviews-title" onClick={closeMobileMenu}>Reviews</a>
+          <a href="#details" onClick={closeMobileMenu}>Details</a>
+          <a href="#rates-availability-title" className="mobile-nav-book-button" onClick={closeMobileMenu}>Book Now</a>
+        </nav>
       </header>
+
+      <a
+        href="#rates-availability-title"
+        className="mobile-sticky-book-button"
+      >
+        Check Availability
+      </a>
 
       {shopMessage && (
         <div className="shop-coming-soon-message" role="status" aria-live="polite">
@@ -1148,6 +1187,13 @@ function HeadContent() {
           box-shadow: 0 18px 42px rgba(77, 55, 35, .22);
           font-size: 16px;
           font-weight: 800;
+        }
+
+
+        .mobile-menu-button,
+        .mobile-nav,
+        .mobile-sticky-book-button {
+          display: none;
         }
 
         .desktop-nav { display: flex; align-items: center; gap: 26px; font-size: 14px; }
@@ -1980,6 +2026,117 @@ function HeadContent() {
 
         @media (max-width: 900px) {
           .desktop-nav { display: none; }
+
+          .site-header {
+            position: sticky;
+            top: 0;
+            align-items: center;
+          }
+
+          .mobile-menu-button {
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            width: 46px;
+            height: 46px;
+            border: 1px solid rgba(99, 75, 52, .18);
+            border-radius: 12px;
+            background: #fffdf8;
+            color: #3d2f24;
+            cursor: pointer;
+            box-shadow: 0 10px 24px rgba(77, 55, 35, .10);
+          }
+
+          .mobile-menu-button span {
+            width: 22px;
+            height: 2px;
+            display: block;
+            background: #3d2f24;
+            border-radius: 999px;
+            transition: transform .22s ease, opacity .22s ease;
+          }
+
+          .mobile-menu-button-open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+          }
+
+          .mobile-menu-button-open span:nth-child(2) {
+            opacity: 0;
+          }
+
+          .mobile-menu-button-open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+          }
+
+          .mobile-nav {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 16px;
+            right: 16px;
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            gap: 0;
+            padding: 10px;
+            background: #fffdf8;
+            border: 1px solid rgba(99, 75, 52, .16);
+            border-radius: 18px;
+            box-shadow: 0 24px 60px rgba(37, 29, 22, .22);
+          }
+
+          .mobile-nav-open {
+            display: flex;
+          }
+
+          .mobile-nav a {
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            padding: 0 14px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            color: #3d2f24;
+          }
+
+          .mobile-nav a:hover {
+            background: #f3ebdf;
+            color: #6d4c32;
+          }
+
+          .mobile-nav-book-button {
+            justify-content: center;
+            margin-top: 8px;
+            background: #6d4c32;
+            color: #fff9f1 !important;
+            box-shadow: 0 12px 24px rgba(73, 48, 30, .16);
+          }
+
+          .mobile-sticky-book-button {
+            position: fixed;
+            left: 16px;
+            right: 16px;
+            bottom: 14px;
+            z-index: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            border-radius: 999px;
+            background: #6d4c32;
+            color: #fff9f1;
+            font-size: 15px;
+            font-weight: 900;
+            box-shadow: 0 18px 42px rgba(37, 29, 22, .28);
+          }
+
+          body {
+            padding-bottom: 78px;
+          }
+
+
           .hero-carousel { grid-template-columns: 1fr; }
           .carousel-photo {
             height: 210px;
@@ -2001,7 +2158,14 @@ function HeadContent() {
         }
 
         @media (max-width: 560px) {
-          .site-header { padding: 2px 20px; }
+          .site-header { padding: 2px 16px; }
+
+          .brand-logo {
+            width: 168px;
+            height: 48px;
+          }
+
+
           .site-header-compact { padding-top: 0; padding-bottom: 0; }
           .hero { padding: 6px 16px 0; }
           .carousel-photo {
